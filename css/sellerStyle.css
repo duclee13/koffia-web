@@ -1,0 +1,668 @@
+/* ============================================================
+   KOFFIA — Seller Portal Stylesheet (sellerStyle.css)
+   ============================================================ */
+
+.sellerBody {
+  background: #f8fafc;
+  color: var(--colorEspresso);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top Header ──────────────────────────────────────────── */
+.sellerHeader {
+  height: 64px;
+  background: var(--colorWhite);
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space6);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.sellerHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space4);
+}
+
+.sellerBrandLogo {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  text-decoration: none;
+  font-family: var(--fontDisplay);
+  font-size: var(--fontSizeLg);
+  color: var(--colorEspresso);
+}
+
+.sellerBrandLogo strong {
+  color: #b45309;
+  font-weight: 800;
+  font-family: var(--fontHeading);
+}
+
+.sellerStoreBadge {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radiusFull);
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.sellerHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+}
+
+.sellerTrialPill {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radiusFull);
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sellerNavActionBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radiusFull);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--colorGray600);
+  background: #f1f5f9;
+  text-decoration: none;
+  transition: all var(--transitionFast);
+}
+
+.sellerNavActionBtn:hover {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+}
+
+/* ── Layout & Sidebar ────────────────────────────────────── */
+.sellerLayout {
+  display: flex;
+  flex: 1;
+}
+
+.sellerSidebar {
+  width: 250px;
+  background: var(--colorWhite);
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space5) var(--space3);
+}
+
+.sellerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sellerNavItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-radius: var(--radiusMd);
+  font: inherit;
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transitionNormal);
+  width: 100%;
+}
+
+.sellerNavItem:hover {
+  background: rgba(180, 83, 9, 0.08);
+  color: var(--colorEspresso);
+  transform: translateX(4px);
+}
+
+.sellerNavItem.active {
+  background: linear-gradient(135deg, #b45309, #d97706);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.25);
+}
+
+.sellerSidebarFooter {
+  padding-top: var(--space4);
+  border-top: 1px solid #f1f5f9;
+}
+
+.sellerTrialBox {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: var(--radiusMd);
+  padding: var(--space3);
+}
+
+.trialBoxTitle {
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  color: #b45309;
+  margin-bottom: 2px;
+}
+
+.trialBoxDesc {
+  font-size: 11px;
+  color: #92400e;
+  line-height: 1.4;
+}
+
+/* ── Main Dashboard Content ──────────────────────────────── */
+.sellerMain {
+  flex: 1;
+  padding: var(--space8) var(--space10);
+  overflow-y: auto;
+}
+
+.sectionTitleRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space4);
+  margin-bottom: var(--space6);
+  flex-wrap: wrap;
+}
+
+.sellerPageTitle {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSize2xl);
+  color: var(--colorEspresso);
+  margin-bottom: 2px;
+}
+
+.sellerPageSubtitle {
+  font-size: var(--fontSizeSm);
+  color: #64748b;
+}
+
+/* ── Stats Grid ──────────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space5);
+  margin-bottom: var(--space8);
+}
+
+.statCard {
+  background: var(--colorWhite);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radiusLg);
+  padding: var(--space5);
+  display: flex;
+  align-items: center;
+  gap: var(--space4);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  transition: all var(--transitionNormal);
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.08);
+}
+
+.statIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radiusMd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fontSizeXl);
+  flex-shrink: 0;
+}
+
+.revenueIcon { background: #ecfdf5; color: #059669; }
+.ordersIcon { background: #eff6ff; color: #2563eb; }
+.productsIcon { background: #fef3c7; color: #d97706; }
+.ratingIcon { background: #fdf2f8; color: #db2777; }
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: var(--fontSizeXs);
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.statValue {
+  font-family: var(--fontDisplay);
+  font-size: var(--fontSizeXl);
+  font-weight: 700;
+  color: var(--colorEspresso);
+}
+
+/* ── Table Card ──────────────────────────────────────────── */
+.sellerCard {
+  background: var(--colorWhite);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radiusLg);
+  padding: var(--space6);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  margin-bottom: var(--space8);
+}
+
+.sellerCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space5);
+}
+
+.sellerCardHeader h2 {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeLg);
+  color: var(--colorEspresso);
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.tableFilterBar {
+  display: flex;
+  gap: var(--space3);
+  margin-bottom: var(--space5);
+  flex-wrap: wrap;
+}
+
+.searchInput { flex: 1; min-width: 200px; }
+.filterSelect { width: 180px; }
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.sellerTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fontSizeSm);
+}
+
+.sellerTable th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.sellerTable td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.sellerTable tr:hover td {
+  background: #fbfcfe;
+}
+
+.sellerStatusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radiusFull);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.statusAvailable { background: #dcfce7; color: #15803d; }
+.statusUnavailable { background: #fee2e2; color: #b91c1c; }
+
+.sellerActionBtns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnAction {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--radiusFull);
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all var(--transitionNormal);
+}
+
+.btnAction:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.btnAction:active {
+  transform: scale(0.95);
+  background: #f1f5f9;
+}
+
+.btnActionDanger {
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+.btnActionDanger:hover {
+  background: #fee2e2;
+}
+
+/* ── Order Status Selector in Table ──────────────────────── */
+.statusSelect {
+  padding: 6px 10px;
+  border-radius: var(--radiusSm);
+  border: 1px solid #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  background: #fff;
+  cursor: pointer;
+}
+
+.orderStatusFilterGroup {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filterPill {
+  padding: 6px 14px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radiusFull);
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all var(--transitionFast);
+}
+
+.filterPill.active {
+  background: var(--colorEspresso);
+  color: #fff;
+  border-color: var(--colorEspresso);
+}
+
+/* ── Modals & Forms ──────────────────────────────────────── */
+.sellerModal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space4);
+}
+
+.sellerModalOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.56);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.sellerModalCard {
+  position: relative;
+  z-index: 2;
+  background: var(--colorWhite);
+  border-radius: 22px;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--space6);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  animation: appleModalPop 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes appleModalPop {
+  from { opacity: 0; transform: translateY(14px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sellerModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space3);
+  margin-bottom: var(--space5);
+  padding-bottom: var(--space3);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sellerModalHeader h3 {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeXl);
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  margin: 0;
+}
+
+.closeModalBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 23, 42, 0.06);
+  color: #475569;
+  font-size: 1.35rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.closeModalBtn:hover {
+  background: rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+}
+
+html.darkMode .closeModalBtn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #E5E5EA;
+}
+
+html.darkMode .closeModalBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+.sellerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sellerForm .formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.sellerForm .formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sellerForm .formLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.01em;
+}
+
+html.darkMode .sellerForm .formLabel {
+  color: rgba(245, 230, 211, 0.8);
+}
+
+.sellerForm .formRequired {
+  color: var(--colorAccent);
+}
+
+.sellerBody .inputField {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: var(--fontBody);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.sellerBody .inputField:focus {
+  outline: none;
+  border-color: var(--colorAccent);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.14);
+}
+
+html.darkMode .sellerBody .inputField {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #F5F5F7;
+}
+
+html.darkMode .sellerBody .inputField:focus {
+  border-color: #FF8A3D;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sellerForm .checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: #334155;
+  cursor: pointer;
+}
+
+html.darkMode .sellerForm .checkboxLabel {
+  color: #E5E5EA;
+}
+
+.sellerBody .statusSelect {
+  white-space: nowrap;
+  min-width: 146px;
+  padding: 7px 28px 7px 12px;
+  border-radius: 10px;
+}
+
+.sellerModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space3);
+  margin-top: var(--space5);
+}
+
+@media (max-width: 1024px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .sellerLayout { flex-direction: column; }
+  .sellerSidebar { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; }
+  .sellerNav { flex-direction: row; overflow-x: auto; padding-bottom: var(--space2); }
+  .sellerNavItem { white-space: nowrap; width: auto; }
+  .sellerSidebarFooter { display: none; }
+  .sellerMain { padding: var(--space5); }
+  .statsGrid { grid-template-columns: 1fr; }
+}
+
+/* ── Dark Mode Overrides ──────────────────────────────────── */
+html.darkMode .sellerBody,
+body.darkMode.sellerBody {
+  background: #0C0806 !important;
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .sellerHeader {
+  background: rgba(24, 15, 12, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html.darkMode .sellerBrandLogo {
+  color: #FFFFFF !important;
+}
+
+html.darkMode .sellerSidebar {
+  background: rgba(20, 13, 10, 0.95) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+html.darkMode .sellerNavItem {
+  color: #D6CDBC !important;
+}
+
+html.darkMode .sellerNavItem:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+}
+
+html.darkMode .sellerNavItem.active {
+  background: var(--colorAccent) !important;
+  color: #FFFFFF !important;
+}
+
+html.darkMode .sellerCard {
+  background: rgba(26, 17, 13, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.darkMode .sellerPageTitle,
+html.darkMode .sellerCardHeading,
+html.darkMode .statVal {
+  color: #FFFFFF !important;
+}
+
+html.darkMode .sellerPageSubtitle,
+html.darkMode .statLabel {
+  color: #BFB0A3 !important;
+}

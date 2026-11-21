@@ -1,0 +1,831 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Quản lý tài khoản Koffia — Cập nhật thông tin cá nhân, email khôi phục và ảnh đại diện của bạn."
+    />
+    <title>Tài Khoản Của Tôi — Koffia</title>
+
+    
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/authStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/accountStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+  
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/175b48673e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header id="navBar" class="navScrolled" role="banner">
+      <nav class="navInner" aria-label="Main navigation">
+        <a href="../index.html" class="navLogo" aria-label="Koffia — Trang chủ">
+          <span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span>
+          <span>Koffia</span>
+        </a>
+        <ul class="navMenu" role="list">
+          <li><a href="../index.html" class="navLink">Trang Chủ</a></li>
+          <li><a href="menu.html" class="navLink">Thực Đơn</a></li>
+          <li><a href="aboutUs.html" class="navLink">Giới Thiệu</a></li>
+          <li><a href="contact.html" class="navLink">Liên Hệ</a></li>
+        </ul>
+        <div class="navActions">
+          <a href="auth.html" id="navLoginBtn" class="navLoginBtn">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Đăng Nhập
+          </a>
+          <button
+            id="navAvatarBtn"
+            class="navAvatarBtn"
+            style="display: none"
+            aria-label="Tài khoản của tôi"
+          >
+            <img id="navAvatarImg" class="navAvatarImg" src="" alt="Avatar" />
+          </button>
+          <button id="cartOpenBtn" class="navCartBtn" hidden aria-label="Mở giỏ hàng">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span id="cartBadge" class="navCartBadge" style="display: none"
+              >0</span
+            >
+          </button>
+          <button
+            id="navHamburger"
+            class="navHamburger"
+            aria-label="Mở menu"
+            aria-expanded="false"
+          >
+            <span class="hamLine"></span><span class="hamLine"></span
+            ><span class="hamLine"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div
+      id="navDrawer"
+      class="navDrawer"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <div class="navDrawerOverlay"></div>
+      <nav class="navDrawerPanel">
+        <a href="../index.html" class="drawerNavLink"
+          ><i class="fa-solid fa-house fa-fw"></i> Trang Chủ</a
+        >
+        <a href="menu.html" class="drawerNavLink"
+          ><i class="fa-solid fa-utensils fa-fw"></i> Thực Đơn</a
+        >
+        <a href="aboutUs.html" class="drawerNavLink"
+          ><i class="fa-solid fa-circle-info fa-fw"></i> Giới Thiệu</a
+        >
+        <a href="contact.html" class="drawerNavLink"
+          ><i class="fa-solid fa-envelope fa-fw"></i> Liên Hệ</a
+        >
+        <button
+          id="drawerThemeToggleBtn"
+          class="drawerNavLink drawerThemeToggle"
+          type="button"
+          aria-label="Đổi giao diện Sáng / Tối"
+        >
+          <span class="drawerThemeLabel">
+            <i class="fa-solid fa-moon fa-fw"></i>
+            <span class="drawerThemeText">Chế độ Ban đêm</span>
+          </span>
+          <span class="themePillIndicator" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- CART DRAWER -->
+    <aside
+      id="cartDrawer"
+      role="dialog"
+      aria-label="Giỏ hàng"
+      aria-modal="true"
+    >
+      <div class="cartOverlay"></div>
+      <div class="cartPanel">
+        <div class="cartHeader">
+          <h2 class="cartTitle">
+            <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
+          </h2>
+          <button
+            id="cartCloseBtn"
+            class="cartCloseBtn"
+            aria-label="Đóng giỏ hàng"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="cartBody" class="cartBody"></div>
+        <div class="cartFooter">
+          <div class="cartTotalRow">
+            <span class="cartTotalLabel">Tổng cộng</span>
+            <span id="cartTotalAmount" class="cartTotalAmount">0 ₫</span>
+          </div>
+          <a class="btnPrimary cartCheckoutBtn" href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Xem giỏ &amp; đặt đơn</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <!-- PAGE HERO -->
+      <div class="pageHero" role="banner">
+        <h1 class="pageHeroTitle"><i class="fa-regular fa-circle-user" aria-hidden="true"></i> Tài Khoản Của Tôi</h1>
+        <nav class="pageHeroBreadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html" class="breadcrumbLink">Trang Chủ</a>
+          <span class="breadcrumbSep" aria-hidden="true">›</span>
+          <span aria-current="page">Tài Khoản</span>
+        </nav>
+      </div>
+
+      <!-- ACCOUNT SECTION -->
+      <section id="accountSection" aria-labelledby="accountHeading">
+        <div class="container">
+          <div class="accountLayout">
+            <!-- ══════════════════════════════════════
+                 LEFT — IDENTITY CARD
+                 ══════════════════════════════════════ -->
+            <aside class="accountIdentityCard">
+              <div class="avatarUploader">
+                <img
+                  id="accountAvatarPreview"
+                  class="avatarUploaderImg"
+                  src=""
+                  alt="Ảnh đại diện"
+                />
+                <button
+                  type="button"
+                  id="avatarChangeBtn"
+                  class="avatarChangeBtn"
+                  aria-label="Đổi ảnh đại diện"
+                >
+                  <i class="fa-solid fa-camera" aria-hidden="true"></i>
+                </button>
+                <input
+                  type="file"
+                  id="avatarFileInput"
+                  accept="image/*"
+                  class="visually-hidden"
+                />
+              </div>
+              <p class="avatarHint">JPG, PNG — tối đa 2MB</p>
+
+              <h1 id="accountFullName" class="accountIdentityName">—</h1>
+              <p id="accountIdentifier" class="accountIdentityHandle">—</p>
+
+              <div class="accountIdentityMeta">
+                <div class="accountIdentityMetaRow">
+                  <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                  <span id="accountJoinedDate">—</span>
+                </div>
+                <div class="accountIdentityMetaRow">
+                  <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                  <span id="accountEmailPreview">—</span>
+                </div>
+              </div>
+
+              <nav id="accountTabNav" class="accountTabNav" role="tablist" aria-label="Danh mục tài khoản">
+                <button type="button" class="accountTabBtn isActive" data-account-tab="profile" role="tab" aria-selected="true">
+                  <span class="accountTabLeft"><i class="fa-regular fa-circle-user fa-fw" aria-hidden="true"></i> Tài khoản &amp; Địa chỉ</span>
+                  <span id="accountTabAddrCount" class="accountTabBadge">0</span>
+                </button>
+                <button type="button" class="accountTabBtn" data-account-tab="vouchers" role="tab" aria-selected="false">
+                  <span class="accountTabLeft"><i class="fa-solid fa-ticket fa-fw" aria-hidden="true"></i> Kho Voucher</span>
+                  <span id="accountTabVoucherCount" class="accountTabBadge">0</span>
+                </button>
+                <button type="button" class="accountTabBtn" data-account-tab="rewards" role="tab" aria-selected="false">
+                  <span class="accountTabLeft"><i class="fa-solid fa-crown fa-fw" aria-hidden="true"></i> Koffia Rewards</span>
+                  <span id="accountTabRewardPts" class="accountTabBadge isWarm">0 đ</span>
+                </button>
+                <button type="button" class="accountTabBtn" data-account-tab="wishlist" role="tab" aria-selected="false">
+                  <span class="accountTabLeft"><i class="fa-solid fa-heart fa-fw" aria-hidden="true"></i> Món Yêu Thích</span>
+                  <span id="accountTabWishCount" class="accountTabBadge">0</span>
+                </button>
+                <button type="button" class="accountTabBtn" data-account-tab="preferences" role="tab" aria-selected="false">
+                  <span class="accountTabLeft"><i class="fa-solid fa-sliders fa-fw" aria-hidden="true"></i> Gu Uống Mặc Định</span>
+                </button>
+              </nav>
+
+              <a href="orders.html" class="btnPrimary accountOrdersBtn">
+                <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                Đơn hàng của tôi
+              </a>
+
+              <button
+                type="button"
+                id="accountLogoutBtn"
+                class="btnSecondary accountLogoutBtn"
+              >
+                <i
+                  class="fa-solid fa-right-from-bracket"
+                  aria-hidden="true"
+                ></i>
+                Đăng Xuất
+              </button>
+            </aside>
+
+            <!-- ══════════════════════════════════════
+                 RIGHT — TABBED iOS SETTINGS PANELS
+                 ══════════════════════════════════════ -->
+            <div class="accountPanelsCol">
+              <div class="accountTabPanel isActive" data-account-panel="profile" role="tabpanel">
+              <div class="accountFormCard">
+                <h2 id="accountHeading" class="accountCardHeading">
+                  Thông tin liên hệ
+                </h2>
+                <p class="accountCardSubtitle">
+                  Quản lý tên người dùng và email dùng cho tài khoản đặt đồ uống. Tên người dùng chỉ được đổi một lần sau khi tạo tài khoản.
+                </p>
+
+                <form id="accountForm" class="accountForm" novalidate>
+                  <!-- Username -->
+                  <div class="formGroup">
+                    <label class="formLabel" for="accountUsername">
+                      Tên người dùng <span class="formRequired">*</span>
+                    </label>
+                    <div class="inputWrapper">
+                      <i class="fa-regular fa-circle-user inputIcon" aria-hidden="true"></i>
+                      <input id="accountUsername" name="username" type="text" class="inputField hasIcon" autocomplete="username" minlength="4" maxlength="20" pattern="[A-Za-z0-9][A-Za-z0-9._]{2,18}[A-Za-z0-9]" />
+                    </div>
+                    <span id="accountUsernameError" class="formErrorText"></span>
+                    <p id="accountUsernameHint" class="accountFieldHint"></p>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="formGroup">
+                    <label class="formLabel" for="accountEmail">
+                      Email <span style="font-weight:400;color:var(--colorGray400);">(không bắt buộc)</span>
+                    </label>
+                    <div class="inputWrapper">
+                      <i
+                        class="fa-regular fa-envelope inputIcon"
+                        aria-hidden="true"
+                      ></i>
+                      <input
+                        id="accountEmail"
+                        name="email"
+                        type="email"
+                        class="inputField hasIcon"
+                        placeholder="ban@example.com"
+                        autocomplete="email"
+                      />
+                    </div>
+                    <span id="accountEmailError" class="formErrorText"></span>
+                  </div>
+
+                  <!-- Recovery Email -->
+                  <div class="formGroup">
+                    <label class="formLabel" for="accountRecoveryEmail">
+                      Email Khôi Phục Tài Khoản
+                    </label>
+                    <div class="inputWrapper">
+                      <i
+                        class="fa-solid fa-shield-halved inputIcon"
+                        aria-hidden="true"
+                      ></i>
+                      <input
+                        id="accountRecoveryEmail"
+                        name="recoveryEmail"
+                        type="email"
+                        class="inputField hasIcon"
+                        placeholder="email-khoi-phuc@example.com"
+                        autocomplete="email"
+                      />
+                    </div>
+                    <span
+                      id="accountRecoveryEmailError"
+                      class="formErrorText"
+                    ></span>
+                  </div>
+
+                  <div class="accountFormActions">
+                    <button
+                      type="submit"
+                      id="accountSaveBtn"
+                      class="btnPrimary accountSaveBtn"
+                    >
+                      <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+                      Lưu Thay Đổi
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- ══════════════════════════════════════
+                   SỔ ĐỊA CHỈ GIAO HÀNG (SAVED ADDRESSES)
+                   ══════════════════════════════════════ -->
+              <div class="accountFormCard accountAddressBookCard" id="accountAddressBookCard" style="margin-top: var(--space6);">
+                <div class="accountWishlistHeader">
+                  <div>
+                    <h2 class="accountCardHeading">
+                      <i class="fa-solid fa-location-dot" style="color: var(--colorAccent)" aria-hidden="true"></i>
+                      Sổ Địa Chỉ Giao Hàng
+                      <span id="accountAddressCount" class="accountWishlistBadge">0</span>
+                    </h2>
+                    <p class="accountCardSubtitle">Lưu sẵn địa chỉ Nhà riêng, Công ty, Trường học để chọn 1 chạm khi thanh toán.</p>
+                  </div>
+                  <button type="button" id="toggleAddAddressBtn" class="btnSecondary accountWishlistBrowseBtn">
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i> Thêm địa chỉ
+                  </button>
+                </div>
+
+                <form id="accountAddressForm" class="accountAddressForm" hidden>
+                  <div class="addrLabelRow" role="group" aria-label="Loại địa chỉ">
+                    <button type="button" class="drinkPrefPill isSelected" data-addr-label="Nhà riêng"><i class="fa-solid fa-house" aria-hidden="true"></i> Nhà riêng</button>
+                    <button type="button" class="drinkPrefPill" data-addr-label="Công ty"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Công ty</button>
+                    <button type="button" class="drinkPrefPill" data-addr-label="Trường học"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Trường học</button>
+                    <button type="button" class="drinkPrefPill" data-addr-label="Khác"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Khác</button>
+                  </div>
+
+                  <div class="addrFormGrid">
+                    <div class="formGroup">
+                      <label class="formLabel" for="addrRecipient">Người nhận *</label>
+                      <input type="text" id="addrRecipient" class="inputField" placeholder="Họ và tên" required />
+                    </div>
+                    <div class="formGroup">
+                      <label class="formLabel" for="addrPhone">Số điện thoại *</label>
+                      <input type="tel" id="addrPhone" class="inputField" placeholder="0901 234 567" required />
+                    </div>
+                    <div class="formGroup">
+                      <label class="formLabel" for="addrProvince">Tỉnh / Thành phố *</label>
+                      <select id="addrProvince" class="inputField addrSelect" required>
+                        <option value="">-- Chọn Tỉnh / TP --</option>
+                      </select>
+                    </div>
+                    <div class="formGroup">
+                      <label class="formLabel" for="addrDistrict">Quận / Huyện *</label>
+                      <select id="addrDistrict" class="inputField addrSelect" required disabled>
+                        <option value="">-- Chọn Quận / Huyện --</option>
+                      </select>
+                    </div>
+                    <div class="formGroup">
+                      <label class="formLabel" for="addrWard">Phường / Xã *</label>
+                      <select id="addrWard" class="inputField addrSelect" required disabled>
+                        <option value="">-- Chọn Phường / Xã --</option>
+                      </select>
+                    </div>
+                    <div class="formGroup">
+                      <label class="formLabel" for="addrStreet">Số nhà, Tên đường *</label>
+                      <input type="text" id="addrStreet" class="inputField" placeholder="Số 123 đường Lê Lợi..." required />
+                    </div>
+                  </div>
+
+                  <div class="addrFormActions">
+                    <label class="addrDefaultCheck" for="addrIsDefault">
+                      <input type="checkbox" id="addrIsDefault" checked />
+                      <span>Đặt làm địa chỉ mặc định</span>
+                    </label>
+                    <div class="addrFormBtns">
+                      <button type="button" id="cancelAddAddressBtn" class="btnSecondary">Hủy</button>
+                      <button type="submit" class="btnPrimary"><i class="fa-solid fa-check" aria-hidden="true"></i> Lưu địa chỉ</button>
+                    </div>
+                  </div>
+                </form>
+
+                <div id="accountAddressList" class="accountAddressList"></div>
+              </div>
+
+              <!-- ══════════════════════════════════════
+                   THEME & APPEARANCE SETTINGS CARD
+                   ══════════════════════════════════════ -->
+              <div class="accountFormCard accountThemeCard" style="margin-top: var(--space6);">
+                <h2 class="accountCardHeading">
+                  <i class="fa-solid fa-palette"></i> Cài Đặt Giao Diện
+                </h2>
+                <p class="accountCardSubtitle">
+                  Tùy chỉnh chế độ hiển thị phù hợp với thị giác của bạn. Mặc định là Chế độ Sáng dịu mắt.
+                </p>
+
+                <div class="themeOptionsGrid">
+                  <label class="themeOptionChoice" for="themeOptionLight">
+                    <input type="radio" id="themeOptionLight" name="appThemeOption" value="light" checked />
+                    <div class="themeChoiceBox">
+                      <div class="themeChoicePreview previewLight">
+                        <div class="miniNav"></div>
+                        <div class="miniBody">
+                          <div class="miniCard"></div>
+                          <div class="miniCard"></div>
+                        </div>
+                      </div>
+                      <div class="themeChoiceMeta">
+                        <div class="themeChoiceTitle"><i class="fa-solid fa-sun"></i> Giao diện Sáng (Mặc định)</div>
+                        <p class="themeChoiceDesc">Màu kem sữa ấm áp, phong cách Apple sạch sẽ, rõ nét, dễ đọc mọi hoàn cảnh.</p>
+                      </div>
+                    </div>
+                  </label>
+
+                  <label class="themeOptionChoice" for="themeOptionDark">
+                    <input type="radio" id="themeOptionDark" name="appThemeOption" value="dark" />
+                    <div class="themeChoiceBox">
+                      <div class="themeChoicePreview previewDark">
+                        <div class="miniNav"></div>
+                        <div class="miniBody">
+                          <div class="miniCard"></div>
+                          <div class="miniCard"></div>
+                        </div>
+                      </div>
+                      <div class="themeChoiceMeta">
+                        <div class="themeChoiceTitle"><i class="fa-solid fa-moon"></i> Giao diện Tối (Dark Mode)</div>
+                        <p class="themeChoiceDesc">Màu đen Obsidian sâu lắng, viền phát sáng neon hổ phách dịu mắt ban đêm.</p>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- ══════════════════════════════════════
+                   ROLE / SELLER / DEV MANAGEMENT CARD
+                   ══════════════════════════════════════ -->
+              <div id="accountRoleCard" class="accountRoleCard">
+                <div id="accountCustomerRoleBlock" style="display: none">
+                  <div class="roleCardHeader">
+                    <div class="roleCardIcon"><i class="fa-solid fa-store"></i></div>
+                    <div>
+                      <h3 class="roleCardTitle">Mở Kênh Bán Hàng Trên Koffia</h3>
+                      <p class="roleCardSub">Kinh doanh thức uống dễ dàng, quản lý menu & đơn hàng riêng. Dùng thử miễn phí 10 ngày!</p>
+                    </div>
+                  </div>
+                  <button type="button" id="openRegisterSellerModalBtn" class="btnPrimary">
+                    <i class="fa-solid fa-rocket" aria-hidden="true"></i> Đăng Ký Mở Kênh Ngay
+                  </button>
+                </div>
+
+                <div id="accountSellerRoleBlock" style="display: none">
+                  <div class="roleCardHeader">
+                    <div class="roleCardIcon isSeller"><i class="fa-solid fa-store"></i></div>
+                    <div>
+                      <div class="roleBadgeTitleRow">
+                        <h3 class="roleCardTitle" id="sellerChannelNameHeading">Kênh Bán Của Bạn</h3>
+                        <span class="roleTrialBadge" id="sellerTrialDaysBadge">Trial: còn 10 ngày</span>
+                      </div>
+                      <p class="roleCardSub" id="sellerChannelSubHeading">Quản lý sản phẩm, đơn hàng từ khách và tạo mã giảm giá riêng của quán.</p>
+                    </div>
+                  </div>
+                  <a href="seller.html" class="btnPrimary">
+                    <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Vào Bảng Quản Lý Kênh Bán
+                  </a>
+                </div>
+
+                <div id="accountDevRoleBlock" style="display: none">
+                  <div class="roleCardHeader">
+                    <div class="roleCardIcon isDev"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                      <div class="roleBadgeTitleRow">
+                        <h3 class="roleCardTitle">Tài Khoản Quản Trị Hệ Thống</h3>
+                        <span class="roleDevBadge">Super Admin / Dev</span>
+                      </div>
+                      <p class="roleCardSub">Toàn quyền quản trị Flash Sales, Vouchers, Duyệt Kênh Bán và Đơn hàng toàn sàn.</p>
+                    </div>
+                  </div>
+                  <a href="admin.html" class="btnPrimary">
+                    <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Mở Bảng Điều Khiển Admin
+                  </a>
+                </div>
+              </div>
+              </div><!-- /profile panel -->
+
+              <!-- ══════════════════════════════════════
+                   KOFFIA REWARDS & ĐỔI VOUCHER (Apple Wallet Pass)
+                   ══════════════════════════════════════ -->
+              <div class="accountTabPanel" data-account-panel="rewards" role="tabpanel" hidden>
+              <div class="accountFormCard accountRewardsCard" id="accountRewardsCard">
+                <div class="accountWishlistHeader">
+                  <div>
+                    <h2 class="accountCardHeading">
+                      <i class="fa-solid fa-crown" style="color: #ff9500" aria-hidden="true"></i>
+                      Koffia Rewards
+                    </h2>
+                    <p class="accountCardSubtitle">Tích 1 điểm cho mỗi 10.000 ₫ đặt món và đổi lấy mã giảm giá dùng ngay trong giỏ hàng.</p>
+                  </div>
+                  <span id="rewardsTierPill" class="rewardsTierPill">Thành viên Đồng</span>
+                </div>
+
+                <!-- Apple Wallet Style Pass -->
+                <div id="rewardsWalletPass" class="rewardsWalletPass tierBronze">
+                  <div class="rewardsPassTop">
+                    <div>
+                      <span class="rewardsPassLabel">ĐIỂM KHẢ DỤNG</span>
+                      <div class="rewardsPassBalanceRow">
+                        <strong id="rewardsPointsBalance" class="rewardsPointsBalance">0</strong>
+                        <span class="rewardsPointsUnit">điểm</span>
+                      </div>
+                    </div>
+                    <div class="rewardsPassBadge" id="rewardsPassBadge">
+                      <i class="fa-solid fa-medal" aria-hidden="true"></i>
+                      <span id="rewardsPassTierName">Đồng</span>
+                    </div>
+                  </div>
+                  <div class="rewardsPassProgress">
+                    <div class="rewardsPassProgressMeta">
+                      <span id="rewardsProgressText">Còn 20 điểm lên Thành viên Bạc</span>
+                      <span id="rewardsLifetimeText">Tổng tích lũy: 30 điểm</span>
+                    </div>
+                    <div class="rewardsPassTrack" aria-hidden="true">
+                      <div id="rewardsProgressFill" class="rewardsPassFill" style="width: 0%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 class="rewardsSubheading">Đổi điểm lấy Voucher thật</h3>
+                <div id="rewardsCatalogGrid" class="rewardsCatalogGrid" role="list"></div>
+                <div id="rewardsRecentWrap" class="rewardsRecentWrap" hidden>
+                  <div class="rewardsRecentTitle">Mã vừa đổi gần đây</div>
+                  <div id="rewardsRecentList" class="rewardsRecentList"></div>
+                </div>
+              </div>
+              </div><!-- /rewards panel -->
+
+              <!-- ══════════════════════════════════════
+                   GU UỐNG MẶC ĐỊNH (MY DRINK PREFERENCE)
+                   ══════════════════════════════════════ -->
+              <div class="accountTabPanel" data-account-panel="preferences" role="tabpanel" hidden>
+              <div class="accountFormCard accountDrinkPrefCard" id="accountDrinkPrefCard">
+                <div class="accountWishlistHeader">
+                  <div>
+                    <h2 class="accountCardHeading">
+                      <i class="fa-solid fa-sliders" style="color: var(--colorAccent)" aria-hidden="true"></i>
+                      Gu Uống Mặc Định
+                    </h2>
+                    <p class="accountCardSubtitle">Tự động chọn sẵn Size, Đường, Đá &amp; Ghi chú yêu thích mỗi khi mở bất kỳ đồ uống nào.</p>
+                  </div>
+                  <label class="iosSwitchWrap" for="prefEnabledToggle">
+                    <input type="checkbox" id="prefEnabledToggle" class="iosSwitchInput" />
+                    <span class="iosSwitchTrack" aria-hidden="true"></span>
+                    <span class="iosSwitchLabel" id="prefEnabledLabel">Đang tắt</span>
+                  </label>
+                </div>
+
+                <div class="drinkPrefGroups">
+                  <div class="drinkPrefGroup">
+                    <span class="drinkPrefLabel">Kích cỡ ưa thích</span>
+                    <div class="drinkPrefPills" id="prefSizePills" role="radiogroup" aria-label="Kích cỡ mặc định">
+                      <button type="button" class="drinkPrefPill" data-pref-size="S">Nhỏ (S)</button>
+                      <button type="button" class="drinkPrefPill isSelected" data-pref-size="M">Vừa (M)</button>
+                      <button type="button" class="drinkPrefPill" data-pref-size="L">Lớn (L)</button>
+                    </div>
+                  </div>
+
+                  <div class="drinkPrefGroup">
+                    <span class="drinkPrefLabel">Mức đường mặc định</span>
+                    <div class="drinkPrefPills" id="prefSugarPills" role="radiogroup" aria-label="Mức đường mặc định">
+                      <button type="button" class="drinkPrefPill" data-pref-sugar="0">0%</button>
+                      <button type="button" class="drinkPrefPill" data-pref-sugar="30">30%</button>
+                      <button type="button" class="drinkPrefPill isSelected" data-pref-sugar="50">50%</button>
+                      <button type="button" class="drinkPrefPill" data-pref-sugar="70">70%</button>
+                      <button type="button" class="drinkPrefPill" data-pref-sugar="100">100%</button>
+                    </div>
+                  </div>
+
+                  <div class="drinkPrefGroup">
+                    <span class="drinkPrefLabel">Mức đá mặc định</span>
+                    <div class="drinkPrefPills" id="prefIcePills" role="radiogroup" aria-label="Mức đá mặc định">
+                      <button type="button" class="drinkPrefPill" data-pref-ice="0">0%</button>
+                      <button type="button" class="drinkPrefPill" data-pref-ice="30">30%</button>
+                      <button type="button" class="drinkPrefPill" data-pref-ice="50">50%</button>
+                      <button type="button" class="drinkPrefPill isSelected" data-pref-ice="70">70%</button>
+                      <button type="button" class="drinkPrefPill" data-pref-ice="100">100%</button>
+                    </div>
+                  </div>
+
+                  <div class="drinkPrefGroup">
+                    <label class="drinkPrefLabel" for="prefDefaultNote">Ghi chú mặc định cho ly nước (tuỳ chọn)</label>
+                    <input
+                      type="text"
+                      id="prefDefaultNote"
+                      class="inputField"
+                      maxlength="120"
+                      placeholder="VD: Không ống hút nhựa, để đá riêng..."
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+
+                <div class="drinkPrefFooter">
+                  <span id="drinkPrefPreview" class="drinkPrefPreview">Size M · 50% đường · 70% đá</span>
+                  <button type="button" id="saveDrinkPrefBtn" class="btnPrimary drinkPrefSaveBtn">
+                    <i class="fa-solid fa-check" aria-hidden="true"></i> Lưu Gu Uống
+                  </button>
+                </div>
+              </div>
+              </div><!-- /preferences panel -->
+
+              <!-- ══════════════════════════════════════
+                   MÓN YÊU THÍCH CỦA BẠN (WISHLIST)
+                   ══════════════════════════════════════ -->
+              <div class="accountTabPanel" data-account-panel="wishlist" role="tabpanel" hidden>
+              <div class="accountFormCard accountWishlistCard" id="accountWishlistCard">
+                <div class="accountWishlistHeader">
+                  <div>
+                    <h2 class="accountCardHeading">
+                      <i class="fa-solid fa-heart" style="color: #ff3b30" aria-hidden="true"></i>
+                      Món Yêu Thích
+                      <span id="accountWishlistCount" class="accountWishlistBadge">0</span>
+                    </h2>
+                    <p class="accountCardSubtitle">Các món đồ uống bạn đã thả tim để đặt lại nhanh bất cứ lúc nào.</p>
+                  </div>
+                  <a href="menu.html" class="btnSecondary accountWishlistBrowseBtn">
+                    <i class="fa-solid fa-utensils" aria-hidden="true"></i> Xem thực đơn
+                  </a>
+                </div>
+                <div id="accountWishlistGrid" class="accountWishlistGrid">
+                  <!-- Rendered by account.js -->
+                </div>
+              </div>
+              </div><!-- /wishlist panel -->
+
+              <!-- ══════════════════════════════════════
+                   KHO VOUCHER KHẢ DỤNG
+                   ══════════════════════════════════════ -->
+              <div class="accountTabPanel" data-account-panel="vouchers" role="tabpanel" hidden>
+              <div class="accountVouchersCard" id="accountVouchersCard">
+                <div class="accountWishlistHeader">
+                  <div>
+                    <h2 class="accountCardHeading"><i class="fa-solid fa-ticket" style="color: var(--colorAccent)" aria-hidden="true"></i> Kho Voucher Của Bạn</h2>
+                    <p class="accountCardSubtitle">Bấm "Dùng ngay" để áp trực tiếp vào giỏ hàng hoặc sao chép mã cho đơn tiếp theo.</p>
+                  </div>
+                  <a href="cart.html" class="btnSecondary accountWishlistBrowseBtn">
+                    <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Mở giỏ hàng
+                  </a>
+                </div>
+                <div id="accountVouchersList" class="accountVouchersList">
+                  <!-- Rendered by account.js -->
+                </div>
+              </div>
+              </div><!-- /vouchers panel -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL ĐĂNG KÝ SELLER -->
+      <div id="registerSellerModal" class="sellerModal" style="display: none;" role="dialog" aria-label="Đăng ký mở kênh người bán">
+        <div class="sellerModalOverlay" id="sellerModalOverlay"></div>
+        <div class="sellerModalCard">
+          <div class="sellerModalHeader">
+            <h3><i class="fa-solid fa-store"></i> Đăng Ký Mở Kênh Người Bán</h3>
+            <button type="button" id="closeSellerModalBtn" class="closeModalBtn">&times;</button>
+          </div>
+          <form id="sellerRegisterForm" class="sellerRegisterForm">
+            <div class="trialNotice">
+              <i class="fa-solid fa-gift"></i>
+              <span>Chúc mừng! Bạn sẽ được <strong>dùng thử miễn phí 10 ngày</strong> đầy đủ mọi tính năng quản lý sản phẩm, đơn hàng và tạo voucher.</span>
+            </div>
+
+            <div class="formGroup">
+              <label class="formLabel" for="sellerRegChannelName">Tên kênh / Quán đồ uống <span class="formRequired">*</span></label>
+              <input type="text" id="sellerRegChannelName" class="inputField" placeholder="Ví dụ: Cà Phê Chú Ba, Trà Sữa Mây..." required minlength="3" />
+            </div>
+
+            <div class="formRow">
+              <div class="formGroup">
+                <label class="formLabel" for="sellerRegPhone">Số điện thoại liên hệ <span class="formRequired">*</span></label>
+                <input type="tel" id="sellerRegPhone" class="inputField" placeholder="0901 234 567" required />
+              </div>
+              <div class="formGroup">
+                <label class="formLabel" for="sellerRegAddress">Địa chỉ quán / Cơ sở <span class="formRequired">*</span></label>
+                <input type="text" id="sellerRegAddress" class="inputField" placeholder="Quận / Thành phố..." required />
+              </div>
+            </div>
+
+            <div class="formGroup">
+              <label class="formLabel" for="sellerRegDesc">Giới thiệu ngắn về quán</label>
+              <textarea id="sellerRegDesc" class="inputField" style="min-height: 70px" placeholder="Phong cách đồ uống, món đặc trưng..."></textarea>
+            </div>
+
+            <div class="formGroup">
+              <label class="formLabel">Danh mục kinh doanh chính</label>
+              <div class="sellerCategoryCheckboxes">
+                <label><input type="checkbox" name="sellerCat" value="coffee" checked /> Cà phê</label>
+                <label><input type="checkbox" name="sellerCat" value="milk-tea" checked /> Trà sữa</label>
+                <label><input type="checkbox" name="sellerCat" value="tea" /> Trà trái cây</label>
+                <label><input type="checkbox" name="sellerCat" value="juice" /> Nước ép</label>
+                <label><input type="checkbox" name="sellerCat" value="smoothie" /> Sinh tố</label>
+                <label><input type="checkbox" name="sellerCat" value="soda" /> Soda</label>
+              </div>
+            </div>
+
+            <button type="submit" id="submitRegisterSellerBtn" class="btnPrimary" style="width: 100%; justify-content: center; margin-top: 10px;">
+              <i class="fa-solid fa-check"></i> Xác Nhận Mở Kênh (Miễn Phí 10 Ngày)
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="siteFooter" role="contentinfo">
+      <div class="container">
+        <div class="footerGrid">
+          <div class="footerBrand">
+            <a href="../index.html" class="navLogo"
+              ><span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span><span>Koffia</span></a
+            >
+            <p class="footerTagline">
+              Đặt đồ uống online nhanh gọn — chọn món, tùy chỉnh và xác nhận đơn ngay trên website.
+            </p>
+            <div class="footerSocials">
+              <a href="#" class="footerSocialLink" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <h3 class="footerHeading">Liên kết</h3>
+            <ul class="footerLinkList">
+              <li>
+                <a href="../index.html" class="footerLinkItem">Trang Chủ</a>
+              </li>
+              <li><a href="menu.html" class="footerLinkItem">Thực Đơn</a></li>
+              <li>
+                <a href="aboutUs.html" class="footerLinkItem">Giới Thiệu</a>
+              </li>
+              <li><a href="contact.html" class="footerLinkItem">Liên Hệ</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Product categories">
+            <h3 class="footerHeading">Danh mục</h3>
+            <ul class="footerLinkList">
+              <li><a href="#" class="footerLinkItem"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Cà phê</a></li>
+              <li><a href="#" class="footerLinkItem"><i class="fa-solid fa-mug-saucer" aria-hidden="true"></i> Trà sữa</a></li>
+              <li><a href="#" class="footerLinkItem"><i class="fa-solid fa-lemon" aria-hidden="true"></i> Nước ép</a></li>
+            </ul>
+          </nav>
+          <address>
+            <h3 class="footerHeading">Liên hệ</h3>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-headset"></i
+              ><span>Hỗ trợ đặt hàng online</span>
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-phone"></i
+              ><a href="tel:+84901234567" style="color: inherit"
+                >0901 234 567</a
+              >
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-envelope"></i
+              ><a href="mailto:hello@koffia.vn" style="color: inherit"
+                >hello@koffia.vn</a
+              >
+            </div>
+          </address>
+        </div>
+        <div class="footerBottom">
+          <p class="footerCopyright">© 2026 Koffia. Đặt đồ uống online.</p>
+          <div class="footerBottomLinks">
+            <a href="#" class="footerBottomLink">Điều khoản</a>
+            <a href="#" class="footerBottomLink">Bảo mật</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+    <script src="../js/productImages.js?v=8.1" defer></script>
+    <script src="../js/main.js?v=8.1" defer></script>
+    <script src="../js/account.js?v=8.1" defer></script>
+  </body>
+</html>
+

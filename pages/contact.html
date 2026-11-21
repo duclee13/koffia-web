@@ -1,0 +1,376 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Liên hệ Koffia — Gửi câu hỏi, đặt hàng bulk, hợp tác doanh nghiệp. Chúng tôi sẵn sàng lắng nghe và phản hồi trong vòng 24 giờ."
+    />
+    <title>Hỗ Trợ & Liên Hệ — Koffia</title>
+
+    
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/pagesStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+  
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/175b48673e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header id="navBar" class="navScrolled" role="banner">
+      <nav class="navInner" aria-label="Main navigation">
+        <a href="../index.html" class="navLogo" aria-label="Koffia — Trang chủ">
+          <span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span>
+          <span>Koffia</span>
+        </a>
+        <ul class="navMenu" role="list">
+          <li><a href="../index.html" class="navLink">Trang Chủ</a></li>
+          <li><a href="menu.html" class="navLink">Thực Đơn</a></li>
+          <li><a href="aboutUs.html" class="navLink">Giới Thiệu</a></li>
+          <li>
+            <a href="contact.html" class="navLink navLinkActive">Liên Hệ</a>
+          </li>
+        </ul>
+        <div class="navActions">
+          <a href="auth.html" id="navLoginBtn" class="navLoginBtn">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Đăng Nhập
+          </a>
+          <button
+            id="navAvatarBtn"
+            class="navAvatarBtn"
+            style="display: none"
+            aria-label="Tài khoản của tôi"
+          >
+            <img id="navAvatarImg" class="navAvatarImg" src="" alt="Avatar" />
+          </button>
+          <button id="cartOpenBtn" class="navCartBtn" hidden aria-label="Mở giỏ hàng">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span id="cartBadge" class="navCartBadge" style="display: none"
+              >0</span
+            >
+          </button>
+          <button
+            id="navHamburger"
+            class="navHamburger"
+            aria-label="Mở menu"
+            aria-expanded="false"
+          >
+            <span class="hamLine"></span><span class="hamLine"></span
+            ><span class="hamLine"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      id="navDrawer"
+      class="navDrawer"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <div class="navDrawerOverlay"></div>
+      <nav class="navDrawerPanel">
+        <a href="../index.html" class="drawerNavLink"
+          ><i class="fa-solid fa-house fa-fw"></i> Trang Chủ</a
+        >
+        <a href="menu.html" class="drawerNavLink"
+          ><i class="fa-solid fa-utensils fa-fw"></i> Thực Đơn</a
+        >
+        <a href="aboutUs.html" class="drawerNavLink"
+          ><i class="fa-solid fa-circle-info fa-fw"></i> Giới Thiệu</a
+        >
+        <a href="contact.html" class="drawerNavLink navLinkActive"
+          ><i class="fa-solid fa-envelope fa-fw"></i> Liên Hệ</a
+        >
+        <button
+          id="drawerThemeToggleBtn"
+          class="drawerNavLink drawerThemeToggle"
+          type="button"
+          aria-label="Đổi giao diện Sáng / Tối"
+        >
+          <span class="drawerThemeLabel">
+            <i class="fa-solid fa-moon fa-fw"></i>
+            <span class="drawerThemeText">Chế độ Ban đêm</span>
+          </span>
+          <span class="themePillIndicator" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+
+    <aside
+      id="cartDrawer"
+      role="dialog"
+      aria-label="Giỏ hàng"
+      aria-modal="true"
+    >
+      <div class="cartOverlay"></div>
+      <div class="cartPanel">
+        <div class="cartHeader">
+          <h2 class="cartTitle">
+            <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
+          </h2>
+          <button id="cartCloseBtn" class="cartCloseBtn" aria-label="Đóng">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="cartBody" class="cartBody"></div>
+        <div class="cartFooter">
+          <div class="cartTotalRow">
+            <span class="cartTotalLabel">Tổng cộng</span>
+            <span id="cartTotalAmount" class="cartTotalAmount">0 ₫</span>
+          </div>
+          <a class="btnPrimary cartCheckoutBtn" href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Xem giỏ &amp; đặt đơn</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <div class="pageHero" role="banner">
+        <h1 class="pageHeroTitle"><i class="fa-solid fa-headset" aria-hidden="true"></i> Hỗ Trợ &amp; Liên Hệ</h1>
+        <nav class="pageHeroBreadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html" class="breadcrumbLink">Trang Chủ</a>
+          <span class="breadcrumbSep" aria-hidden="true">›</span>
+          <span aria-current="page">Liên Hệ</span>
+        </nav>
+      </div>
+
+      <section id="contactSection" aria-labelledby="contactHeading">
+        <div class="container">
+          <div class="sectionHeader revealUp">
+            <h2 id="contactHeading" class="sectionTitle">Bạn cần Koffia hỗ trợ gì?</h2>
+            <p class="sectionSubtitle">Nếu gặp vấn đề khi chọn món, tùy chỉnh sản phẩm, quản lý giỏ hàng hoặc tài khoản, hãy gửi lời nhắn cho chúng tôi.</p>
+            <span class="titleUnderline" aria-hidden="true"></span>
+          </div>
+
+          <div class="contactGrid">
+            <aside class="contactInfoPanel revealLeft" aria-label="Kênh hỗ trợ">
+              <h3 class="contactInfoTitle">Kênh hỗ trợ online</h3>
+              <p class="contactInfoSubtitle">Koffia ưu tiên hỗ trợ các vấn đề liên quan đến trải nghiệm đặt đồ uống trên website.</p>
+              <div class="contactDetailList" role="list">
+                <div class="contactDetailItem" role="listitem">
+                  <div class="contactDetailIcon"><i class="fa-solid fa-cart-shopping"></i></div>
+                  <div class="contactDetailText"><p class="contactDetailLabel">Hỗ trợ đơn hàng</p><p class="contactDetailValue">Kiểm tra món trong giỏ, thông tin nhận hàng và thao tác xác nhận đơn.</p></div>
+                </div>
+                <div class="contactDetailItem" role="listitem">
+                  <div class="contactDetailIcon"><i class="fa-solid fa-phone"></i></div>
+                  <div class="contactDetailText"><p class="contactDetailLabel">Hotline hỗ trợ</p><p class="contactDetailValue"><a href="tel:+84901234567" style="color:inherit;text-decoration:underline">0901 234 567</a></p></div>
+                </div>
+                <div class="contactDetailItem" role="listitem">
+                  <div class="contactDetailIcon"><i class="fa-solid fa-envelope"></i></div>
+                  <div class="contactDetailText"><p class="contactDetailLabel">Email</p><p class="contactDetailValue"><a href="mailto:hello@koffia.vn" style="color:inherit;text-decoration:underline">hello@koffia.vn</a></p></div>
+                </div>
+                <div class="contactDetailItem" role="listitem">
+                  <div class="contactDetailIcon"><i class="fa-solid fa-clock"></i></div>
+                  <div class="contactDetailText"><p class="contactDetailLabel">Thời gian hỗ trợ</p><p class="contactDetailValue">Thứ Hai – Chủ Nhật<br />08:00 – 22:00</p></div>
+                </div>
+              </div>
+              <div class="contactSocialsRow" role="list" aria-label="Mạng xã hội">
+                <a href="#" class="contactSocialLink" role="listitem" aria-label="Facebook Koffia"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="contactSocialLink" role="listitem" aria-label="Instagram Koffia"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="contactSocialLink" role="listitem" aria-label="TikTok Koffia"><i class="fa-brands fa-tiktok"></i></a>
+              </div>
+            </aside>
+
+            <div class="contactFormPanel revealRight">
+              <h3 class="contactFormTitle">Gửi yêu cầu hỗ trợ</h3>
+              <p class="contactFormSubtitle">Điền thông tin bên dưới, Koffia sẽ ghi nhận yêu cầu hỗ trợ của bạn.</p>
+              <form id="contactForm" aria-label="Form liên hệ Koffia">
+                <div class="formRow">
+                  <div class="formGroup">
+                    <label for="contactName" class="formLabel">Họ và tên <span class="formRequired">*</span></label>
+                    <input type="text" id="contactName" name="contactName" class="formInput" placeholder="Nguyễn Văn A" required minlength="2" autocomplete="name" />
+                  </div>
+                  <div class="formGroup">
+                    <label for="contactEmail" class="formLabel">Email <span class="formRequired">*</span></label>
+                    <input type="email" id="contactEmail" name="contactEmail" class="formInput" placeholder="ban@email.com" required autocomplete="email" />
+                  </div>
+                </div>
+                <div class="formRow">
+                  <div class="formGroup">
+                    <label for="contactPhone" class="formLabel">Số điện thoại</label>
+                    <input type="tel" id="contactPhone" name="contactPhone" class="formInput" placeholder="0901 234 567" autocomplete="tel" pattern="[0-9\s\+\-]{9,15}" />
+                    <span class="formHint">Không bắt buộc.</span>
+                  </div>
+                  <div class="formGroup">
+                    <label for="contactSubject" class="formLabel">Chủ đề <span class="formRequired">*</span></label>
+                    <select id="contactSubject" name="contactSubject" class="formSelect" required>
+                      <option value="" disabled selected>Chọn chủ đề...</option>
+                      <option value="order">Đơn hàng / giỏ hàng</option>
+                      <option value="menu">Thực đơn / sản phẩm</option>
+                      <option value="account">Tài khoản</option>
+                      <option value="feedback">Góp ý giao diện</option>
+                      <option value="other">Khác</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="formGroup">
+                  <label for="contactMessage" class="formLabel">Nội dung <span class="formRequired">*</span></label>
+                  <textarea id="contactMessage" name="contactMessage" class="formTextarea" placeholder="Mô tả vấn đề bạn đang gặp..." required minlength="10" rows="5"></textarea>
+                  <span class="formHint">Mô tả rõ thao tác và trang đang sử dụng để việc hỗ trợ dễ hơn.</span>
+                </div>
+                <div class="formSubmitRow">
+                  <button type="submit" id="formSubmitBtn" class="formSubmitBtn"><i class="fa-solid fa-paper-plane"></i> Gửi yêu cầu</button>
+                  <p class="formNote"><i class="fa-solid fa-shield-halved"></i> Không chia sẻ mật khẩu trong nội dung hỗ trợ.</p>
+                </div>
+              </form>
+              <div id="formSuccessMsg" class="formSuccessMsg" role="alert" aria-live="assertive">
+                <div class="formSuccessIcon"><i class="fa-solid fa-check"></i></div>
+                <h3 class="formSuccessTitle">Đã gửi yêu cầu!</h3>
+                <p class="formSuccessText">Cảm ơn bạn đã gửi phản hồi cho Koffia.<br />Yêu cầu của bạn đã được ghi nhận.</p>
+                <button class="btnSecondary" style="margin-top:1rem" onclick="location.reload()"><i class="fa-solid fa-arrow-rotate-left"></i> Gửi yêu cầu khác</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="supportFaqSection" aria-labelledby="faqHeading">
+        <div class="container">
+          <div class="sectionHeader revealUp">
+            <h2 id="faqHeading" class="sectionTitle">Câu hỏi thường gặp</h2>
+            <p class="sectionSubtitle">Một vài câu trả lời nhanh trước khi bạn cần gửi yêu cầu hỗ trợ.</p>
+            <span class="titleUnderline" aria-hidden="true"></span>
+          </div>
+          <div class="supportFaqGrid">
+            <article class="supportFaqCard revealUp"><div class="supportFaqIcon"><i class="fa-solid fa-bag-shopping"></i></div><h3>Giỏ hàng có bị mất khi chuyển trang?</h3><p>Không. Giỏ hàng được lưu bằng localStorage nên vẫn được giữ khi bạn chuyển giữa Trang chủ, Thực đơn, Chi tiết sản phẩm và Giỏ hàng.</p></article>
+            <article class="supportFaqCard revealUp"><div class="supportFaqIcon"><i class="fa-solid fa-sliders"></i></div><h3>Có thể chọn size, đường, đá và topping?</h3><p>Có. Các sản phẩm có hỗ trợ tùy chọn sẽ hiển thị đầy đủ tại trang chi tiết và giá được tính lại theo lựa chọn.</p></article>
+            <article class="supportFaqCard revealUp"><div class="supportFaqIcon"><i class="fa-solid fa-credit-card"></i></div><h3>Koffia có thanh toán online không?</h3><p>Chưa. Phiên bản hiện tại chỉ mô phỏng bước xác nhận đơn và thanh toán khi nhận hàng, không kết nối cổng thanh toán thật.</p></article>
+            <article class="supportFaqCard revealUp"><div class="supportFaqIcon"><i class="fa-solid fa-clock"></i></div><h3>Tại sao một số món hiển thị “Tạm hết”?</h3><p>Những sản phẩm đang hết hàng sẽ bị khóa nút thêm vào giỏ. Bạn vẫn có thể tiếp tục xem các món khác trong cùng danh mục.</p></article>
+          </div>
+        </div>
+      </section>
+    </main></main>
+
+    <!-- FOOTER -->
+    <footer id="siteFooter" role="contentinfo">
+      <div class="container">
+        <div class="footerGrid">
+          <div class="footerBrand">
+            <a href="../index.html" class="navLogo"
+              ><span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span><span>Koffia</span></a
+            >
+            <p class="footerTagline">
+              Koffia là website đặt đồ uống online — dễ chọn món, dễ tùy chỉnh và dễ xác nhận đơn.
+            </p>
+            <div class="footerSocials">
+              <a href="#" class="footerSocialLink" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <h3 class="footerHeading">Liên kết</h3>
+            <ul class="footerLinkList">
+              <li>
+                <a href="../index.html" class="footerLinkItem">Trang Chủ</a>
+              </li>
+              <li><a href="menu.html" class="footerLinkItem">Thực Đơn</a></li>
+              <li>
+                <a href="aboutUs.html" class="footerLinkItem">Giới Thiệu</a>
+              </li>
+              <li><a href="contact.html" class="footerLinkItem">Liên Hệ</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Product categories">
+            <h3 class="footerHeading">Danh mục</h3>
+            <ul class="footerLinkList">
+              <li>
+                <a href="menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Cà
+                  phê</a
+                >
+              </li>
+              <li>
+                <a href="menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-mug-saucer" aria-hidden="true"></i> Trà
+                  sữa</a
+                >
+              </li>
+              <li>
+                <a href="menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-lemon" aria-hidden="true"></i> Nước
+                  ép</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <address>
+            <h3 class="footerHeading">Liên hệ</h3>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-headset"></i
+              ><span>Hỗ trợ đặt hàng online</span>
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-phone"></i
+              ><a href="tel:+84901234567" style="color: inherit"
+                >0901 234 567</a
+              >
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-envelope"></i
+              ><a href="mailto:hello@koffia.vn" style="color: inherit"
+                >hello@koffia.vn</a
+              >
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-clock"></i
+              ><span>Hỗ trợ: 08:00 – 22:00</span>
+            </div>
+          </address>
+        </div>
+        <div class="footerBottom">
+          <p class="footerCopyright">© 2026 Koffia. Đặt đồ uống online.</p>
+          <div class="footerBottomLinks">
+            <a href="#" class="footerBottomLink">Điều khoản</a>
+            <a href="#" class="footerBottomLink">Bảo mật</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+    <script src="../js/productImages.js?v=8.1" defer></script>
+    <script src="../js/main.js?v=8.1" defer></script>
+  </body>
+</html>
+

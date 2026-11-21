@@ -1,0 +1,360 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Thực đơn Koffia — Khám phá 100 món đồ uống, tìm kiếm, lọc theo danh mục, sắp xếp và thêm vào giỏ hàng."
+    />
+    <title>Thực Đơn — Koffia</title>
+
+    
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/menuStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+  
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/175b48673e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header id="navBar" class="navScrolled" role="banner">
+      <nav class="navInner" aria-label="Main navigation">
+        <a href="../index.html" class="navLogo" aria-label="Koffia — Trang chủ">
+          <span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span>
+          <span>Koffia</span>
+        </a>
+        <ul class="navMenu" role="list">
+          <li><a href="../index.html" class="navLink">Trang Chủ</a></li>
+          <li>
+            <a href="menu.html" class="navLink navLinkActive">Thực Đơn</a>
+          </li>
+          <li><a href="aboutUs.html" class="navLink">Giới Thiệu</a></li>
+          <li><a href="contact.html" class="navLink">Liên Hệ</a></li>
+        </ul>
+        <div class="navActions">
+          <a href="auth.html" id="navLoginBtn" class="navLoginBtn">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Đăng Nhập
+          </a>
+          <button
+            id="navAvatarBtn"
+            class="navAvatarBtn"
+            style="display: none"
+            aria-label="Tài khoản của tôi"
+          >
+            <img id="navAvatarImg" class="navAvatarImg" src="" alt="Avatar" />
+          </button>
+          <button id="cartOpenBtn" class="navCartBtn" hidden aria-label="Mở giỏ hàng">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span id="cartBadge" class="navCartBadge" style="display: none"
+              >0</span
+            >
+          </button>
+          <button
+            id="navHamburger"
+            class="navHamburger"
+            aria-label="Mở menu"
+            aria-expanded="false"
+          >
+            <span class="hamLine"></span><span class="hamLine"></span
+            ><span class="hamLine"></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- MERGED DRINK CATEGORIES ROW (Revealed on Scroll) -->
+      <div id="navCategoryShelf" class="navCategoryShelf" role="navigation" aria-label="Phân loại đồ uống nhanh">
+        <div class="navCategoryShelfClip">
+          <div class="navFilterInner">
+            <span class="navFilterLabel"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Lọc:</span>
+            <div class="navFilterDivider" aria-hidden="true"></div>
+            <div class="navFilterBtnGroup filterBtnGroup" role="group" aria-label="Danh mục đồ uống">
+              <!-- Rendered dynamically by js/products.js?v=8.1 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div
+      id="navDrawer"
+      class="navDrawer"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <div class="navDrawerOverlay"></div>
+      <nav class="navDrawerPanel">
+        <a href="../index.html" class="drawerNavLink"
+          ><i class="fa-solid fa-house fa-fw"></i> Trang Chủ</a
+        >
+        <a href="menu.html" class="drawerNavLink navLinkActive"
+          ><i class="fa-solid fa-utensils fa-fw"></i> Thực Đơn</a
+        >
+        <a href="aboutUs.html" class="drawerNavLink"
+          ><i class="fa-solid fa-circle-info fa-fw"></i> Giới Thiệu</a
+        >
+        <a href="contact.html" class="drawerNavLink"
+          ><i class="fa-solid fa-envelope fa-fw"></i> Liên Hệ</a
+        >
+        <button
+          id="drawerThemeToggleBtn"
+          class="drawerNavLink drawerThemeToggle"
+          type="button"
+          aria-label="Đổi giao diện Sáng / Tối"
+        >
+          <span class="drawerThemeLabel">
+            <i class="fa-solid fa-moon fa-fw"></i>
+            <span class="drawerThemeText">Chế độ Ban đêm</span>
+          </span>
+          <span class="themePillIndicator" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- CART DRAWER -->
+    <aside
+      id="cartDrawer"
+      role="dialog"
+      aria-label="Giỏ hàng"
+      aria-modal="true"
+    >
+      <div class="cartOverlay"></div>
+      <div class="cartPanel">
+        <div class="cartHeader">
+          <h2 class="cartTitle">
+            <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
+          </h2>
+          <button
+            id="cartCloseBtn"
+            class="cartCloseBtn"
+            aria-label="Đóng giỏ hàng"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="cartBody" class="cartBody"></div>
+        <div class="cartFooter">
+          <div class="cartTotalRow">
+            <span class="cartTotalLabel">Tổng cộng</span>
+            <span id="cartTotalAmount" class="cartTotalAmount">0 ₫</span>
+          </div>
+          <a class="btnPrimary cartCheckoutBtn" href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Xem giỏ &amp; đặt đơn</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <!-- PAGE HERO -->
+      <div class="pageHero" role="banner">
+        <h1 class="pageHeroTitle"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Thực Đơn</h1>
+        <nav class="pageHeroBreadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html" class="breadcrumbLink">Trang Chủ</a>
+          <span class="breadcrumbSep" aria-hidden="true">›</span>
+          <span aria-current="page">Thực Đơn</span>
+        </nav>
+      </div>
+
+      <!-- CATEGORY FILTER -->
+      <div id="categoryFilter" role="navigation" aria-label="Lọc theo danh mục">
+        <div class="container">
+          <div class="filterInner">
+            <span class="filterLabel"
+              ><i class="fa-solid fa-sliders" aria-hidden="true"></i> Lọc:</span
+            >
+            <div class="filterDivider" aria-hidden="true"></div>
+            <div
+              class="filterBtnGroup"
+              role="group"
+              aria-label="Danh mục đồ uống"
+            >
+              <!-- Được dựng động bởi js/products.js?v=8.1 dựa trên dữ liệu thật trong products.json -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MENU SECTION -->
+      <section id="menuSection" aria-labelledby="menuHeading">
+        <div class="container">
+          <div class="menuSearchBar">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input id="menuSearchInput" type="search" placeholder="Tìm cà phê, trà, matcha, nước ép..." aria-label="Tìm kiếm sản phẩm" autocomplete="off" />
+            <button type="button" id="menuSearchClearBtn" class="menuSearchClearBtn" aria-label="Xóa từ khóa tìm kiếm" hidden>
+              <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="menuQuickFilters" role="group" aria-label="Bộ lọc nhanh">
+            <button type="button" class="menuQuickChip" data-quick-filter="discount">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i> Đang giảm giá
+            </button>
+            <button type="button" class="menuQuickChip" data-quick-filter="under35k">
+              <i class="fa-solid fa-tag" aria-hidden="true"></i> Dưới 35K
+            </button>
+            <button type="button" class="menuQuickChip" data-quick-filter="bestseller">
+              <i class="fa-solid fa-fire" aria-hidden="true"></i> Bán chạy
+            </button>
+            <button type="button" class="menuQuickChip" data-quick-filter="wishlist">
+              <i class="fa-solid fa-heart" aria-hidden="true"></i> Đã thả tim
+              <span id="menuWishlistCount" class="menuQuickChipBadge" hidden>0</span>
+            </button>
+            <button type="button" id="menuQuickResetBtn" class="menuQuickResetBtn" hidden>
+              <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Đặt lại
+            </button>
+          </div>
+          <div class="menuResultsBar">
+            <p class="menuResultsCount">
+              Hiển thị <strong><span id="resultsCount">0</span></strong> sản
+              phẩm
+            </p>
+            <label for="menuSortSelect" class="visually-hidden"
+              >Sắp xếp theo</label
+            >
+            <select
+              id="menuSortSelect"
+              class="menuSortSelect"
+              aria-label="Sắp xếp sản phẩm"
+            >
+              <option value="default">Mặc định</option>
+              <option value="priceAsc">Giá: Thấp → Cao</option>
+              <option value="priceDesc">Giá: Cao → Thấp</option>
+              <option value="popular">Bán chạy nhất</option>
+            </select>
+          </div>
+
+          <div
+            id="menuGrid"
+            class="menuGrid"
+            role="list"
+            aria-label="Danh sách sản phẩm"
+          >
+            <!-- Được dựng động bởi js/products.js?v=8.1 từ json/products.json -->
+          </div>
+          <!-- /menuGrid -->
+
+          <!-- Empty State (nằm ngoài #menuGrid để không bị ghi đè khi JS render lại danh sách) -->
+          <div class="menuEmptyState" aria-live="polite">
+            <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+            <h3>Không tìm thấy sản phẩm</h3>
+            <p>
+              Danh mục này hiện chưa có sản phẩm. Vui lòng chọn danh mục khác!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="siteFooter" role="contentinfo">
+      <div class="container">
+        <div class="footerGrid">
+          <div class="footerBrand">
+            <a href="../index.html" class="navLogo"
+              ><span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span><span>Koffia</span></a
+            >
+            <p class="footerTagline">
+              Đặt đồ uống online nhanh gọn — chọn món, tùy chỉnh và xác nhận đơn ngay trên website.
+            </p>
+            <div class="footerSocials">
+              <a href="#" class="footerSocialLink" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <h3 class="footerHeading">Liên kết</h3>
+            <ul class="footerLinkList">
+              <li>
+                <a href="../index.html" class="footerLinkItem">Trang Chủ</a>
+              </li>
+              <li><a href="menu.html" class="footerLinkItem">Thực Đơn</a></li>
+              <li>
+                <a href="aboutUs.html" class="footerLinkItem">Giới Thiệu</a>
+              </li>
+              <li><a href="contact.html" class="footerLinkItem">Liên Hệ</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Product categories">
+            <h3 class="footerHeading">Danh mục</h3>
+            <ul class="footerLinkList">
+              <li><a href="#" class="footerLinkItem"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Cà phê</a></li>
+              <li><a href="#" class="footerLinkItem"><i class="fa-solid fa-mug-saucer" aria-hidden="true"></i> Trà sữa</a></li>
+              <li><a href="#" class="footerLinkItem"><i class="fa-solid fa-lemon" aria-hidden="true"></i> Nước ép</a></li>
+            </ul>
+          </nav>
+          <address>
+            <h3 class="footerHeading">Liên hệ</h3>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-headset"></i
+              ><span>Hỗ trợ đặt hàng online</span>
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-phone"></i
+              ><a href="tel:+84901234567" style="color: inherit"
+                >0901 234 567</a
+              >
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-envelope"></i
+              ><a href="mailto:hello@koffia.vn" style="color: inherit"
+                >hello@koffia.vn</a
+              >
+            </div>
+          </address>
+        </div>
+        <div class="footerBottom">
+          <p class="footerCopyright">© 2026 Koffia. Đặt đồ uống online.</p>
+          <div class="footerBottomLinks">
+            <a href="#" class="footerBottomLink">Điều khoản</a>
+            <a href="#" class="footerBottomLink">Bảo mật</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+    <script src="../js/productImages.js?v=8.1" defer></script>
+    <script src="../js/main.js?v=8.1" defer></script>
+    <script src="../js/products.js?v=8.1" defer></script>
+  </body>
+</html>
+

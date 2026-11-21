@@ -1,0 +1,1019 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Thanh toán đơn hàng Koffia — Chọn địa chỉ nhận hàng, chọn phương thức thanh toán và hoàn tất đơn hàng đồ uống."
+    />
+    <title>Thanh Toán Đơn Hàng — Koffia</title>
+
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/checkoutStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+
+    <!-- Leaflet CSS for Map Picker -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+
+    <!-- Font Awesome Kit -->
+    <script
+      src="https://kit.fontawesome.com/175b48673e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header id="navBar" class="navScrolled" role="banner">
+      <nav class="navInner" aria-label="Main navigation">
+        <a href="../index.html" class="navLogo" aria-label="Koffia — Trang chủ">
+          <span class="navLogoIcon" aria-hidden="true"
+            ><img
+              src="../assets/icons/logo.png"
+              alt=""
+              width="800"
+              height="800"
+          /></span>
+          <span>Koffia</span>
+        </a>
+        <ul class="navMenu" role="list">
+          <li><a href="../index.html" class="navLink">Trang Chủ</a></li>
+          <li>
+            <a href="menu.html" class="navLink">Thực Đơn</a>
+          </li>
+          <li><a href="aboutUs.html" class="navLink">Giới Thiệu</a></li>
+          <li><a href="contact.html" class="navLink">Liên Hệ</a></li>
+        </ul>
+        <div class="navActions">
+          <a href="auth.html" id="navLoginBtn" class="navLoginBtn">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Đăng Nhập
+          </a>
+          <button
+            id="navAvatarBtn"
+            class="navAvatarBtn"
+            style="display: none"
+            aria-label="Tài khoản của tôi"
+          >
+            <img id="navAvatarImg" class="navAvatarImg" src="" alt="Avatar" />
+          </button>
+          <button
+            id="cartOpenBtn"
+            class="navCartBtn"
+            hidden
+            aria-label="Mở giỏ hàng"
+          >
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span id="cartBadge" class="navCartBadge" style="display: none"
+              >0</span
+            >
+          </button>
+          <button
+            id="navHamburger"
+            class="navHamburger"
+            aria-label="Mở menu"
+            aria-expanded="false"
+          >
+            <span class="hamLine hamLineLight"></span>
+            <span class="hamLine hamLineLight"></span>
+            <span class="hamLine hamLineLight"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div
+      id="navDrawer"
+      class="navDrawer"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <div class="navDrawerOverlay"></div>
+      <nav class="navDrawerPanel">
+        <a href="../index.html" class="drawerNavLink"
+          ><i class="fa-solid fa-house fa-fw"></i> Trang Chủ</a
+        >
+        <a href="menu.html" class="drawerNavLink"
+          ><i class="fa-solid fa-utensils fa-fw"></i> Thực Đơn</a
+        >
+        <a href="aboutUs.html" class="drawerNavLink"
+          ><i class="fa-solid fa-circle-info fa-fw"></i> Giới Thiệu</a
+        >
+        <a href="contact.html" class="drawerNavLink"
+          ><i class="fa-solid fa-envelope fa-fw"></i> Liên Hệ</a
+        >
+        <button
+          id="drawerThemeToggleBtn"
+          class="drawerNavLink drawerThemeToggle"
+          type="button"
+          aria-label="Đổi giao diện Sáng / Tối"
+        >
+          <span class="drawerThemeLabel">
+            <i class="fa-solid fa-moon fa-fw"></i>
+            <span class="drawerThemeText">Chế độ Ban đêm</span>
+          </span>
+          <span class="themePillIndicator" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent">
+      <div class="pageHero" role="banner">
+        <h1 class="pageHeroTitle">
+          <i class="fa-solid fa-credit-card" aria-hidden="true"></i> Thanh Toán
+        </h1>
+        <nav class="pageHeroBreadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html" class="breadcrumbLink">Trang Chủ</a>
+          <span class="breadcrumbSep" aria-hidden="true">›</span>
+          <a href="cart.html" class="breadcrumbLink">Giỏ Hàng</a>
+          <span class="breadcrumbSep" aria-hidden="true">›</span>
+          <span aria-current="page">Thanh Toán</span>
+        </nav>
+      </div>
+
+      <section id="checkoutPage">
+        <div class="container">
+          <!-- Step Indicator -->
+          <nav class="checkoutSteps" aria-label="Tiến trình đặt hàng">
+            <a href="cart.html" class="checkoutStepItem stepDone">
+              <span class="checkoutStepNum"
+                ><i class="fa-solid fa-check"></i
+              ></span>
+              <span>1. Giỏ Hàng</span>
+            </a>
+            <div class="checkoutStepLine lineActive"></div>
+            <div class="checkoutStepItem stepActive">
+              <span class="checkoutStepNum">2</span>
+              <span>2. Thanh Toán & Địa Chỉ</span>
+            </div>
+            <div class="checkoutStepLine"></div>
+            <div class="checkoutStepItem">
+              <span class="checkoutStepNum">3</span>
+              <span>3. Hoàn Tất Đơn</span>
+            </div>
+          </nav>
+
+          <!-- Order Success View (Hidden by default) -->
+          <div id="checkoutSuccessView" class="checkoutSuccessCard" hidden>
+            <div class="checkoutSuccessIcon">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <h2 class="checkoutSuccessTitle">Đặt Đơn Hàng Thành Công!</h2>
+            <p style="color: var(--colorGray600)">
+              Cảm ơn bạn đã lựa chọn Koffia. Đơn hàng của bạn đã được tiếp nhận
+              và đang chuẩn bị pha chế.
+            </p>
+
+            <div class="checkoutSuccessOrderCode">
+              Mã đơn: <span id="successOrderCode">KOF00000000</span>
+            </div>
+
+            <div class="checkoutSuccessDetails">
+              <div class="checkoutSuccessRow">
+                <span>Người nhận:</span>
+                <strong id="successCustomerName">--</strong>
+              </div>
+              <div class="checkoutSuccessRow">
+                <span>Số điện thoại:</span>
+                <strong id="successCustomerPhone">--</strong>
+              </div>
+              <div class="checkoutSuccessRow">
+                <span>Địa chỉ giao hàng:</span>
+                <strong
+                  id="successCustomerAddress"
+                  style="text-align: right; max-width: 60%"
+                  >--</strong
+                >
+              </div>
+              <div class="checkoutSuccessRow">
+                <span>Thời gian giao hàng:</span>
+                <strong id="successDeliverySchedule">Giao ngay (15 – 20 phút)</strong>
+              </div>
+              <div class="checkoutSuccessRow">
+                <span>Phương thức thanh toán:</span>
+                <strong id="successPaymentMethod">--</strong>
+              </div>
+              <div class="checkoutSuccessRow">
+                <span>Tổng thanh toán:</span>
+                <strong
+                  id="successOrderTotal"
+                  style="color: var(--colorAccent); font-size: 1.1rem"
+                  >0 ₫</strong
+                >
+              </div>
+            </div>
+
+            <!-- VietQR Container (Shown if bank transfer selected) -->
+            <div
+              id="successVietQRBox"
+              class="vietqrBox"
+              style="display: none; margin-bottom: var(--space6)"
+            >
+              <h4 style="color: var(--colorEspresso); margin: 0">
+                <i class="fa-solid fa-qrcode"></i> Quét mã VietQR để thanh toán
+              </h4>
+              <p style="font-size: 12px; color: var(--colorGray500); margin: 0">
+                Mở ứng dụng ngân hàng và quét mã bên dưới để chuyển khoản tự động
+              </p>
+              <img
+                id="successVietQRImg"
+                class="vietqrImg"
+                src=""
+                alt="Mã VietQR thanh toán"
+              />
+              <div class="vietqrDetails">
+                <div class="vietqrRow">
+                  <span>Ngân hàng:</span><strong>MB Bank (Quân Đội)</strong>
+                </div>
+                <div class="vietqrRow">
+                  <span>Số tài khoản:</span><strong>0901234567</strong>
+                </div>
+                <div class="vietqrRow">
+                  <span>Chủ tài khoản:</span><strong>KOFFIA VIETNAM</strong>
+                </div>
+                <div class="vietqrRow">
+                  <span>Nội dung:</span><strong id="successQRContent">--</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="orderActions">
+              <a href="orders.html" class="btnPrimary">
+                <i class="fa-solid fa-clock-rotate-left"></i> Xem lịch sử đơn
+                hàng
+              </a>
+              <a href="menu.html" class="btnSecondary">
+                <i class="fa-solid fa-mug-hot"></i> Đặt thêm món
+              </a>
+              <a href="../index.html" class="btnSecondary">
+                <i class="fa-solid fa-house"></i> Về trang chủ
+              </a>
+            </div>
+          </div>
+
+          <!-- Checkout Layout -->
+          <div id="checkoutMainLayout" class="checkoutLayout">
+            <!-- Left Column: Checkout Forms -->
+            <form id="checkoutForm">
+              <!-- Card 1: Receiver Information -->
+              <section class="checkoutCard">
+                <div class="checkoutCardHeader">
+                  <div class="checkoutCardIcon">
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+                  <div>
+                    <h2 class="checkoutCardTitle">1. Thông tin người nhận</h2>
+                    <p class="checkoutCardSubtitle">
+                      Thông tin liên lạc khi shipper giao đồ uống
+                    </p>
+                  </div>
+                </div>
+
+                <div class="checkoutFormGrid">
+                  <div class="checkoutFormGroup">
+                    <label class="checkoutLabel" for="checkoutName">
+                      Họ và tên <span class="reqStar">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="checkoutName"
+                      class="checkoutInput"
+                      placeholder="Ví dụ: Nguyễn Văn A"
+                      required
+                      autocomplete="name"
+                    />
+                  </div>
+
+                  <div class="checkoutFormGroup">
+                    <label class="checkoutLabel" for="checkoutPhone">
+                      Số điện thoại <span class="reqStar">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="checkoutPhone"
+                      class="checkoutInput"
+                      placeholder="Ví dụ: 0901 234 567"
+                      required
+                      autocomplete="tel"
+                    />
+                  </div>
+
+                  <div class="checkoutFormGroup colFull">
+                    <label class="checkoutLabel" for="checkoutEmail">
+                      Email nhận hóa đơn (tùy chọn)
+                    </label>
+                    <input
+                      type="email"
+                      id="checkoutEmail"
+                      class="checkoutInput"
+                      placeholder="name@example.com"
+                      autocomplete="email"
+                    />
+                  </div>
+                </div>
+              </section>
+
+              <!-- Card 2: Address Selection (Vietnam 3-Tier Selector + Map) -->
+              <section class="checkoutCard">
+                <div class="checkoutCardHeader">
+                  <div class="checkoutCardIcon">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <h2 class="checkoutCardTitle">2. Địa chỉ nhận hàng</h2>
+                    <p class="checkoutCardSubtitle">
+                      Chọn địa chỉ đã lưu trong 1 chạm, chọn theo Tỉnh/TP hoặc ghim trên Bản đồ
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Sổ địa chỉ đã lưu (1-Tap Saved Addresses) -->
+                <div id="checkoutSavedAddrWrap" class="checkoutSavedAddrWrap">
+                  <div class="checkoutSavedAddrHead">
+                    <span class="checkoutSavedAddrTitle">
+                      <i class="fa-solid fa-bookmark" aria-hidden="true"></i> Địa chỉ đã lưu
+                    </span>
+                    <a href="account.html#accountAddressBookCard" class="checkoutSavedAddrManage">
+                      Quản lý <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                  <div id="checkoutSavedAddrChips" class="checkoutSavedAddrChips" role="list"></div>
+                </div>
+
+                <div class="checkoutFormGrid">
+                  <!-- Country Locked to Vietnam -->
+                  <div class="checkoutFormGroup colFull">
+                    <label class="checkoutLabel">
+                      Quốc gia <span class="reqStar">*</span>
+                    </label>
+                    <div class="countryLockedBox">
+                      <span class="countryFlagBadge">
+                        <span class="countryFlag" role="img" aria-label="Cờ Việt Nam">🇻🇳</span>
+                        <span>Việt Nam</span>
+                      </span>
+                      <span class="countryLockedNotice">
+                        <i class="fa-solid fa-lock"></i> Chỉ giao hàng nội địa
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Province / City -->
+                  <div class="checkoutFormGroup">
+                    <label class="checkoutLabel" for="checkoutProvince">
+                      Tỉnh / Thành phố <span class="reqStar">*</span>
+                    </label>
+                    <select
+                      id="checkoutProvince"
+                      class="checkoutSelect"
+                      required
+                    >
+                      <option value="">-- Chọn Tỉnh / Thành phố --</option>
+                    </select>
+                  </div>
+
+                  <!-- District -->
+                  <div class="checkoutFormGroup">
+                    <label class="checkoutLabel" for="checkoutDistrict">
+                      Quận / Huyện <span class="reqStar">*</span>
+                    </label>
+                    <select
+                      id="checkoutDistrict"
+                      class="checkoutSelect"
+                      required
+                      disabled
+                    >
+                      <option value="">-- Chọn Quận / Huyện --</option>
+                    </select>
+                  </div>
+
+                  <!-- Ward -->
+                  <div class="checkoutFormGroup">
+                    <label class="checkoutLabel" for="checkoutWard">
+                      Phường / Xã <span class="reqStar">*</span>
+                    </label>
+                    <select
+                      id="checkoutWard"
+                      class="checkoutSelect"
+                      required
+                      disabled
+                    >
+                      <option value="">-- Chọn Phường / Xã --</option>
+                    </select>
+                  </div>
+
+                  <!-- Street / House Number -->
+                  <div class="checkoutFormGroup">
+                    <label class="checkoutLabel" for="checkoutStreet">
+                      Số nhà, Tên đường <span class="reqStar">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="checkoutStreet"
+                      class="checkoutInput"
+                      placeholder="Ví dụ: Số 24, ngõ 18, đường Kim Mã..."
+                      required
+                      autocomplete="street-address"
+                    />
+                  </div>
+
+                  <!-- Map Picker Row -->
+                  <div class="checkoutFormGroup colFull">
+                    <div class="mapTriggerRow">
+                      <div class="mapTriggerNotice">
+                        <i class="fa-solid fa-map-pin"></i>
+                        <span>
+                          Bạn có thể định vị hoặc ghim chính xác vị trí nhà trên
+                          Bản đồ vệ tinh
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        id="openMapBtn"
+                        class="btnMapSelect"
+                      >
+                        <i class="fa-solid fa-map-location-dot"></i> Chọn trên
+                        Bản đồ
+                      </button>
+                    </div>
+
+                    <!-- Full Address Preview Card -->
+                    <div id="fullAddressPreview" class="fullAddressPreview">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <div id="fullAddressText">
+                        Chưa hoàn tất địa chỉ. Vui lòng chọn Tỉnh, Quận, Phường
+                        và điền Số nhà / Đường.
+                      </div>
+                    </div>
+
+                    <!-- Quick Save to Address Book -->
+                    <div class="checkoutSaveAddrRow">
+                      <label class="addrDefaultCheck" for="checkoutSaveToBook">
+                        <input type="checkbox" id="checkoutSaveToBook" />
+                        <span>Lưu địa chỉ này vào Sổ địa chỉ cho lần đặt sau</span>
+                      </label>
+                      <div id="checkoutSaveAddrLabels" class="checkoutSaveAddrLabels" hidden>
+                        <button type="button" class="drinkPrefPill isSelected" data-save-addr-label="Nhà riêng">Nhà riêng</button>
+                        <button type="button" class="drinkPrefPill" data-save-addr-label="Công ty">Công ty</button>
+                        <button type="button" class="drinkPrefPill" data-save-addr-label="Trường học">Trường học</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Card 3: Delivery Time Schedule (Hẹn giờ giao hàng) -->
+              <section class="checkoutCard" id="checkoutScheduleCard">
+                <div class="checkoutCardHeader">
+                  <div class="checkoutCardIcon">
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div>
+                    <h2 class="checkoutCardTitle">3. Thời gian giao hàng</h2>
+                    <p class="checkoutCardSubtitle">
+                      Nhận đồ uống ngay trong 15 – 20 phút hoặc hẹn khung giờ phù hợp
+                    </p>
+                  </div>
+                </div>
+
+                <div class="scheduleModeSegment" role="tablist" aria-label="Chế độ giao hàng">
+                  <button
+                    type="button"
+                    class="scheduleModeBtn isActive"
+                    data-schedule-mode="now"
+                    role="tab"
+                    aria-selected="true"
+                  >
+                    <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                    <span>Giao ngay</span>
+                    <small>15 – 20 phút</small>
+                  </button>
+                  <button
+                    type="button"
+                    class="scheduleModeBtn"
+                    data-schedule-mode="scheduled"
+                    role="tab"
+                    aria-selected="false"
+                  >
+                    <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+                    <span>Hẹn giờ giao</span>
+                    <small>Chọn khung giờ</small>
+                  </button>
+                </div>
+
+                <div id="schedulePickerPanel" class="schedulePickerPanel" hidden>
+                  <div class="scheduleDayRow" role="group" aria-label="Ngày giao hàng">
+                    <button type="button" class="drinkPrefPill isSelected" data-schedule-day="today">Hôm nay</button>
+                    <button type="button" class="drinkPrefPill" data-schedule-day="tomorrow">Ngày mai</button>
+                  </div>
+                  <div id="scheduleSlotsGrid" class="scheduleSlotsGrid" role="radiogroup" aria-label="Khung giờ giao hàng"></div>
+                </div>
+              </section>
+
+              <!-- Card 4: Payment Method -->
+              <section class="checkoutCard">
+                <div class="checkoutCardHeader">
+                  <div class="checkoutCardIcon">
+                    <i class="fa-solid fa-wallet"></i>
+                  </div>
+                  <div>
+                    <h2 class="checkoutCardTitle">
+                      4. Phương thức thanh toán
+                    </h2>
+                    <p class="checkoutCardSubtitle">
+                      Chọn hình thức thanh toán thuận tiện nhất cho bạn
+                    </p>
+                  </div>
+                </div>
+
+                <div class="paymentOptions">
+                  <!-- Option 1: COD -->
+                  <label
+                    class="paymentOptionItem paymentSelected"
+                    data-method="cod"
+                  >
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="cod"
+                      class="paymentRadio"
+                      checked
+                    />
+                    <div class="paymentOptionContent">
+                      <div class="paymentOptionTitle">
+                        <span>
+                          <i
+                            class="fa-solid fa-money-bill-wave"
+                            style="color: #2e7d32; margin-right: 6px"
+                          ></i>
+                          Thanh toán tiền mặt khi nhận hàng (COD)
+                        </span>
+                        <span class="paymentOptionBadge">Phổ biến</span>
+                      </div>
+                      <p class="paymentOptionDesc">
+                        Nhận đồ uống tận nơi, kiểm tra món và thanh toán trực
+                        tiếp cho nhân viên giao hàng.
+                      </p>
+                    </div>
+                  </label>
+
+                  <!-- Option 2: VietQR -->
+                  <label class="paymentOptionItem" data-method="vietqr">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="vietqr"
+                      class="paymentRadio"
+                    />
+                    <div class="paymentOptionContent">
+                      <div class="paymentOptionTitle">
+                        <span>
+                          <i
+                            class="fa-solid fa-qrcode"
+                            style="color: #e65100; margin-right: 6px"
+                          ></i>
+                          Chuyển khoản Ngân hàng (Mã VietQR 24/7)
+                        </span>
+                        <span
+                          class="paymentOptionBadge"
+                          style="background: #e3f2fd; color: #1565c0"
+                          >Miễn phí GD</span
+                        >
+                      </div>
+                      <p class="paymentOptionDesc">
+                        Quét mã VietQR trên bất kỳ ứng dụng ngân hàng nào (MB,
+                        Vietcombank, Techcombank...). Tự động khớp số tiền.
+                      </p>
+                    </div>
+                  </label>
+
+                  <!-- Option 3: E-Wallet -->
+                  <label class="paymentOptionItem" data-method="wallet">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="wallet"
+                      class="paymentRadio"
+                    />
+                    <div class="paymentOptionContent">
+                      <div class="paymentOptionTitle">
+                        <span>
+                          <i
+                            class="fa-solid fa-mobile-screen"
+                            style="color: #c2185b; margin-right: 6px"
+                          ></i>
+                          Ví điện tử (MoMo / ZaloPay / VNPay)
+                        </span>
+                      </div>
+                      <p class="paymentOptionDesc">
+                        Thanh toán nhanh chóng qua ví điện tử liên kết.
+                      </p>
+                    </div>
+                  </label>
+                </div>
+              </section>
+
+              <!-- Card 4: Order Notes -->
+              <section class="checkoutCard">
+                <div class="checkoutCardHeader">
+                  <div class="checkoutCardIcon">
+                    <i class="fa-solid fa-pen"></i>
+                  </div>
+                  <div>
+                    <h2 class="checkoutCardTitle">5. Ghi chú giao hàng</h2>
+                    <p class="checkoutCardSubtitle">
+                      Lời nhắn gửi quán pha chế hoặc nhân viên giao nhận
+                    </p>
+                  </div>
+                </div>
+
+                <div class="checkoutFormGroup">
+                  <textarea
+                    id="checkoutNote"
+                    class="checkoutTextarea"
+                    placeholder="Ví dụ: Gọi điện thoại trước khi giao 5 phút, để ở sảnh lễ tân tầng 1, mang theo túi giữ nhiệt..."
+                  ></textarea>
+                </div>
+              </section>
+            </form>
+
+            <!-- Right Column: Order Review Sidebar -->
+            <aside class="orderReviewCard">
+              <div class="orderReviewHeader">
+                <h3 class="orderReviewTitle">Đơn hàng của bạn</h3>
+                <span id="reviewItemCount" class="orderReviewCount">0 món</span>
+              </div>
+
+              <!-- Compact Item List -->
+              <div id="checkoutItemsList" class="orderReviewList">
+                <!-- Populated dynamically -->
+              </div>
+
+              <!-- Voucher Box ngay trên trang Thanh Toán -->
+              <div class="checkoutVoucherBox" id="checkoutVoucherBox">
+                <div class="voucherInputRow">
+                  <div class="voucherInputWrapper">
+                    <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+                    <input
+                      type="text"
+                      id="checkoutVoucherInput"
+                      placeholder="Nhập mã voucher..."
+                      autocomplete="off"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    id="checkoutApplyVoucherBtn"
+                    class="btnSecondary applyVoucherBtn"
+                  >
+                    Áp Dụng
+                  </button>
+                </div>
+                <div
+                  id="checkoutAppliedVoucherTag"
+                  class="appliedVoucherTag"
+                  style="display: none"
+                >
+                  <div class="appliedVoucherInfo">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                    <span id="checkoutAppliedVoucherLabel">Đang áp dụng</span>
+                  </div>
+                  <button
+                    type="button"
+                    id="checkoutRemoveVoucherBtn"
+                    class="removeVoucherBtn"
+                    title="Hủy mã"
+                    aria-label="Hủy mã giảm giá"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <button
+                  type="button"
+                  id="checkoutOpenVoucherPickerBtn"
+                  class="openVoucherPickerBtn"
+                >
+                  <i class="fa-solid fa-tags" aria-hidden="true"></i> Chọn từ kho voucher Koffia
+                </button>
+              </div>
+
+              <!-- Pricing Breakdown -->
+              <div class="orderReviewBreakdown">
+                <div class="orderReviewRow">
+                  <span>Tạm tính món</span>
+                  <strong id="reviewSubtotal">0 ₫</strong>
+                </div>
+                <div class="orderReviewRow">
+                  <span>Thời gian giao</span>
+                  <strong id="reviewScheduleText">Giao ngay (15–20p)</strong>
+                </div>
+                <div class="orderReviewRow orderReviewRewardRow">
+                  <span><i class="fa-solid fa-crown" aria-hidden="true"></i> Điểm Koffia Rewards</span>
+                  <strong id="reviewEarnedPoints">+0 điểm</strong>
+                </div>
+
+                <div
+                  id="reviewFlashRow"
+                  class="orderReviewRow discountRow"
+                  style="display: none"
+                >
+                  <span>⚡ Flash Sale tiết kiệm</span>
+                  <strong id="reviewFlashDiscount">-0 ₫</strong>
+                </div>
+
+                <div
+                  id="reviewVoucherRow"
+                  class="orderReviewRow discountRow"
+                  style="display: none"
+                >
+                  <span id="reviewVoucherLabel">🎟️ Voucher giảm giá</span>
+                  <strong id="reviewVoucherDiscount">-0 ₫</strong>
+                </div>
+
+                <div class="orderReviewRow">
+                  <span>Phí giao hàng</span>
+                  <strong id="reviewShippingFee">15.000 ₫</strong>
+                </div>
+
+                <div class="orderReviewRowTotal">
+                  <span>Tổng thanh toán</span>
+                  <span id="reviewTotal">0 ₫</span>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                form="checkoutForm"
+                id="placeOrderBtn"
+                class="btnPrimary btnPlaceOrder"
+              >
+                <i class="fa-solid fa-check"></i> Xác Nhận Đặt Hàng
+              </button>
+
+              <a href="cart.html" class="backToCartLink">
+                <i class="fa-solid fa-arrow-left"></i> Quay lại chỉnh sửa giỏ
+                hàng
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Checkout Voucher Picker Modal -->
+      <div
+        id="checkoutVoucherModal"
+        class="voucherModal"
+        style="display: none"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Chọn mã giảm giá"
+      >
+        <div class="voucherModalOverlay" id="checkoutVoucherOverlay"></div>
+        <div class="voucherModalCard">
+          <div class="voucherModalHeader">
+            <h3>
+              <i class="fa-solid fa-ticket" aria-hidden="true"></i> Chọn Mã Giảm Giá
+            </h3>
+            <button
+              type="button"
+              id="closeCheckoutVoucherModalBtn"
+              class="closeModalBtn"
+              aria-label="Đóng"
+            >
+              &times;
+            </button>
+          </div>
+          <div id="checkoutVoucherModalList" class="voucherModalList"></div>
+        </div>
+      </div>
+
+      <!-- MAP PICKER MODAL WINDOW (trong <main> để tương thích SPA Router) -->
+      <div
+        id="mapPickerModal"
+        class="mapPickerModal"
+        style="display: none"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mapModalTitle"
+      >
+        <div class="mapPickerOverlay" id="mapPickerOverlay"></div>
+        <div class="mapPickerCard">
+          <!-- Header -->
+          <div class="mapPickerHeader">
+            <div class="mapPickerTitleWrapper">
+              <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+              <div>
+                <h3 id="mapModalTitle">Chọn vị trí giao hàng trên Bản đồ</h3>
+                <p class="mapModalSubtitle">
+                  Nhấp chuột hoặc kéo ghim để xác định vị trí nhà của bạn
+                </p>
+              </div>
+            </div>
+            <div class="mapPickerHeaderActions">
+              <button
+                type="button"
+                id="mapEngineToggleBtn"
+                class="mapEngineToggleBtn"
+                title="Cài đặt Google Maps API Key"
+              >
+                <i class="fa-brands fa-google"></i> Google Maps Key
+              </button>
+              <button
+                type="button"
+                id="closeMapModalBtn"
+                class="closeModalBtn"
+                aria-label="Đóng"
+              >
+                &times;
+              </button>
+            </div>
+          </div>
+
+          <!-- Google Maps API Key Configuration Box -->
+          <div id="gmapsKeyBox" class="gmapsKeyBox" style="display: none">
+            <label for="gmapsKeyInput">
+              <i class="fa-solid fa-key"></i> Nhập Google Maps API Key của bạn:
+            </label>
+            <div class="gmapsKeyInputRow">
+              <input
+                type="text"
+                id="gmapsKeyInput"
+                placeholder="Dán mã API Key (AIzaSy...)"
+                autocomplete="off"
+              />
+              <button type="button" id="saveGmapsKeyBtn" class="btnSecondary">
+                Lưu Key
+              </button>
+              <button
+                type="button"
+                id="removeGmapsKeyBtn"
+                class="btnSecondary"
+                style="color: #b71c1c"
+              >
+                Xóa Key
+              </button>
+            </div>
+            <div class="gmapsKeyStatus" id="gmapsKeyStatus">
+              Mặc định đang sử dụng OpenStreetMap (hoạt động miễn phí, không cần
+              key). Nếu bạn có Google Maps Key, dán vào để chuyển sang Google Maps
+              SDK.
+            </div>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="mapToolbar">
+            <div class="mapSearchBox">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input
+                type="text"
+                id="mapSearchInput"
+                placeholder="Tìm kiếm địa chỉ, phố, địa danh tại Việt Nam..."
+              />
+              <button
+                type="button"
+                id="mapSearchBtn"
+                class="btnSecondary mapSearchBtn"
+              >
+                Tìm
+              </button>
+            </div>
+            <button
+              type="button"
+              id="mapGeoBtn"
+              class="btnSecondary mapGeoBtn"
+              title="Định vị vị trí hiện tại của tôi"
+            >
+              <i class="fa-solid fa-crosshairs"></i> Vị trí của tôi
+            </button>
+          </div>
+
+          <!-- Canvas -->
+          <div id="mapCanvas" class="mapCanvas"></div>
+
+          <!-- Selected Address Footer -->
+          <div class="mapSelectedBar">
+            <div class="mapSelectedInfo">
+              <i class="fa-solid fa-location-dot"></i>
+              <div class="mapSelectedText">
+                <span class="mapSelectedLabel">Địa chỉ đã ghim:</span>
+                <strong id="mapSelectedAddress">Đang tải vị trí...</strong>
+                <span id="mapSelectedCoords" class="mapSelectedCoords"></span>
+              </div>
+            </div>
+            <div class="mapActions">
+              <button type="button" id="cancelMapBtn" class="btnSecondary">
+                Hủy
+              </button>
+              <button type="button" id="confirmMapBtn" class="btnPrimary">
+                <i class="fa-solid fa-check"></i> Xác nhận vị trí này
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="siteFooter" role="contentinfo">
+      <div class="container">
+        <div class="footerGrid">
+          <div class="footerBrand">
+            <a href="../index.html" class="navLogo">
+              <span class="navLogoIcon" aria-hidden="true"
+                ><img
+                  src="../assets/icons/logo.png"
+                  alt=""
+                  width="800"
+                  height="800"
+              /></span>
+              <span>Koffia</span>
+            </a>
+            <p class="footerTagline">
+              Đặt đồ uống online nhanh gọn — chọn món, tùy chỉnh, thêm vào giỏ
+              và xác nhận đơn ngay trên website.
+            </p>
+          </div>
+          <nav aria-label="Footer navigation">
+            <h3 class="footerHeading">Liên kết</h3>
+            <ul class="footerLinkList">
+              <li>
+                <a href="../index.html" class="footerLinkItem">Trang Chủ</a>
+              </li>
+              <li><a href="menu.html" class="footerLinkItem">Thực Đơn</a></li>
+              <li>
+                <a href="aboutUs.html" class="footerLinkItem">Giới Thiệu</a>
+              </li>
+              <li><a href="contact.html" class="footerLinkItem">Liên Hệ</a></li>
+            </ul>
+          </nav>
+          <address>
+            <h3 class="footerHeading">Hỗ trợ giao hàng</h3>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+84901234567" style="color: inherit">0901 234 567</a>
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:hello@koffia.vn" style="color: inherit"
+                >hello@koffia.vn</a
+              >
+            </div>
+          </address>
+        </div>
+        <div class="footerBottom">
+          <p class="footerCopyright">© 2026 Koffia. Đặt đồ uống online.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+    <!-- Leaflet JS from CDN -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      crossorigin=""
+    ></script>
+
+    <script src="../js/productImages.js?v=8.1" defer></script>
+    <script src="../js/main.js?v=8.1" defer></script>
+    <script src="../js/checkout.js?v=8.1" defer></script>
+  </body>
+</html>

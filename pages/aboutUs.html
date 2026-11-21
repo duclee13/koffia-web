@@ -1,0 +1,372 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Về Koffia — Website đặt đồ uống online giúp người dùng khám phá thực đơn, tùy chỉnh món, quản lý giỏ hàng và xác nhận đơn nhanh chóng."
+    />
+    <title>Về Koffia — Đặt đồ uống online</title>
+
+    
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/pagesStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+  
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/175b48673e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header id="navBar" class="navScrolled" role="banner">
+      <nav class="navInner" aria-label="Main navigation">
+        <a href="../index.html" class="navLogo" aria-label="Koffia — Trang chủ">
+          <span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span>
+          <span>Koffia</span>
+        </a>
+        <ul class="navMenu" role="list">
+          <li><a href="../index.html" class="navLink">Trang Chủ</a></li>
+          <li><a href="menu.html" class="navLink">Thực Đơn</a></li>
+          <li>
+            <a href="aboutUs.html" class="navLink navLinkActive">Giới Thiệu</a>
+          </li>
+          <li><a href="contact.html" class="navLink">Liên Hệ</a></li>
+        </ul>
+        <div class="navActions">
+          <a href="auth.html" id="navLoginBtn" class="navLoginBtn">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Đăng Nhập
+          </a>
+          <button
+            id="navAvatarBtn"
+            class="navAvatarBtn"
+            style="display: none"
+            aria-label="Tài khoản của tôi"
+          >
+            <img id="navAvatarImg" class="navAvatarImg" src="" alt="Avatar" />
+          </button>
+          <button id="cartOpenBtn" class="navCartBtn" hidden aria-label="Mở giỏ hàng">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span id="cartBadge" class="navCartBadge" style="display: none"
+              >0</span
+            >
+          </button>
+          <button
+            id="navHamburger"
+            class="navHamburger"
+            aria-label="Mở menu"
+            aria-expanded="false"
+          >
+            <span class="hamLine"></span><span class="hamLine"></span
+            ><span class="hamLine"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <div
+      id="navDrawer"
+      class="navDrawer"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <div class="navDrawerOverlay"></div>
+      <nav class="navDrawerPanel">
+        <a href="../index.html" class="drawerNavLink"
+          ><i class="fa-solid fa-house fa-fw"></i> Trang Chủ</a
+        >
+        <a href="menu.html" class="drawerNavLink"
+          ><i class="fa-solid fa-utensils fa-fw"></i> Thực Đơn</a
+        >
+        <a href="aboutUs.html" class="drawerNavLink navLinkActive"
+          ><i class="fa-solid fa-circle-info fa-fw"></i> Giới Thiệu</a
+        >
+        <a href="contact.html" class="drawerNavLink"
+          ><i class="fa-solid fa-envelope fa-fw"></i> Liên Hệ</a
+        >
+        <button
+          id="drawerThemeToggleBtn"
+          class="drawerNavLink drawerThemeToggle"
+          type="button"
+          aria-label="Đổi giao diện Sáng / Tối"
+        >
+          <span class="drawerThemeLabel">
+            <i class="fa-solid fa-moon fa-fw"></i>
+            <span class="drawerThemeText">Chế độ Ban đêm</span>
+          </span>
+          <span class="themePillIndicator" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+
+    <aside
+      id="cartDrawer"
+      role="dialog"
+      aria-label="Giỏ hàng"
+      aria-modal="true"
+    >
+      <div class="cartOverlay"></div>
+      <div class="cartPanel">
+        <div class="cartHeader">
+          <h2 class="cartTitle">
+            <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
+          </h2>
+          <button id="cartCloseBtn" class="cartCloseBtn" aria-label="Đóng">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="cartBody" class="cartBody"></div>
+        <div class="cartFooter">
+          <div class="cartTotalRow">
+            <span class="cartTotalLabel">Tổng cộng</span>
+            <span id="cartTotalAmount" class="cartTotalAmount">0 ₫</span>
+          </div>
+          <a class="btnPrimary cartCheckoutBtn" href="cart.html"><i class="fa-solid fa-bag-shopping"></i> Xem giỏ &amp; đặt đơn</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <div class="pageHero" role="banner">
+        <h1 class="pageHeroTitle"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> Về Koffia</h1>
+        <nav class="pageHeroBreadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html" class="breadcrumbLink">Trang Chủ</a>
+          <span class="breadcrumbSep" aria-hidden="true">›</span>
+          <span aria-current="page">Giới Thiệu</span>
+        </nav>
+      </div>
+
+      <section class="storySection" aria-labelledby="storyHeading1">
+        <div class="container">
+          <div class="storyRow">
+            <div class="storyContent revealLeft">
+              <p class="storyEyebrow"><i class="fa-solid fa-laptop" aria-hidden="true"></i> Koffia là gì?</p>
+              <h2 id="storyHeading1" class="storyTitle">Một website đặt đồ uống<br /><em>đơn giản và dễ dùng</em></h2>
+              <p class="storyText">Koffia được xây dựng như một nền tảng đặt đồ uống online, nơi người dùng có thể xem thực đơn, tìm món theo danh mục, đọc thông tin sản phẩm và thêm món vào giỏ ngay trên trình duyệt.</p>
+              <p class="storyText">Koffia tập trung vào <strong>trải nghiệm đặt món trực tuyến</strong>: ít bước, thông tin rõ ràng và thao tác quen thuộc trên cả máy tính lẫn điện thoại.</p>
+              <div class="storyHighlight">
+                <i class="fa-solid fa-bolt storyHighlightIcon" aria-hidden="true"></i>
+                <p class="storyHighlightText">Mục tiêu của Koffia là giúp người dùng đi từ <strong>“muốn uống gì đó”</strong> đến <strong>“đơn đã được xác nhận”</strong> theo một luồng thật gọn.</p>
+              </div>
+            </div>
+            <div class="storyImgWrapper revealRight">
+              <div class="storyImgFrame"><img src="../assets/images/heroBanner.jpg" alt="Đồ uống Koffia trên giao diện đặt món online" loading="lazy" /></div>
+              <div class="storyImgBadge" aria-hidden="true"><div class="storyImgBadgeNum">100</div><div class="storyImgBadgeLabel">Món trong dữ liệu</div></div>
+              <div class="storyImgAccent" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="storySection" aria-labelledby="storyHeading2">
+        <div class="container">
+          <div class="storyRow storyReverse">
+            <div class="storyImgWrapper revealLeft">
+              <div class="storyImgFrame"><img src="../assets/images/productLatte.jpg" alt="Minh họa đồ uống và các tùy chọn đặt món" loading="lazy" /></div>
+              <div class="storyImgBadge" aria-hidden="true"><div class="storyImgBadgeNum">4</div><div class="storyImgBadgeLabel">Nhóm tùy chọn</div></div>
+              <div class="storyImgAccent" aria-hidden="true"></div>
+            </div>
+            <div class="storyContent revealRight">
+              <p class="storyEyebrow"><i class="fa-solid fa-sliders" aria-hidden="true"></i> Đặt món theo cách của bạn</p>
+              <h2 id="storyHeading2" class="storyTitle">Không chỉ chọn món —<br /><em>còn chọn đúng gu</em></h2>
+              <p class="storyText">Mỗi sản phẩm có thể có các lựa chọn riêng như size, mức đường, mức đá và topping. Giá được cập nhật theo lựa chọn trước khi người dùng thêm món vào giỏ.</p>
+              <div class="storyFeatures">
+                <div class="storyFeatureItem"><i class="fa-solid fa-circle-check"></i><span>Lọc thực đơn theo 9 nhóm đồ uống.</span></div>
+                <div class="storyFeatureItem"><i class="fa-solid fa-circle-check"></i><span>Tìm nhanh theo tên, mô tả hoặc danh mục.</span></div>
+                <div class="storyFeatureItem"><i class="fa-solid fa-circle-check"></i><span>Tùy chỉnh size, đường, đá và topping ở trang chi tiết.</span></div>
+                <div class="storyFeatureItem"><i class="fa-solid fa-circle-check"></i><span>Giỏ hàng lưu bằng localStorage, không mất khi chuyển trang.</span></div>
+                <div class="storyFeatureItem"><i class="fa-solid fa-circle-check"></i><span>Giao diện responsive cho desktop, tablet và mobile.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="storySection" aria-labelledby="storyHeading3">
+        <div class="container">
+          <div class="storyRow">
+            <div class="storyContent revealLeft">
+              <p class="storyEyebrow"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Luồng đặt hàng</p>
+              <h2 id="storyHeading3" class="storyTitle">Đủ tính năng cần thiết,<br /><em>không làm quá phức tạp</em></h2>
+              <p class="storyText">Koffia tập trung vào các bước cốt lõi của một trải nghiệm đặt đồ uống online: xem sản phẩm, tùy chỉnh món, quản lý giỏ hàng, tài khoản và xác nhận thông tin nhận hàng.</p>
+              <p class="storyText">Ở phiên bản hiện tại, Koffia sử dụng hình thức xác nhận đơn và thanh toán khi nhận hàng, chưa tích hợp cổng thanh toán online hay theo dõi giao hàng thời gian thực.</p>
+              <div class="storyHighlight"><i class="fa-solid fa-route storyHighlightIcon"></i><p class="storyHighlightText">Mọi thao tác được thiết kế theo cùng một nguyên tắc: <strong>dễ hiểu, nhất quán và đủ rõ để người dùng hoàn tất đơn hàng</strong>.</p></div>
+            </div>
+            <div class="storyImgWrapper revealRight">
+              <div class="storyImgFrame"><img src="../assets/images/aboutStory.jpg" alt="Không gian minh họa cho trải nghiệm đồ uống Koffia" loading="lazy" /></div>
+              <div class="storyImgBadge" aria-hidden="true"><div class="storyImgBadgeNum">3</div><div class="storyImgBadgeLabel">Bước đặt món</div></div>
+              <div class="storyImgAccent" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ourValues" aria-labelledby="valuesHeading">
+        <div class="container">
+          <div class="sectionHeader revealUp">
+            <h2 id="valuesHeading" class="sectionTitle" style="color:var(--colorCream)">Koffia Có Gì?</h2>
+            <p class="sectionSubtitle" style="color:rgba(245,230,211,.65)">Các con số dưới đây lấy từ chính dữ liệu và luồng tính năng của website.</p>
+            <span class="titleUnderline" aria-hidden="true"></span>
+          </div>
+          <div class="valuesGrid" role="list" aria-label="Thông tin website Koffia">
+            <div class="valueCard revealUp" role="listitem"><div class="valueNumber">100</div><p class="valueLabel">Sản phẩm<br />trong dữ liệu</p></div>
+            <div class="valueCard revealUp" role="listitem"><div class="valueNumber">9</div><p class="valueLabel">Danh mục<br />đồ uống</p></div>
+            <div class="valueCard revealUp" role="listitem"><div class="valueNumber">4</div><p class="valueLabel">Nhóm tùy chọn<br />cho sản phẩm</p></div>
+            <div class="valueCard revealUp" role="listitem"><div class="valueNumber">3</div><p class="valueLabel">Bước chính<br />để đặt món</p></div>
+            <div class="valueCard revealUp" role="listitem"><div class="valueNumber">1</div><p class="valueLabel">Giỏ hàng<br />đồng bộ giữa trang</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ourTeam" aria-labelledby="teamHeading">
+        <div class="container">
+          <div class="sectionHeader revealUp">
+            <h2 id="teamHeading" class="sectionTitle">Đặt món với Koffia như thế nào?</h2>
+            <p class="sectionSubtitle">Bốn thao tác quen thuộc, không cần học cách dùng mới.</p>
+            <span class="titleUnderline" aria-hidden="true"></span>
+          </div>
+          <div class="teamGrid" role="list">
+            <article class="teamCard revealUp" role="listitem"><div class="teamAvatar" aria-hidden="true" style="background:linear-gradient(135deg,#4e342e,#6d4c41)">01</div><h3 class="teamName">Khám phá thực đơn</h3><p class="teamRole"><i class="fa-solid fa-magnifying-glass"></i> Tìm &amp; lọc</p><p class="teamBio">Duyệt 100 món, lọc theo danh mục, tìm kiếm và sắp xếp theo giá hoặc độ phổ biến.</p></article>
+            <article class="teamCard revealUp" role="listitem"><div class="teamAvatar" aria-hidden="true" style="background:linear-gradient(135deg,#8d6e63,#a1887f)">02</div><h3 class="teamName">Tùy chỉnh món</h3><p class="teamRole"><i class="fa-solid fa-sliders"></i> Đúng sở thích</p><p class="teamBio">Vào trang chi tiết để chọn size, đường, đá, topping và số lượng trước khi thêm vào giỏ.</p></article>
+            <article class="teamCard revealUp" role="listitem"><div class="teamAvatar" aria-hidden="true" style="background:linear-gradient(135deg,#e65100,#bf360c)">03</div><h3 class="teamName">Kiểm tra giỏ</h3><p class="teamRole"><i class="fa-solid fa-basket-shopping"></i> Quản lý dễ dàng</p><p class="teamBio">Tăng giảm số lượng, xóa món và xem tổng tiền được cập nhật ngay lập tức.</p></article>
+            <article class="teamCard revealUp" role="listitem"><div class="teamAvatar" aria-hidden="true" style="background:linear-gradient(135deg,#1b5e20,#2e7d32)">04</div><h3 class="teamName">Xác nhận đơn</h3><p class="teamRole"><i class="fa-solid fa-check"></i> Không thanh toán online</p><p class="teamBio">Nhập thông tin nhận hàng, xác nhận đơn và lưu mô phỏng bằng localStorage.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="aboutCtaSection" aria-label="Call to action">
+        <div class="container revealUp">
+          <h2 class="sectionTitle">Chọn món bạn thích ngay nhé</h2>
+          <p class="sectionSubtitle" style="margin-bottom:var(--space8)">Thực đơn đã sẵn sàng — lọc món, tùy chỉnh và thêm vào giỏ chỉ trong vài cú click.</p>
+          <a href="menu.html" class="btnPrimary" style="display:inline-flex;margin:0 auto"><i class="fa-solid fa-mug-hot"></i> Mở Thực Đơn</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="siteFooter" role="contentinfo">
+      <div class="container">
+        <div class="footerGrid">
+          <div class="footerBrand">
+            <a href="../index.html" class="navLogo"
+              ><span class="navLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span><span>Koffia</span></a
+            >
+            <p class="footerTagline">
+              Koffia là website đặt đồ uống online — chọn món, tùy chỉnh và xác nhận đơn thật gọn.
+            </p>
+            <div class="footerSocials">
+              <a href="#" class="footerSocialLink" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="footerSocialLink" aria-label="TikTok"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+          <nav aria-label="Footer navigation">
+            <h3 class="footerHeading">Liên kết</h3>
+            <ul class="footerLinkList">
+              <li>
+                <a href="../index.html" class="footerLinkItem">Trang Chủ</a>
+              </li>
+              <li><a href="menu.html" class="footerLinkItem">Thực Đơn</a></li>
+              <li>
+                <a href="aboutUs.html" class="footerLinkItem">Giới Thiệu</a>
+              </li>
+              <li><a href="contact.html" class="footerLinkItem">Liên Hệ</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Product categories">
+            <h3 class="footerHeading">Danh mục</h3>
+            <ul class="footerLinkList">
+              <li>
+                <a href="menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Cà
+                  phê</a
+                >
+              </li>
+              <li>
+                <a href="menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-mug-saucer" aria-hidden="true"></i> Trà
+                  sữa</a
+                >
+              </li>
+              <li>
+                <a href="menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-lemon" aria-hidden="true"></i> Nước
+                  ép</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <address>
+            <h3 class="footerHeading">Liên hệ</h3>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-headset"></i
+              ><span>Hỗ trợ đặt hàng online</span>
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-phone"></i
+              ><a href="tel:+84901234567" style="color: inherit"
+                >0901 234 567</a
+              >
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-envelope"></i
+              ><a href="mailto:hello@koffia.vn" style="color: inherit"
+                >hello@koffia.vn</a
+              >
+            </div>
+          </address>
+        </div>
+        <div class="footerBottom">
+          <p class="footerCopyright">© 2026 Koffia. Đặt đồ uống online.</p>
+          <div class="footerBottomLinks">
+            <a href="#" class="footerBottomLink">Điều khoản</a>
+            <a href="#" class="footerBottomLink">Bảo mật</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+    <script src="../js/productImages.js?v=8.1" defer></script>
+    <script src="../js/main.js?v=8.1" defer></script>
+  </body>
+</html>
+

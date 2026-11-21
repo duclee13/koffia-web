@@ -1,0 +1,298 @@
+[
+  {
+    "id": "fs001",
+    "name": "Flash Sale Giờ Vàng Hôm Nay",
+    "description": "Ưu đãi chớp nhoáng mừng tuần lễ cà phê — Giảm tới 35%!",
+    "startTime": "2024-01-01T00:00:00+07:00",
+    "endTime": "2030-12-31T23:59:59+07:00",
+    "products": [
+      {
+        "productId": "prod001",
+        "discountPercent": 30,
+        "maxQty": 50,
+        "soldQty": 28
+      },
+      {
+        "productId": "prod005",
+        "discountPercent": 25,
+        "maxQty": 40,
+        "soldQty": 19
+      },
+      {
+        "productId": "prod012",
+        "discountPercent": 35,
+        "maxQty": 30,
+        "soldQty": 22
+      },
+      {
+        "productId": "prod018",
+        "discountPercent": 20,
+        "maxQty": 60,
+        "soldQty": 15
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "fs002",
+    "name": "Happy Hour Chiều",
+    "description": "Giảm giá buổi chiều — nạp năng lượng cuối ngày!",
+    "startTime": "2026-11-05T14:00:00+07:00",
+    "endTime": "2026-11-05T18:00:00+07:00",
+    "products": [
+      {
+        "productId": "prod003",
+        "discountPercent": 30,
+        "maxQty": 35,
+        "soldQty": 5
+      },
+      {
+        "productId": "prod008",
+        "discountPercent": 40,
+        "maxQty": 20,
+        "soldQty": 3
+      },
+      {
+        "productId": "prod025",
+        "discountPercent": 25,
+        "maxQty": 45,
+        "soldQty": 7
+      },
+      {
+        "productId": "prod042",
+        "discountPercent": 30,
+        "maxQty": 30,
+        "soldQty": 0
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "fs003",
+    "name": "Weekend Chill Sale",
+    "description": "Cuối tuần thư giãn — deal hot không thể bỏ lỡ!",
+    "startTime": "2026-11-07T18:00:00+07:00",
+    "endTime": "2026-11-08T00:00:00+07:00",
+    "products": [
+      {
+        "productId": "prod010",
+        "discountPercent": 35,
+        "maxQty": 25,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod015",
+        "discountPercent": 30,
+        "maxQty": 40,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod030",
+        "discountPercent": 25,
+        "maxQty": 50,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod050",
+        "discountPercent": 40,
+        "maxQty": 15,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod068",
+        "discountPercent": 20,
+        "maxQty": 60,
+        "soldQty": 0
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "fs004",
+    "name": "Flash Sale Chủ Nhật Sáng",
+    "description": "Khởi đầu Chủ nhật với deal ngon lành!",
+    "startTime": "2026-11-08T07:00:00+07:00",
+    "endTime": "2026-11-08T12:00:00+07:00",
+    "products": [
+      {
+        "productId": "prod002",
+        "discountPercent": 30,
+        "maxQty": 40,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod020",
+        "discountPercent": 35,
+        "maxQty": 25,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod035",
+        "discountPercent": 25,
+        "maxQty": 50,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod055",
+        "discountPercent": 30,
+        "maxQty": 30,
+        "soldQty": 0
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "fs005",
+    "name": "Midnight Flash — Đêm Khuya Deal Khủng",
+    "description": "Dành cho cú đêm — giảm cực sâu từ 22h!",
+    "startTime": "2026-11-06T22:00:00+07:00",
+    "endTime": "2026-11-07T02:00:00+07:00",
+    "products": [
+      {
+        "productId": "prod007",
+        "discountPercent": 45,
+        "maxQty": 15,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod022",
+        "discountPercent": 40,
+        "maxQty": 20,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod045",
+        "discountPercent": 35,
+        "maxQty": 25,
+        "soldQty": 0
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "fs006",
+    "name": "Flash Sale Thứ 2 Năng Lượng",
+    "description": "Bắt đầu tuần mới với deal cà phê siêu hot!",
+    "startTime": "2026-11-09T08:00:00+07:00",
+    "endTime": "2026-11-09T13:00:00+07:00",
+    "products": [
+      {
+        "productId": "prod001",
+        "discountPercent": 25,
+        "maxQty": 80,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod004",
+        "discountPercent": 30,
+        "maxQty": 40,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod009",
+        "discountPercent": 20,
+        "maxQty": 60,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod016",
+        "discountPercent": 35,
+        "maxQty": 30,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod028",
+        "discountPercent": 25,
+        "maxQty": 50,
+        "soldQty": 0
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "fs007",
+    "name": "Trà Sữa Frenzy",
+    "description": "Đại tiệc trà sữa — toàn bộ trà sữa giảm sâu!",
+    "startTime": "2026-11-04T12:00:00+07:00",
+    "endTime": "2026-11-04T23:59:59+07:00",
+    "products": [
+      {
+        "productId": "prod031",
+        "discountPercent": 30,
+        "maxQty": 50,
+        "soldQty": 14
+      },
+      {
+        "productId": "prod032",
+        "discountPercent": 25,
+        "maxQty": 40,
+        "soldQty": 9
+      },
+      {
+        "productId": "prod033",
+        "discountPercent": 35,
+        "maxQty": 30,
+        "soldQty": 11
+      },
+      {
+        "productId": "prod034",
+        "discountPercent": 20,
+        "maxQty": 60,
+        "soldQty": 6
+      }
+    ],
+    "status": "active"
+  },
+  {
+    "id": "fs008",
+    "name": "11.11 Mega Flash Sale",
+    "description": "Ngày hội sale lớn nhất tháng 11!",
+    "startTime": "2026-11-11T00:00:00+07:00",
+    "endTime": "2026-11-11T23:59:59+07:00",
+    "products": [
+      {
+        "productId": "prod001",
+        "discountPercent": 40,
+        "maxQty": 100,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod010",
+        "discountPercent": 45,
+        "maxQty": 50,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod020",
+        "discountPercent": 50,
+        "maxQty": 30,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod040",
+        "discountPercent": 35,
+        "maxQty": 40,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod060",
+        "discountPercent": 40,
+        "maxQty": 35,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod080",
+        "discountPercent": 30,
+        "maxQty": 60,
+        "soldQty": 0
+      },
+      {
+        "productId": "prod099",
+        "discountPercent": 45,
+        "maxQty": 25,
+        "soldQty": 0
+      }
+    ],
+    "status": "active"
+  }
+]

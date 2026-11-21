@@ -1,0 +1,2314 @@
+/* ============================================================
+   KOFFIA — Global Stylesheet
+   Author : Senior Front-End Developer
+   Naming : camelCase for ALL classes, IDs, CSS custom props
+   Refactor: Editorial / Humanized — local @font-face system
+   ============================================================ */
+
+/* ── @font-face — Local Font Stack ──────────────────────── */
+
+/* DFVN NewEddy — Elegant high-contrast serif for display titles */
+@font-face {
+  font-family: 'DFVNNewEddy';
+  src: url('../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf') format('opentype'),
+       url('../assets/fonts/DFVNNewEddy/DFVN NewEddy.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Coolvetica — Robust modern sans for section headings */
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('../assets/fonts/Coolvetica-Rg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+/* FC Gastie — Classic artisanal serif for quotes & highlights */
+@font-face {
+  font-family: 'FCGastie';
+  src: url('../assets/fonts/FC-Gastie.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+/* Questrial — Clean geometric sans for body text */
+@font-face {
+  font-family: 'Questrial';
+  src: url('../assets/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+/* ── Design Tokens ───────────────────────────────────────── */
+:root {
+  /* Brand colours */
+  --colorEspresso     : #3E2723;
+  --colorEspressoLight: #5D4037;
+  --colorEspressoDark : #2C1A14;
+  --colorCream        : #F5E6D3;
+  --colorCreamLight   : #FDF6EE;
+  --colorCreamDark    : #E8D0B5;
+  --colorAccent       : #E65100;
+  --colorAccentHover  : #BF360C;
+  --colorAccentLight  : #FF6D00;
+
+  /* Neutrals */
+  --colorWhite  : #FFFFFF;
+  --colorGray100: #F8F4F0;
+  --colorGray200: #EDE8E1;
+  --colorGray300: #D6CDBC;
+  --colorGray400: #A89880;
+  --colorGray500: #7A6A58;
+  --colorGray600: #5C4E3E;
+  --colorGray800: #2D1F13;
+  --colorBlack  : #0D0806;
+
+  /* ── Typography — Unified Font Stack ─────────────────────
+     Fraunces (display serif, warm + high-contrast) pairs with
+     Poppins (geometric sans, the family actually loaded via
+     Google Fonts) for a premium editorial feel that no longer
+     depends on missing local @font-face assets.               */
+  --fontDisplay   : 'DFVNNewEddy', 'Fraunces', Georgia, serif;         /* Hero numerals, prices, page titles */
+  --fontHeading   : 'Coolvetica', 'Poppins', 'Helvetica Neue', sans-serif; /* Section headings — semibold      */
+  --fontAccent    : 'FCGastie', 'Poppins', Georgia, sans-serif;        /* Eyebrows, tags, labels — tracked   */
+  --fontBody      : 'Questrial', 'Poppins', 'Helvetica Neue', sans-serif;  /* Body copy                       */
+  --fontArtisanal : 'FCGastie', 'Fraunces', Georgia, serif;            /* Quotes & highlights — italic serif */
+  --fontPrimary   : var(--fontBody);                        /* Legacy alias → body */
+
+  /* Font sizes */
+  --fontSizeXs  : 0.75rem;
+  --fontSizeSm  : 0.875rem;
+  --fontSizeMd  : 1rem;
+  --fontSizeLg  : 1.125rem;
+  --fontSizeXl  : 1.25rem;
+  --fontSize2xl : 1.5rem;
+  --fontSize3xl : 1.875rem;
+  --fontSize4xl : 2.25rem;
+  --fontSize5xl : 3rem;
+  --fontSize6xl : 3.75rem;
+
+  /* Spacing */
+  --space1 : 0.25rem;
+  --space2 : 0.5rem;
+  --space3 : 0.75rem;
+  --space4 : 1rem;
+  --space5 : 1.25rem;
+  --space6 : 1.5rem;
+  --space7 : 1.75rem;
+  --space8 : 2rem;
+  --space10: 2.5rem;
+  --space12: 3rem;
+  --space14: 3.5rem;
+  --space16: 4rem;
+  --space20: 5rem;
+  --space24: 6rem;
+
+  /* ── Border Radius — Apple-Style Squircle Curves ─────────── */
+  --radiusNone : 0px;
+  --radiusSm   : 8px;     /* Small tags, micro controls      */
+  --radiusMd   : 14px;    /* Inputs, standard buttons        */
+  --radiusLg   : 22px;    /* Cards, containers               */
+  --radiusXl   : 28px;    /* Drawers, modals, floating hero  */
+  --radiusFull : 9999px;  /* Capsule pill buttons            */
+
+  /* ── Glassmorphism Tokens ───────────────────────────────── */
+  --glassBgLight      : rgba(255, 255, 255, 0.72);
+  --glassBgCream      : rgba(253, 246, 238, 0.78);
+  --glassBgDark       : rgba(44, 26, 20, 0.80);
+  --glassBorderLight  : 1px solid rgba(255, 255, 255, 0.5);
+  --glassBorderSubtle : 1px solid rgba(62, 39, 35, 0.08);
+  --glassBorderDark   : 1px solid rgba(245, 230, 211, 0.15);
+  --glassBlur         : blur(24px) saturate(180%);
+  --glassShadow       : 0 10px 30px rgba(62, 39, 35, 0.06), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+
+  /* ── Shadows — Ambient Apple-Style Depth ────────────────── */
+  --shadowSm    : 0 2px 8px rgba(62, 39, 35, 0.05);
+  --shadowMd    : 0 8px 24px rgba(62, 39, 35, 0.08);
+  --shadowLg    : 0 16px 36px rgba(62, 39, 35, 0.10);
+  --shadowXl    : 0 24px 48px rgba(62, 39, 35, 0.14);
+  --shadowAccent: 0 6px 20px rgba(230, 81, 0, 0.28);
+  --shadowFloat : 0 16px 40px rgba(62, 39, 35, 0.12), 0 2px 6px rgba(62, 39, 35, 0.04);
+  --shadowFloatLg: 0 32px 72px -16px rgba(44, 26, 20, 0.35);
+
+  /* ── Fine Borders ─── */
+  --borderHairline  : 1px solid rgba(62, 39, 35, 0.08);
+  --borderSubtle    : 1px solid rgba(62, 39, 35, 0.06);
+  --borderEspresso  : 1.5px solid var(--colorEspresso);
+  --borderAccent    : 1.5px solid var(--colorAccent);
+
+  /* Apple-Style Spring Transitions */
+  --transitionFast  : 180ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transitionNormal: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transitionSlow  : 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transitionSpring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Layout */
+  --containerMax: 1200px;
+  --navHeight   : 72px;
+}
+
+/* ── Reset & Base ────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeMd);
+  color: var(--colorGray800);
+  background-color: #fbf9f5;
+  background-image: 
+    radial-gradient(at 10% 12%, rgba(255, 179, 102, 0.18) 0px, transparent 45%),
+    radial-gradient(at 90% 8%, rgba(255, 218, 185, 0.25) 0px, transparent 45%),
+    radial-gradient(at 50% 45%, rgba(254, 243, 199, 0.28) 0px, transparent 50%),
+    radial-gradient(at 85% 85%, rgba(251, 146, 60, 0.14) 0px, transparent 45%),
+    radial-gradient(at 15% 90%, rgba(254, 215, 170, 0.20) 0px, transparent 45%);
+  background-attachment: scroll;
+  line-height: 1.7;                    /* Rinjani reads better with more air */
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transitionNormal);
+}
+
+ul, ol { list-style: none; }
+
+/* Screen-reader-only utility — visually hidden, still announced */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+button {
+  font-family: var(--fontAccent);  /* Pizalio for all button labels */
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: var(--fontBody);    /* Rinjani for form fields */
+  font-size: var(--fontSizeMd);
+}
+
+/* ── Utility Classes ─────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--containerMax);
+  margin-inline: auto;
+  padding-inline: var(--space6);
+}
+
+.sectionTitle {
+  font-family: var(--fontHeading);   /* Coolvetica — tight display; needs positive tracking */
+  font-size: var(--fontSize3xl);
+  font-weight: 600;                  /* Coolvetica's single weight is already bold enough */
+  color: var(--colorEspresso);
+  line-height: 1.2;
+  letter-spacing: 0.04em;            /* open tracking prevents glyph collision */
+}
+
+.sectionSubtitle {
+  font-family: var(--fontBody);      /* Rinjani for subtitles */
+  font-size: var(--fontSizeMd);
+  color: var(--colorGray500);
+  font-weight: 400;
+  margin-top: var(--space3);
+  line-height: 1.7;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--space12);
+}
+
+/* Replace gradient pill with a clean editorial rule line */
+.sectionHeader .titleUnderline {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--colorAccent);
+  border-radius: 0;               /* sharp — no pill */
+  margin: var(--space4) auto 0;
+}
+
+/* ── Buttons — Apple Capsule & Micro-Spring Animations ───── */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: var(--space3) var(--space8);
+  background: linear-gradient(135deg, var(--colorAccent), #d84315);
+  color: var(--colorWhite);
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeSm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--radiusFull);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(230, 81, 0, 0.32);
+  transition: all var(--transitionSpring);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btnPrimary:hover,
+.btnPrimary:focus-visible {
+  background: linear-gradient(135deg, var(--colorAccentLight), var(--colorAccent));
+  box-shadow: 0 6px 24px rgba(230, 81, 0, 0.45);
+  transform: translateY(-2px) scale(1.02);
+  color: var(--colorWhite);
+}
+
+.btnPrimary:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.25);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: var(--space3) var(--space8);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: var(--glassBlur);
+  -webkit-backdrop-filter: var(--glassBlur);
+  color: var(--colorEspresso);
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeSm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--radiusFull);
+  border: 1px solid rgba(62, 39, 35, 0.12);
+  box-shadow: var(--shadowSm);
+  transition: all var(--transitionSpring);
+  cursor: pointer;
+}
+
+.btnSecondary:hover {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadowMd);
+  border-color: var(--colorEspresso);
+}
+
+.btnSecondary:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.btnOutlineLight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: var(--space3) var(--space8);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: var(--glassBlur);
+  -webkit-backdrop-filter: var(--glassBlur);
+  color: var(--colorCream);
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeSm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--radiusFull);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transition: all var(--transitionSpring);
+  cursor: pointer;
+}
+
+.btnOutlineLight:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--colorWhite);
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btnOutlineLight:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* ── Apple-Style Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(62, 39, 35, 0.2);
+  border-radius: var(--radiusFull);
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background var(--transitionFast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(62, 39, 35, 0.4);
+  background-clip: content-box;
+}
+
+/* ── Glassmorphism Utility Card ──────────────────────────── */
+.glassCard {
+  background: var(--glassBgLight);
+  backdrop-filter: var(--glassBlur);
+  -webkit-backdrop-filter: var(--glassBlur);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(62, 39, 35, 0.06);
+  border-radius: var(--radiusLg);
+  transition: all var(--transitionNormal);
+}
+
+.glassCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px 0 rgba(62, 39, 35, 0.12);
+  border-color: rgba(162, 110, 68, 0.25);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   REDUCE MOTION & ACCESSIBILITY
+   - Tối ưu hiệu năng, tắt hiệu ứng kéo dài nếu hệ điều hành bật reduced-motion
+   ══════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Navigation Bar — Apple Floating Island Frosted Glassmorphism ── */
+#navBar {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, calc(100% - 32px));
+  height: 64px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(62, 39, 35, 0.12);
+  border-radius: 32px;
+  box-shadow: 0 10px 32px -4px rgba(62, 39, 35, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+  transition: height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              background 0.25s ease,
+              border-color 0.25s ease;
+}
+
+#navBar.navScrolled {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(62, 39, 35, 0.16);
+  box-shadow: 0 14px 40px -4px rgba(62, 39, 35, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+}
+
+#navBar.navDark {
+  background: rgba(44, 26, 20, 0.88);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 14px 40px -4px rgba(0, 0, 0, 0.35);
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding-inline: var(--space5);
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  #navBar {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1200px, calc(100% - 24px));
+    height: 58px;
+    border-radius: 29px;
+  }
+
+  .navInner {
+    padding-inline: var(--space4);
+  }
+
+  .navMenu {
+    display: none;
+  }
+
+  .navHamburger {
+    display: flex;
+  }
+}
+
+/* Logo — Display font for brand name */
+.navLogo, .navLogoLight {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  font-family: var(--fontDisplay);
+  font-size: var(--fontSize2xl);
+  font-weight: 700;
+  color: var(--colorEspressoDark) !important;
+  letter-spacing: 0.04em;
+  transition: color var(--transitionNormal), transform var(--transitionSpring);
+  flex-shrink: 0;
+}
+
+.navLogo span, .navLogoLight span {
+  color: var(--colorEspressoDark) !important;
+}
+
+.navLogo:hover {
+  transform: scale(1.03);
+}
+
+.navLogo:hover .navLogoIcon {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+/* Logo icon — official Koffia PNG mark */
+.navLogoIcon {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  transition: transform var(--transitionSpring);
+}
+
+.navLogoIcon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* ── Nav Links & Apple-Style Sliding Pill Indicator ──────── */
+.navMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  background: rgba(62, 39, 35, 0.05);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusFull);
+  isolation: isolate;
+}
+
+html.darkMode #navBar .navMenu {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navActivePill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: var(--radiusFull);
+  background: var(--colorAccent);
+  box-shadow: 0 4px 16px rgba(230, 81, 0, 0.38), 0 1px 3px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+  will-change: transform, width;
+}
+
+.navMenu li {
+  position: relative;
+  list-style: none;
+  display: inline-flex;
+}
+
+.navLink, .navLinkLight {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1.05rem;
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  color: var(--colorEspressoDark) !important;
+  border-radius: var(--radiusFull);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: color 0.22s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+}
+
+.navLink:hover, .navLinkLight:hover {
+  color: var(--colorAccentHover) !important;
+  background: transparent !important;
+  transform: translateY(-1px);
+}
+
+/* Active and Hovered Pill Text Color */
+.navMenu:not(:hover) .navLink.navLinkActive,
+.navMenu:not(:hover) .navLinkLight.navLinkActive,
+.navLink.pillHovered,
+.navLinkLight.pillHovered {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.navLink:active, .navLinkLight:active {
+  transform: scale(0.96);
+}
+
+/* Cart & Actions */
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+}
+
+.navCartBtn[hidden] { display: none !important; }
+
+.navCartBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(253, 246, 238, 0.92);
+  border: 1px solid rgba(62, 39, 35, 0.15);
+  border-radius: var(--radiusFull);
+  color: var(--colorEspresso);
+  font-size: var(--fontSizeMd);
+  box-shadow: var(--shadowSm);
+  transition: all var(--transitionNormal);
+  cursor: pointer;
+}
+
+.navCartBtn:hover {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  border-color: var(--colorEspresso);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 18px rgba(62, 39, 35, 0.2);
+}
+
+.navCartBtn:active {
+  transform: scale(0.92);
+}
+
+.navCartBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 4px;
+  background: linear-gradient(135deg, var(--colorAccent), #ff1744);
+  color: var(--colorWhite);
+  font-family: var(--fontAccent);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: var(--radiusFull);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.4);
+  animation: cartBadgePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes cartBadgePop {
+  0%   { transform: scale(0); }
+  60%  { transform: scale(1.3) rotate(-6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.cartBadgeBounce {
+  animation: cartBadgePop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* ── Account — Avatar / Login Nav Button ─────────────────── */
+.navLoginBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  height: 40px;
+  padding: 0 var(--space5);
+  background: rgba(253, 246, 238, 0.92);
+  border: 1px solid rgba(62, 39, 35, 0.15);
+  border-radius: var(--radiusFull);
+  color: var(--colorEspresso);
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--shadowSm);
+  transition: all var(--transitionNormal);
+  white-space: nowrap;
+}
+
+.navLoginBtn:hover {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(62, 39, 35, 0.2);
+}
+
+.navLoginBtn:active {
+  transform: scale(0.96);
+}
+
+.navAvatarBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radiusFull);
+  border: 2px solid var(--colorCream);
+  overflow: hidden;
+  padding: 0;
+  background: var(--colorGray100);
+  box-shadow: var(--shadowSm);
+  transition: all var(--transitionNormal);
+}
+
+.navAvatarBtn:hover {
+  border-color: var(--colorAccent);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 18px rgba(62, 39, 35, 0.18);
+}
+
+.navAvatarBtn:active {
+  transform: scale(0.94);
+}
+
+.navAvatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile Hamburger */
+.navHamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: var(--space2);
+  border-radius: var(--radiusMd);
+  cursor: pointer;
+  background: rgba(253, 246, 238, 0.92);
+  border: 1px solid rgba(62, 39, 35, 0.15);
+  box-shadow: var(--shadowSm);
+  transition: all var(--transitionSpring);
+}
+
+.navHamburger:hover {
+  background: var(--colorEspresso);
+  border-color: var(--colorEspresso);
+  transform: scale(1.05);
+}
+
+.navHamburger:hover .hamLine {
+  background: var(--colorCream);
+}
+
+.navHamburger:active {
+  transform: scale(0.92);
+}
+
+.hamLine {
+  width: 22px;
+  height: 2px;
+  background: var(--colorEspresso);
+  border-radius: var(--radiusFull);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background var(--transitionFast);
+  transform-origin: center;
+}
+
+.hamLineLight {
+  background: var(--colorEspresso);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background var(--transitionNormal);
+}
+
+#navBar.navScrolled .hamLineLight { background: var(--colorEspresso); }
+
+.navHamburger.hamOpen .hamLine:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navHamburger.hamOpen .hamLine:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.navHamburger.hamOpen .hamLine:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile Drawer */
+.navDrawer {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility var(--transitionNormal);
+}
+
+.navDrawerOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13,8,6,0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: background var(--transitionNormal), backdrop-filter var(--transitionNormal);
+}
+
+.navDrawerPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 86vw);
+  background: rgba(253, 246, 238, 0.95);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-top-left-radius: var(--radiusXl);
+  border-bottom-left-radius: var(--radiusXl);
+  padding: var(--space20) var(--space6) var(--space8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2);
+  transform: translateX(105%);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 40px rgba(44, 26, 20, 0.2);
+}
+
+.navDrawer.drawerOpen {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.navDrawer.drawerOpen .navDrawerOverlay {
+  background: rgba(13,8,6,0.52);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navDrawer.drawerOpen .navDrawerPanel {
+  transform: translateX(0);
+}
+
+.drawerNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space3) var(--space5);
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--colorEspresso);
+  border-radius: var(--radiusFull);
+  border-bottom: 1px solid rgba(62, 39, 35, 0.06);
+  transition: all var(--transitionNormal);
+}
+
+.drawerNavLink:hover, .drawerNavLink.navLinkActive {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  transform: translateX(-4px);
+  box-shadow: 0 4px 14px rgba(62, 39, 35, 0.18);
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+#siteFooter {
+  background: var(--colorEspressoDark);
+  color: var(--colorCreamDark);
+  padding-top: var(--space16);
+  padding-bottom: var(--space8);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--space10);
+  padding-bottom: var(--space12);
+  border-bottom: 1px solid rgba(245,230,211,.1);
+}
+
+.footerBrand .navLogo {
+  color: var(--colorCream);
+  margin-bottom: var(--space4);
+}
+
+.footerTagline {
+  font-size: var(--fontSizeSm);
+  color: rgba(245,230,211,.6);
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+.footerSocials {
+  display: flex;
+  gap: var(--space3);
+  margin-top: var(--space6);
+}
+
+.footerSocialLink {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(245,230,211,.18); /* fine border instead of fill */
+  border-radius: var(--radiusMd);
+  color: rgba(245,230,211,.65);
+  font-size: var(--fontSizeSm);
+  transition: all var(--transitionSpring);
+}
+
+.footerSocialLink:hover {
+  background: var(--colorAccent);
+  border-color: var(--colorAccent);
+  color: var(--colorWhite);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 18px rgba(230, 81, 0, 0.35);
+}
+
+.footerSocialLink:active {
+  transform: scale(0.92);
+}
+
+.footerHeading {
+  font-family: var(--fontAccent);          /* Pizalio — condensed editorial */
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--colorCream);
+  margin-bottom: var(--space5);
+}
+
+.footerLinkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+}
+
+.footerLinkItem {
+  font-family: var(--fontBody);            /* Rinjani for footer links */
+  font-size: var(--fontSizeSm);
+  color: rgba(245,230,211,.55);
+  transition: all var(--transitionFast);
+  display: inline-block;
+}
+
+.footerLinkItem:hover {
+  color: var(--colorCream);
+  transform: translateX(4px);
+}
+
+.footerContactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space3);
+  font-size: var(--fontSizeSm);
+  color: rgba(245,230,211,.6);
+  margin-bottom: var(--space4);
+}
+
+.footerContactItem i {
+  color: var(--colorAccent);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space8);
+  flex-wrap: wrap;
+  gap: var(--space4);
+}
+
+.footerCopyright {
+  font-size: var(--fontSizeXs);
+  color: rgba(245,230,211,.4);
+}
+
+.footerBottomLinks {
+  display: flex;
+  gap: var(--space6);
+}
+
+.footerBottomLink {
+  font-size: var(--fontSizeXs);
+  color: rgba(245,230,211,.4);
+  transition: color var(--transitionFast);
+}
+
+.footerBottomLink:hover { color: var(--colorCream); }
+
+/* ── Toast Notification — Apple Dynamic Island Style ─────── */
+#toastContainer {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space2);
+  pointer-events: none;
+  width: auto;
+  max-width: min(460px, calc(100vw - 32px));
+}
+
+.toastItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space3);
+  padding: 10px 22px;
+  background: rgba(28, 17, 13, 0.90);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  color: var(--colorCream);
+  border-radius: var(--radiusFull);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeSm);
+  font-weight: 500;
+  pointer-events: auto;
+  animation: toastIslandPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.toastItem span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toastItem.toastHide {
+  animation: toastIslandDismiss 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.toastIcon {
+  color: var(--colorAccentLight);
+  font-size: var(--fontSizeMd);
+  flex-shrink: 0;
+}
+
+.toastItem:not(.toastError) .toastIcon {
+  color: #4ade80; /* signature green check */
+}
+
+.toastItem.toastError {
+  background: rgba(50, 16, 16, 0.92);
+  border-color: rgba(239, 83, 80, 0.35);
+}
+
+.toastItem.toastError .toastIcon {
+  color: #f87171;
+}
+
+@keyframes toastIslandPop {
+  0% {
+    opacity: 0;
+    transform: translateY(-28px) scale(0.85);
+  }
+  70% {
+    transform: translateY(4px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toastIslandDismiss {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-24px) scale(0.88);
+  }
+}
+
+/* ── Cart Side Drawer — Apple Frosted Glass ───────────────── */
+#cartDrawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility var(--transitionNormal);
+}
+
+#cartDrawer.cartOpen {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.cartOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 8, 6, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: background var(--transitionNormal), backdrop-filter var(--transitionNormal);
+}
+
+#cartDrawer.cartOpen .cartOverlay {
+  background: rgba(13, 8, 6, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cartPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 94vw);
+  background: rgba(253, 246, 238, 0.94);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border-left: 1px solid rgba(255, 255, 255, 0.75);
+  border-top-left-radius: var(--radiusXl);
+  border-bottom-left-radius: var(--radiusXl);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(105%);
+  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -12px 0 48px rgba(44, 26, 20, 0.22);
+}
+
+#cartDrawer.cartOpen .cartPanel {
+  transform: translateX(0);
+}
+
+.cartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space6);
+  border-bottom: 1px solid rgba(62, 39, 35, 0.08);
+}
+
+.cartTitle {
+  font-size: var(--fontSizeXl);
+  font-weight: 700;
+  color: var(--colorEspresso);
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.cartCloseBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radiusFull);
+  background: rgba(62, 39, 35, 0.08);
+  color: var(--colorEspresso);
+  font-size: var(--fontSizeMd);
+  transition: all var(--transitionSpring);
+}
+
+.cartCloseBtn:hover {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  transform: rotate(90deg) scale(1.08);
+}
+
+.cartCloseBtn:active {
+  transform: rotate(90deg) scale(0.92);
+}
+
+.cartBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space4) var(--space6);
+}
+
+.cartEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--colorGray400);
+  text-align: center;
+  gap: var(--space4);
+  padding: var(--space12) 0;
+}
+
+.cartEmpty i { font-size: 3rem; }
+.cartEmpty p { font-size: var(--fontSizeSm); }
+
+.cartItemList { display: flex; flex-direction: column; gap: var(--space4); }
+
+.cartItem {
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  gap: var(--space3);
+  align-items: center;
+  padding: var(--space3);
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusLg);
+  box-shadow: 0 4px 16px rgba(62, 39, 35, 0.04);
+  transition: all var(--transitionNormal);
+  animation: cartItemIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cartItem:hover {
+  border-color: rgba(162, 110, 68, 0.3);
+  box-shadow: 0 8px 24px rgba(62, 39, 35, 0.08);
+  transform: translateY(-2px);
+}
+
+@keyframes cartItemIn {
+  from { opacity: 0; transform: translateX(24px) scale(0.96); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.cartItemImg {
+  width: 76px;
+  height: 76px;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 76px;
+  border-radius: var(--radiusMd);
+  object-fit: cover;
+  background: var(--colorGray100);
+}
+
+.cartItemName {
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  color: var(--colorEspresso);
+}
+
+.cartItemPrice {
+  font-size: var(--fontSizeSm);
+  color: var(--colorAccent);
+  font-weight: 600;
+  margin-top: var(--space1);
+}
+
+.cartItemQtyRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  margin-top: var(--space2);
+}
+
+.cartQtyBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radiusFull);
+  background: var(--colorGray100);
+  border: 1px solid var(--colorGray200);
+  color: var(--colorEspresso);
+  font-size: var(--fontSizeSm);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transitionSpring);
+}
+
+.cartQtyBtn:hover {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  border-color: var(--colorEspresso);
+  transform: scale(1.1);
+}
+
+.cartQtyBtn:active {
+  transform: scale(0.86);
+}
+
+.cartQtyNum {
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+  color: var(--colorEspresso);
+}
+
+.cartItemRemove {
+  color: var(--colorGray400);
+  font-size: var(--fontSizeMd);
+  transition: all var(--transitionFast);
+  padding: var(--space1);
+}
+
+.cartItemRemove:hover {
+  color: #C62828;
+  transform: scale(1.15);
+}
+
+.cartItemRemove:active {
+  transform: scale(0.9);
+}
+
+.cartFooter {
+  padding: var(--space6);
+  border-top: 1px solid var(--colorGray200);
+  background: var(--colorWhite);
+}
+
+.cartTotalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space5);
+}
+
+.cartTotalLabel {
+  font-size: var(--fontSizeMd);
+  font-weight: 600;
+  color: var(--colorGray600);
+}
+
+.cartTotalAmount {
+  font-size: var(--fontSize2xl);
+  font-weight: 800;
+  color: var(--colorEspresso);
+}
+
+.cartCheckoutBtn {
+  width: 100%;
+  padding: var(--space4);
+  text-align: center;
+  justify-content: center;
+  font-size: var(--fontSizeMd);
+}
+
+/* ── Scroll Animations (Apple Stagger & Spring Reveal) ──── */
+.revealUp {
+  opacity: 0;
+  transform: translateY(32px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.revealUp.revealed {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.revealLeft {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.revealLeft.revealed {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.revealRight {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.revealRight.revealed {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* ── Apple Specular Light Glass Sheen Effect ─────────────── */
+.productCard,
+.menuCard,
+.voucherCouponCard,
+.statCard,
+.adminStatCard,
+.historyStatCard,
+.glassCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.productCard::after,
+.menuCard::after,
+.voucherCouponCard::after,
+.glassCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 5;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.productCard:hover::after,
+.menuCard:hover::after,
+.voucherCouponCard:hover::after,
+.glassCard:hover::after {
+  transform: translateX(380%) skewX(-20deg);
+}
+
+/* ── Apple High-Performance Premium Cards (Zero GPU Fill-Rate Lag) ──────────────── */
+.productCard,
+.menuCard,
+.flashCard,
+.voucherCouponCard,
+.testimonialCard,
+.whyCard,
+.statCard,
+.adminCard,
+.sellerCard,
+.historyStatCard,
+.historyOrderCard,
+.accountIdentityCard,
+.accountFormCard,
+.accountRoleCard,
+.accountVouchersCard {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(62, 39, 35, 0.08) !important;
+  box-shadow: 0 4px 18px -2px rgba(62, 39, 35, 0.05), 0 1px 3px rgba(62, 39, 35, 0.02) !important;
+  border-radius: 20px !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.productCard:hover,
+.menuCard:hover,
+.flashCard:hover,
+.voucherCouponCard:hover,
+.testimonialCard:hover,
+.whyCard:hover,
+.statCard:hover,
+.historyStatCard:hover,
+.historyOrderCard:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 14px 30px -4px rgba(62, 39, 35, 0.11), 0 2px 6px rgba(62, 39, 35, 0.04) !important;
+  border-color: rgba(230, 81, 0, 0.32) !important;
+}
+
+/* ── Apple-Style Modal & Sheet Animations ────────────────── */
+@keyframes appleModalPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes appleFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes appleSheetSlideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Universal tactile haptic press for interactive controls */
+button:active:not(:disabled),
+.btnPrimary:active,
+.btnSecondary:active,
+.btnOutlineLight:active,
+.categoryPill:active,
+.suggestionTag:active,
+.footerSocialLink:active {
+  transform: scale(0.95);
+  transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ── Form Validation — shared across auth.html & account.html ──── */
+.inputField.inputError {
+  border-color: #C62828 !important;
+  box-shadow: 0 0 0 3px rgba(198,40,40,.08) !important;
+}
+
+.formErrorText {
+  display: none;
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeXs);
+  color: #C62828;
+  margin-top: calc(-1 * var(--space1));
+}
+
+.formErrorText.visible { display: block; }
+
+/* ── Page Hero (inner pages) ─────────────────────────────── */
+.pageHero {
+  background: linear-gradient(135deg, var(--colorEspresso) 0%, var(--colorEspressoLight) 50%, var(--colorEspressoDark) 100%);
+  padding: calc(var(--navHeight) + var(--space16)) var(--space6) var(--space16);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pageHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pageHeroTitle {
+  font-size: var(--fontSize4xl);
+  font-weight: 800;
+  color: var(--colorCream);
+  position: relative;
+  z-index: 1;
+}
+
+.pageHeroBreadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space2);
+  margin-top: var(--space4);
+  font-size: var(--fontSizeSm);
+  color: rgba(245,230,211,.6);
+  position: relative;
+  z-index: 1;
+}
+
+.breadcrumbLink {
+  color: rgba(245,230,211,.6);
+  transition: color var(--transitionFast);
+}
+
+.breadcrumbLink:hover { color: var(--colorCream); }
+
+.breadcrumbSep { color: rgba(245,230,211,.3); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .footerGrid { grid-template-columns: 1fr 1fr; gap: var(--space8); }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navHeight: 64px;
+    --fontSize5xl: 2.25rem;
+    --fontSize4xl: 1.875rem;
+    --fontSize3xl: 1.5rem;
+  }
+
+  .navMenu { display: none; }
+  .navHamburger { display: flex; }
+
+  .footerGrid { grid-template-columns: 1fr; gap: var(--space8); }
+  .footerBottom { flex-direction: column; text-align: center; }
+  .footerBottomLinks { justify-content: center; }
+
+  .container { padding-inline: var(--space4); }
+
+  .pageHeroTitle { font-size: var(--fontSize3xl); }
+}
+
+@media (max-width: 480px) {
+  .btnPrimary, .btnSecondary { padding: var(--space3) var(--space6); }
+  #toastContainer { left: var(--space4); right: var(--space4); bottom: var(--space4); }
+}
+/* Keep navigation compact on small phones */
+@media (max-width: 520px) {
+  .navLoginBtn { width: 38px; padding: 0; justify-content: center; font-size: 0; }
+  .navLoginBtn i { font-size: 14px; }
+  .navActions { gap: var(--space2); }
+}
+
+
+/* ── Font Awesome icon polish ─────────────────────────────── */
+.footerLinkItem { display: inline-flex; align-items: center; gap: 0.55rem; }
+.footerLinkItem > i { width: 1.15em; text-align: center; color: var(--colorAccentLight); flex: 0 0 auto; }
+.pageHeroTitle > i { margin-right: 0.35em; color: var(--colorAccentLight); }
+
+/* ── Role Badges & Navigation Buttons ──────────────────────── */
+.navRoleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: 0.4rem 0.85rem;
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  border-radius: var(--radiusFull);
+  text-decoration: none;
+  transition: all var(--transitionFast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.navDevBadge {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.4);
+}
+.navDevBadge:hover {
+  background: #0f172a;
+  color: #7dd3fc;
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+}
+
+.navSellerBadge {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #fff;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.3);
+}
+.navSellerBadge:hover {
+  background: #92400e;
+  transform: translateY(-1px);
+}
+
+.drawerRoleLink {
+  border-left: 3px solid var(--colorAccent);
+  background: rgba(230, 81, 0, 0.08);
+}
+
+/* ============================================================
+   APPLE DESIGN SYSTEM — DARK / LIGHT MODE (Phase 2 Upgrade)
+   Obsidian Glassmorphism, Ambient Aura, Zero-FOUC, Apple Spring
+   ============================================================ */
+
+/* ── Apple Capsule Theme Toggle Button ─────────────────────── */
+.themeToggleBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(253, 246, 238, 0.92);
+  border: 1px solid rgba(62, 39, 35, 0.15);
+  border-radius: var(--radiusFull);
+  color: var(--colorEspresso);
+  font-size: var(--fontSizeMd);
+  box-shadow: var(--shadowSm);
+  transition: all var(--transitionSpring);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.themeToggleBtn i {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), color var(--transitionFast);
+}
+
+.themeToggleBtn:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(62, 39, 35, 0.18);
+  color: var(--colorAccent);
+}
+
+.themeToggleBtn:hover i {
+  transform: rotate(45deg);
+}
+
+.themeToggleBtn:active {
+  transform: scale(0.92);
+}
+
+.themeToggleBtn.toggling i {
+  transform: rotate(360deg) scale(0.4);
+}
+
+/* Mobile Drawer Theme Switch Bar */
+.drawerThemeToggle {
+  cursor: pointer;
+  margin-top: auto;
+  border-top: 1px solid rgba(62, 39, 35, 0.1);
+  padding-top: var(--space4);
+  width: 100%;
+}
+
+.drawerThemeLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+}
+
+.themePillIndicator {
+  width: 44px;
+  height: 24px;
+  background: rgba(62, 39, 35, 0.18);
+  border-radius: var(--radiusFull);
+  position: relative;
+  transition: background var(--transitionNormal);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.themePillIndicator::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--colorWhite);
+  border-radius: var(--radiusFull);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Dark Mode Token Overrides ────────────────────────────── */
+html.darkMode,
+body.darkMode,
+[data-theme="dark"] {
+  --colorCream        : #FDF6EE;
+  --colorCreamLight   : #1A110D;
+  --colorCreamDark    : #3D2920;
+  --colorGray100      : #1A120E;
+  --colorGray200      : #2A1D17;
+  --colorGray300      : #4A352A;
+  --colorGray400      : #8C786A;
+  --colorGray500      : #B8A89A;
+  --colorGray600      : #D6CDBC;
+  --colorGray800      : #FDF6EE;
+  --colorWhite        : #18110D;
+  --colorBlack        : #FFFFFF;
+
+  --glassBgLight      : rgba(28, 18, 14, 0.82);
+  --glassBgCream      : rgba(36, 23, 18, 0.85);
+  --glassBgDark       : rgba(14, 9, 7, 0.92);
+  --glassBorderLight  : 1px solid rgba(255, 255, 255, 0.14);
+  --glassBorderSubtle : 1px solid rgba(255, 255, 255, 0.08);
+  --glassBorderDark   : 1px solid rgba(255, 255, 255, 0.16);
+  --glassShadow       : 0 16px 40px rgba(0, 0, 0, 0.65), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+
+  --shadowSm    : 0 2px 10px rgba(0, 0, 0, 0.4);
+  --shadowMd    : 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadowLg    : 0 16px 40px rgba(0, 0, 0, 0.65);
+  --shadowXl    : 0 24px 56px rgba(0, 0, 0, 0.8);
+  --shadowFloat : 0 16px 40px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadowFloatLg: 0 32px 72px -16px rgba(0, 0, 0, 0.9);
+
+  --borderHairline  : 1px solid rgba(255, 255, 255, 0.1);
+  --borderSubtle    : 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Dark Mode Body Ambient Mesh Glow ─────────────────────── */
+html.darkMode body,
+body.darkMode {
+  color: #EDE8E1;
+  background-color: #0c0806 !important;
+  background-image: 
+    radial-gradient(at 10% 12%, rgba(230, 81, 0, 0.14) 0px, transparent 45%),
+    radial-gradient(at 90% 8%, rgba(216, 67, 21, 0.12) 0px, transparent 45%),
+    radial-gradient(at 50% 45%, rgba(120, 53, 15, 0.16) 0px, transparent 50%),
+    radial-gradient(at 85% 85%, rgba(230, 81, 0, 0.12) 0px, transparent 45%),
+    radial-gradient(at 15% 90%, rgba(180, 83, 9, 0.14) 0px, transparent 45%) !important;
+  background-attachment: scroll !important;
+}
+
+/* ── Dark Mode Navigation Bar ─────────────────────────────────────── */
+html.darkMode #navBar,
+body.darkMode #navBar {
+  background: rgba(22, 14, 11, 0.94) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+}
+
+html.darkMode #navBar.navScrolled,
+body.darkMode #navBar.navScrolled {
+  background: rgba(18, 11, 8, 0.96) !important;
+  box-shadow: 0 18px 48px -4px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1) inset !important;
+}
+
+@media (max-width: 900px) {
+  html.darkMode #navBar,
+  body.darkMode #navBar {
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 16px 44px -4px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+  }
+
+  html.darkMode #navBar.navScrolled,
+  body.darkMode #navBar.navScrolled {
+    background: rgba(18, 11, 8, 0.96) !important;
+    box-shadow: 0 18px 48px -4px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1) inset !important;
+  }
+}
+
+html.darkMode .navLogo,
+body.darkMode .navLogo,
+html.darkMode .navLogo span,
+body.darkMode .navLogo span {
+  color: #FFFFFF !important;
+}
+
+html.darkMode .navLink,
+body.darkMode .navLink {
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .navLink:hover,
+body.darkMode .navLink:hover {
+  color: #FFFFFF !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.darkMode .navMenu:not(:hover) .navLink.navLinkActive,
+body.darkMode .navMenu:not(:hover) .navLink.navLinkActive,
+html.darkMode .navLink.pillHovered,
+body.darkMode .navLink.pillHovered {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+
+html.darkMode .drawerNavLink.navLinkActive,
+body.darkMode .drawerNavLink.navLinkActive {
+  color: #FFFFFF !important;
+  background: var(--colorAccent) !important;
+  box-shadow: 0 2px 12px rgba(230, 81, 0, 0.5) !important;
+  font-weight: 700 !important;
+}
+
+html.darkMode .themeToggleBtn,
+body.darkMode .themeToggleBtn,
+html.darkMode .navLoginBtn,
+body.darkMode .navLoginBtn,
+html.darkMode .navCartBtn,
+body.darkMode .navCartBtn,
+html.darkMode .navHamburger,
+body.darkMode .navHamburger {
+  background: rgba(35, 22, 17, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #F5E6D3 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+}
+
+html.darkMode .themeToggleBtn:hover,
+body.darkMode .themeToggleBtn:hover,
+html.darkMode .navLoginBtn:hover,
+body.darkMode .navLoginBtn:hover,
+html.darkMode .navCartBtn:hover,
+body.darkMode .navCartBtn:hover,
+html.darkMode .navHamburger:hover,
+body.darkMode .navHamburger:hover {
+  background: var(--colorAccent) !important;
+  color: #FFFFFF !important;
+  border-color: var(--colorAccentLight) !important;
+}
+
+html.darkMode .hamLine,
+body.darkMode .hamLine {
+  background: #F5E6D3 !important;
+}
+
+html.darkMode .themePillIndicator,
+body.darkMode .themePillIndicator {
+  background: var(--colorAccent) !important;
+}
+
+html.darkMode .themePillIndicator::after,
+body.darkMode .themePillIndicator::after {
+  transform: translateX(20px) !important;
+}
+
+/* ── Dark Mode High-Performance Premium Cards (No blur lag on low-end GPUs) ── */
+html.darkMode .productCard,
+body.darkMode .productCard,
+html.darkMode .menuCard,
+body.darkMode .menuCard,
+html.darkMode .flashCard,
+body.darkMode .flashCard,
+html.darkMode .voucherCouponCard,
+body.darkMode .voucherCouponCard,
+html.darkMode .testimonialCard,
+body.darkMode .testimonialCard,
+html.darkMode .whyCard,
+body.darkMode .whyCard,
+html.darkMode .statCard,
+body.darkMode .statCard,
+html.darkMode .adminCard,
+body.darkMode .adminCard,
+html.darkMode .sellerCard,
+body.darkMode .sellerCard,
+html.darkMode .historyStatCard,
+body.darkMode .historyStatCard,
+html.darkMode .historyOrderCard,
+body.darkMode .historyOrderCard,
+html.darkMode .accountIdentityCard,
+body.darkMode .accountIdentityCard,
+html.darkMode .accountFormCard,
+body.darkMode .accountFormCard,
+html.darkMode .accountRoleCard,
+body.darkMode .accountRoleCard,
+html.darkMode .accountVouchersCard,
+body.darkMode .accountVouchersCard,
+html.darkMode .orderCard,
+body.darkMode .orderCard,
+html.darkMode .orderCartItem,
+body.darkMode .orderCartItem,
+html.darkMode .cartVoucherBox,
+body.darkMode .cartVoucherBox,
+html.darkMode .historyToolbar,
+body.darkMode .historyToolbar,
+html.darkMode .heroSpatialCard,
+body.darkMode .heroSpatialCard,
+html.darkMode .heroBentoStat,
+body.darkMode .heroBentoStat,
+html.darkMode .newsletterCard,
+body.darkMode .newsletterCard {
+  background: #18100C !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.05) inset !important;
+  color: #EDE8E1;
+}
+
+/* Modals & Overlays keep optical blur */
+html.darkMode .navDrawerPanel,
+body.darkMode .navDrawerPanel,
+html.darkMode .cartPanel,
+body.darkMode .cartPanel,
+html.darkMode .modalCard,
+body.darkMode .modalCard,
+html.darkMode .heroFloatingBadge,
+body.darkMode .heroFloatingBadge,
+html.darkMode .glassCard,
+body.darkMode .glassCard {
+  background: rgba(24, 16, 12, 0.92) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 16px 44px -8px rgba(0, 0, 0, 0.8) !important;
+}
+
+html.darkMode .productCard:hover,
+body.darkMode .productCard:hover,
+html.darkMode .menuCard:hover,
+body.darkMode .menuCard:hover,
+html.darkMode .flashCard:hover,
+body.darkMode .flashCard:hover,
+html.darkMode .voucherCouponCard:hover,
+body.darkMode .voucherCouponCard:hover,
+html.darkMode .testimonialCard:hover,
+body.darkMode .testimonialCard:hover,
+html.darkMode .whyCard:hover,
+body.darkMode .whyCard:hover,
+html.darkMode .statCard:hover,
+body.darkMode .statCard:hover,
+html.darkMode .historyStatCard:hover,
+body.darkMode .historyStatCard:hover,
+html.darkMode .historyOrderCard:hover,
+body.darkMode .historyOrderCard:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(230, 81, 0, 0.5) !important;
+  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.85) !important;
+}
+
+html.darkMode .productCard:hover,
+body.darkMode .productCard:hover,
+html.darkMode .menuCard:hover,
+body.darkMode .menuCard:hover,
+html.darkMode .flashCard:hover,
+body.darkMode .flashCard:hover,
+html.darkMode .voucherCouponCard:hover,
+body.darkMode .voucherCouponCard:hover,
+html.darkMode .testimonialCard:hover,
+body.darkMode .testimonialCard:hover,
+html.darkMode .whyCard:hover,
+body.darkMode .whyCard:hover,
+html.darkMode .statCard:hover,
+body.darkMode .statCard:hover,
+html.darkMode .historyStatCard:hover,
+body.darkMode .historyStatCard:hover,
+html.darkMode .historyOrderCard:hover,
+body.darkMode .historyOrderCard:hover {
+  border-color: rgba(255, 109, 0, 0.45) !important;
+  box-shadow: 0 24px 56px -8px rgba(0, 0, 0, 0.8), 0 0 24px rgba(230, 81, 0, 0.22) !important;
+}
+
+/* ── Dark Mode Typography & Headlines ─────────────────────── */
+html.darkMode .sectionTitle,
+body.darkMode .sectionTitle,
+html.darkMode .heroHeadline,
+body.darkMode .heroHeadline,
+html.darkMode .productName,
+body.darkMode .productName,
+html.darkMode .menuName,
+body.darkMode .menuName,
+html.darkMode .menuCardName,
+body.darkMode .menuCardName,
+html.darkMode .whyTitle,
+body.darkMode .whyTitle,
+html.darkMode .flashSaleTitle,
+body.darkMode .flashSaleTitle,
+html.darkMode .flashCardName,
+body.darkMode .flashCardName,
+html.darkMode .voucherStripTitle,
+body.darkMode .voucherStripTitle,
+html.darkMode .voucherCardName,
+body.darkMode .voucherCardName,
+html.darkMode .accountCardTitle,
+body.darkMode .accountCardTitle,
+html.darkMode .sellerCardTitle,
+body.darkMode .sellerCardTitle,
+html.darkMode .adminCardTitle,
+body.darkMode .adminCardTitle,
+html.darkMode .orderCardTitle,
+body.darkMode .orderCardTitle,
+html.darkMode .orderCartInfo h3,
+body.darkMode .orderCartInfo h3,
+html.darkMode .orderCartRight strong,
+body.darkMode .orderCartRight strong,
+html.darkMode .historyOrderNumber,
+body.darkMode .historyOrderNumber,
+html.darkMode .historyStatCard strong,
+body.darkMode .historyStatCard strong,
+html.darkMode .productDetailTitle,
+body.darkMode .productDetailTitle,
+html.darkMode .heroStatNum,
+body.darkMode .heroStatNum,
+html.darkMode .cartTitle,
+body.darkMode .cartTitle,
+html.darkMode .cartItemName,
+body.darkMode .cartItemName,
+html.darkMode .cartItemPrice,
+body.darkMode .cartItemPrice,
+html.darkMode .cartSummaryTotal,
+body.darkMode .cartSummaryTotal,
+html.darkMode .menuCardRating,
+body.darkMode .menuCardRating {
+  color: #FFFFFF !important;
+}
+
+html.darkMode .sectionSubtitle,
+body.darkMode .sectionSubtitle,
+html.darkMode .heroLead,
+body.darkMode .heroLead,
+html.darkMode .whyDesc,
+body.darkMode .whyDesc,
+html.darkMode .flashSaleNote,
+body.darkMode .flashSaleNote,
+html.darkMode .voucherCardDesc,
+body.darkMode .voucherCardDesc,
+html.darkMode .productDesc,
+body.darkMode .productDesc,
+html.darkMode .menuDesc,
+body.darkMode .menuDesc,
+html.darkMode .menuCardDesc,
+body.darkMode .menuCardDesc,
+html.darkMode .menuCardSeller,
+body.darkMode .menuCardSeller,
+html.darkMode .productDetailDesc,
+body.darkMode .productDetailDesc,
+html.darkMode .heroStatLabel,
+body.darkMode .heroStatLabel,
+html.darkMode .historyStatCard span,
+body.darkMode .historyStatCard span,
+html.darkMode .orderMetaLabel,
+body.darkMode .orderMetaLabel,
+html.darkMode .historyToolbar p,
+body.darkMode .historyToolbar p,
+html.darkMode .formLabel,
+body.darkMode .formLabel,
+html.darkMode .testimonialQuote,
+body.darkMode .testimonialQuote,
+html.darkMode .testimonialAuthor {
+  color: rgba(245, 230, 211, 0.78) !important;
+}
+
+html.darkMode .productPrice,
+body.darkMode .productPrice,
+html.darkMode .menuPrice,
+body.darkMode .menuPrice,
+html.darkMode .menuCardPrice,
+body.darkMode .menuCardPrice,
+html.darkMode .flashPriceMain,
+body.darkMode .flashPriceMain,
+html.darkMode .productDetailPriceMain,
+body.darkMode .productDetailPriceMain,
+html.darkMode .orderCartInfo p,
+body.darkMode .orderCartInfo p,
+html.darkMode .historyOrderTotal,
+body.darkMode .historyOrderTotal {
+  color: var(--colorAccentLight) !important;
+}
+
+html.darkMode .heroEyebrow,
+body.darkMode .heroEyebrow {
+  background: rgba(35, 22, 17, 0.85) !important;
+  color: var(--colorAccentLight) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+/* ── Dark Mode Form Inputs & Controls ─────────────────────── */
+html.darkMode input:not([type="checkbox"]):not([type="radio"]),
+body.darkMode input:not([type="checkbox"]):not([type="radio"]),
+html.darkMode select,
+body.darkMode select,
+html.darkMode textarea,
+body.darkMode textarea {
+  background: rgba(32, 21, 16, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: #FFFFFF !important;
+}
+
+html.darkMode input::placeholder,
+body.darkMode input::placeholder,
+html.darkMode textarea::placeholder,
+body.darkMode textarea::placeholder {
+  color: rgba(245, 230, 211, 0.38) !important;
+}
+
+html.darkMode input:focus,
+body.darkMode input:focus,
+html.darkMode select:focus,
+body.darkMode select:focus,
+html.darkMode textarea:focus,
+body.darkMode textarea:focus {
+  border-color: var(--colorAccent) !important;
+  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.25) !important;
+}
+
+html.darkMode .categoryPill,
+body.darkMode .categoryPill,
+html.darkMode .filterBtn,
+body.darkMode .filterBtn,
+html.darkMode .suggestionTag,
+body.darkMode .suggestionTag,
+html.darkMode .productOptionBtn,
+body.darkMode .productOptionBtn,
+html.darkMode .productToppingItem,
+body.darkMode .productToppingItem {
+  background: rgba(32, 21, 16, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: rgba(245, 230, 211, 0.85) !important;
+}
+
+html.darkMode .categoryPill:hover,
+body.darkMode .categoryPill:hover,
+html.darkMode .categoryPill.active,
+body.darkMode .categoryPill.active,
+html.darkMode .filterBtn:hover,
+body.darkMode .filterBtn:hover,
+html.darkMode .filterBtn.filterActive,
+body.darkMode .filterBtn.filterActive,
+html.darkMode .productOptionBtn.selected,
+body.darkMode .productOptionBtn.selected {
+  background: var(--colorAccent) !important;
+  color: #FFFFFF !important;
+  border-color: var(--colorAccent) !important;
+}
+
+html.darkMode .btnSecondary,
+body.darkMode .btnSecondary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html.darkMode .btnSecondary:hover,
+body.darkMode .btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* ── Dark Mode Tables (Admin & Seller) ────────────────────── */
+html.darkMode .adminTable th,
+body.darkMode .adminTable th,
+html.darkMode .sellerTable th,
+body.darkMode .sellerTable th {
+  background: rgba(35, 22, 17, 0.95) !important;
+  color: var(--colorCream) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+html.darkMode .adminTable td,
+body.darkMode .adminTable td,
+html.darkMode .sellerTable td,
+body.darkMode .sellerTable td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(245, 230, 211, 0.85) !important;
+}
+
+html.darkMode .adminTable tr:hover,
+body.darkMode .adminTable tr:hover,
+html.darkMode .sellerTable tr:hover,
+body.darkMode .sellerTable tr:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* ── Dark Mode Vouchers & Special Cards ───────────────────── */
+html.darkMode .voucherCardRight,
+body.darkMode .voucherCardRight {
+  background: rgba(26, 17, 13, 0.95) !important;
+}
+
+html.darkMode .voucherCodePill,
+body.darkMode .voucherCodePill {
+  background: rgba(230, 81, 0, 0.18) !important;
+  border-color: var(--colorAccentLight) !important;
+  color: var(--colorAccentLight) !important;
+}
+
+html.darkMode .voucherCopyBtn,
+body.darkMode .voucherCopyBtn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .voucherCopyBtn:hover,
+body.darkMode .voucherCopyBtn:hover {
+  background: var(--colorAccent) !important;
+  color: #FFF !important;
+}
+
+/* ── Dark Mode Pages Shells Overrides ─────────────────────── */
+html.darkMode #orderPage,
+body.darkMode #orderPage,
+html.darkMode #orderHistoryPage,
+body.darkMode #orderHistoryPage,
+html.darkMode .authFormPanel,
+body.darkMode .authFormPanel,
+html.darkMode .voucherPromoSection,
+body.darkMode .voucherPromoSection {
+  background: transparent !important;
+}
+
+html.darkMode .pageHero,
+body.darkMode .pageHero {
+  background: linear-gradient(135deg, #18100C 0%, #241611 50%, #0D0806 100%) !important;
+}
+
+html.darkMode #siteFooter,
+body.darkMode #siteFooter {
+  background: #080504 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ── Hardware-Accelerated Smooth Performance & Low-End Mode ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Apple-Style Fluid View Transitions & Page Cross-Fade ── */
+@keyframes viewFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-4px); }
+}
+
+@keyframes viewFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+::view-transition-old(root) {
+  animation: 0.2s cubic-bezier(0.16, 1, 0.3, 1) both viewFadeOut;
+}
+
+::view-transition-new(root) {
+  animation: 0.25s cubic-bezier(0.16, 1, 0.3, 1) both viewFadeIn;
+}
+
+/* Fallback for browsers without View Transitions API */
+.mainTransitioning {
+  opacity: 0 !important;
+  transform: translateY(4px);
+  transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+

@@ -1,0 +1,812 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Koffia — Website đặt đồ uống online. Khám phá thực đơn, tùy chỉnh món, thêm vào giỏ và xác nhận đơn nhanh chóng."
+    />
+    <meta
+      name="keywords"
+      content="Koffia, đặt đồ uống online, cà phê, trà sữa, nước ép, thực đơn online, giỏ hàng"
+    />
+    <meta
+      property="og:title"
+      content="Koffia — Đặt đồ uống online theo cách của bạn"
+    />
+    <meta
+      property="og:description"
+      content="Chọn món, tùy chỉnh size/đường/đá/topping và xác nhận đơn ngay trên website."
+    />
+    <meta property="og:type" content="website" />
+    <title>Koffia — Đặt đồ uống online theo cách của bạn</title>
+
+    <link rel="icon" type="image/png" href="assets/icons/logo.png" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Kit -->
+    <script
+      src="https://kit.fontawesome.com/175b48673e.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="css/homeStyle.css?v=8.1" />
+    <link rel="stylesheet" href="css/iosTheme.css?v=8.1" />
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header id="navBar" role="banner">
+      <nav class="navInner" aria-label="Main navigation">
+        <!-- Logo -->
+        <a
+          href="index.html"
+          class="navLogo"
+          aria-label="Koffia — Trang chủ"
+        >
+          <span class="navLogoIcon" aria-hidden="true"
+            ><img src="assets/icons/logo.png" alt="" width="800" height="800"
+          /></span>
+          <span>Koffia</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul class="navMenu" role="list">
+          <li>
+            <a href="index.html" class="navLink navLinkActive"
+              >Trang Chủ</a
+            >
+          </li>
+          <li>
+            <a href="pages/menu.html" class="navLink">Thực Đơn</a>
+          </li>
+          <li>
+            <a href="pages/aboutUs.html" class="navLink"
+              >Giới Thiệu</a
+            >
+          </li>
+          <li>
+            <a href="pages/contact.html" class="navLink"
+              >Liên Hệ</a
+            >
+          </li>
+        </ul>
+
+        <!-- Right Actions -->
+        <div class="navActions">
+          <a
+            href="pages/auth.html"
+            id="navLoginBtn"
+            class="navLoginBtn"
+          >
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Đăng Nhập
+          </a>
+          <button
+            id="navAvatarBtn"
+            class="navAvatarBtn"
+            style="display: none"
+            aria-label="Tài khoản của tôi"
+          >
+            <img id="navAvatarImg" class="navAvatarImg" src="" alt="Avatar" />
+          </button>
+          <button
+            id="cartOpenBtn"
+            class="navCartBtn"
+            hidden
+            aria-label="Mở giỏ hàng"
+          >
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span id="cartBadge" class="navCartBadge" style="display: none"
+              >0</span
+            >
+          </button>
+          <button
+            id="navHamburger"
+            class="navHamburger"
+            aria-label="Mở menu"
+            aria-expanded="false"
+            aria-controls="navDrawer"
+          >
+            <span class="hamLine hamLineLight"></span>
+            <span class="hamLine hamLineLight"></span>
+            <span class="hamLine hamLineLight"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile Nav Drawer -->
+    <div
+      id="navDrawer"
+      class="navDrawer"
+      role="dialog"
+      aria-label="Mobile navigation"
+    >
+      <div class="navDrawerOverlay"></div>
+      <nav class="navDrawerPanel">
+        <a href="index.html" class="drawerNavLink navLinkActive"
+          ><i class="fa-solid fa-house fa-fw"></i> Trang Chủ</a
+        >
+        <a href="pages/menu.html" class="drawerNavLink"
+          ><i class="fa-solid fa-utensils fa-fw"></i> Thực Đơn</a
+        >
+        <a href="pages/aboutUs.html" class="drawerNavLink"
+          ><i class="fa-solid fa-circle-info fa-fw"></i> Giới Thiệu</a
+        >
+        <a href="pages/contact.html" class="drawerNavLink"
+          ><i class="fa-solid fa-envelope fa-fw"></i> Liên Hệ</a
+        >
+        <button
+          id="drawerThemeToggleBtn"
+          class="drawerNavLink drawerThemeToggle"
+          type="button"
+          aria-label="Đổi giao diện Sáng / Tối"
+        >
+          <span class="drawerThemeLabel">
+            <i class="fa-solid fa-moon fa-fw"></i>
+            <span class="drawerThemeText">Chế độ Ban đêm</span>
+          </span>
+          <span class="themePillIndicator" aria-hidden="true"></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- ══════════════════════════════════════
+       CART DRAWER
+       ══════════════════════════════════════ -->
+    <aside
+      id="cartDrawer"
+      role="dialog"
+      aria-label="Giỏ hàng"
+      aria-modal="true"
+    >
+      <div class="cartOverlay"></div>
+      <div class="cartPanel">
+        <div class="cartHeader">
+          <h2 class="cartTitle">
+            <i class="fa-solid fa-bag-shopping"></i> Giỏ hàng
+          </h2>
+          <button
+            id="cartCloseBtn"
+            class="cartCloseBtn"
+            aria-label="Đóng giỏ hàng"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="cartBody" class="cartBody"></div>
+        <div class="cartFooter">
+          <div class="cartTotalRow">
+            <span class="cartTotalLabel">Tổng cộng</span>
+            <span id="cartTotalAmount" class="cartTotalAmount">0 ₫</span>
+          </div>
+          <a class="btnPrimary cartCheckoutBtn" href="pages/cart.html"
+            ><i class="fa-solid fa-bag-shopping"></i> Xem giỏ &amp; đặt đơn</a
+          >
+        </div>
+      </div>
+    </aside>
+
+    <main id="mainContent">
+      <!-- ══════════════════════════════════════
+         HERO SECTION — Apple Spatial Showcase
+         ══════════════════════════════════════ -->
+      <section id="heroSection" aria-labelledby="heroHeading">
+        <div class="heroAura heroAura1" aria-hidden="true"></div>
+        <div class="heroAura heroAura2" aria-hidden="true"></div>
+
+        <div class="container heroContainer">
+          <div class="heroContent">
+            <div class="heroPillBadge">
+              <span class="heroPulseDot" aria-hidden="true"></span>
+              <span class="heroBadgeText">100% Cà Phê Mộc • Giao Nhanh 15 Phút • Freeship 3km</span>
+            </div>
+
+            <h1 id="heroHeading" class="heroTitle">
+              Đậm Vị Cà Phê Mộc,<br />
+              <span class="heroTitleAccent">Đánh Thức Từng Giác Quan</span>
+            </h1>
+
+            <p class="heroSubtitle">
+              Khám phá hơn 100 món cà phê hạt rang mộc nguyên bản, trà sữa nướng thơm ngậy và trà hoa quả tươi mát. Tùy biến size, đường, đá chuẩn gu riêng và nhận đồ uống thơm ngon chỉ sau 15 phút.
+            </p>
+
+            <div class="heroActions">
+              <a href="pages/menu.html" class="btnPrimary heroMainCta" id="heroCtaOrder">
+                <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+                Khám Phá Menu (100 Món)
+                <i class="fa-solid fa-arrow-right heroCtaArrow" aria-hidden="true"></i>
+              </a>
+              <a
+                href="#flashSaleSection"
+                class="btnSecondary heroSecondaryCta"
+                id="heroCtaLearn"
+              >
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                Flash Sale Giảm 35%
+              </a>
+            </div>
+
+            <div class="heroStats" role="list" aria-label="Thống kê nổi bật Koffia">
+              <div class="heroStatItem" role="listitem">
+                <div class="heroStatNumber">100+</div>
+                <div class="heroStatLabel">Món đồ uống</div>
+              </div>
+              <div class="heroStatDivider" aria-hidden="true"></div>
+              <div class="heroStatItem" role="listitem">
+                <div class="heroStatNumber">15<span class="unit">p</span></div>
+                <div class="heroStatLabel">Giao hỏa tốc</div>
+              </div>
+              <div class="heroStatDivider" aria-hidden="true"></div>
+              <div class="heroStatItem" role="listitem">
+                <div class="heroStatNumber">4.9<i class="fa-solid fa-star" aria-hidden="true"></i></div>
+                <div class="heroStatLabel">15k+ đánh giá</div>
+              </div>
+              <div class="heroStatDivider" aria-hidden="true"></div>
+              <div class="heroStatItem" role="listitem">
+                <div class="heroStatNumber">0<span class="unit">₫</span></div>
+                <div class="heroStatLabel">Freeship đơn 50k</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Apple Glassmorphic Showcase Centerpiece -->
+          <div class="heroShowcaseWrapper">
+            <div class="heroShowcaseCard">
+              <!-- Interactive Drink Selector Tabs -->
+              <div class="heroDrinkTabs" role="tablist" aria-label="Chọn đồ uống đặc trưng">
+                <button type="button" class="heroDrinkTab active" data-drink-id="latte" role="tab" aria-selected="true">
+                  ☕ Macchiato
+                </button>
+                <button type="button" class="heroDrinkTab" data-drink-id="egg" role="tab" aria-selected="false">
+                  🥚 Cà phê trứng
+                </button>
+                <button type="button" class="heroDrinkTab" data-drink-id="tea" role="tab" aria-selected="false">
+                  🍑 Trà đào cam sả
+                </button>
+              </div>
+
+              <div class="showcaseImgBox">
+                <img src="assets/images/productLatte.jpg" alt="Koffia Signature Drink" id="heroShowcaseImg" class="showcaseImg" width="400" height="400" />
+                <span class="showcaseLiveTag" id="heroShowcaseBadge"><i class="fa-solid fa-fire"></i> Best Seller</span>
+              </div>
+              <div class="showcaseCardMeta">
+                <div class="showcaseItemInfo">
+                  <span class="showcaseTag" id="heroShowcaseTag">Signature Drink</span>
+                  <h3 class="showcaseName" id="heroShowcaseName">Caramel Macchiato</h3>
+                  <p class="showcasePrice" id="heroShowcasePrice">45.000 ₫</p>
+                </div>
+                <a href="pages/menu.html" class="showcaseOrderBtn" id="heroShowcaseLink" aria-label="Đặt món ngay">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Floating Apple Glass Badges -->
+            <div class="floatingGlassBadge badgeTop">
+              <span class="badgeIcon bolt"><i class="fa-solid fa-bolt"></i></span>
+              <div class="badgeText">
+                <strong>Flash Sale -35%</strong>
+                <small>Ưu đãi hôm nay</small>
+              </div>
+            </div>
+
+            <div class="floatingGlassBadge badgeBottom">
+              <span class="badgeIcon star"><i class="fa-solid fa-star"></i></span>
+              <div class="badgeText">
+                <strong>4.9 / 5.0</strong>
+                <small>Từ 15.000+ tín đồ cà phê</small>
+              </div>
+            </div>
+
+            <div class="floatingGlassBadge badgeSide">
+              <span class="badgeIcon leaf"><i class="fa-solid fa-leaf"></i></span>
+              <div class="badgeText">
+                <strong>100% Cầu Đất</strong>
+                <small>Arabica mộc thơm lừng</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════
+         FLASH SALES SECTION
+         ══════════════════════════════════════ -->
+      <section id="flashSaleSection" class="flashSaleSection" aria-labelledby="flashSaleHeading">
+        <div class="container">
+          <div class="flashSaleHeader revealUp">
+            <div class="flashSaleHeaderLeft">
+              <span class="flashSaleLiveBadge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> FLASH SALE</span>
+              <h2 id="flashSaleHeading" class="flashSaleTitle">Ưu Đãi Giới Hạn Hôm Nay</h2>
+              <p id="flashSaleSubtitle" class="flashSaleSubtitle">Món ngon deal sốc — Đặt ngay trước khi hết suất!</p>
+            </div>
+            <div class="flashSaleTimerBox" aria-label="Thời gian còn lại của flash sale">
+              <span class="timerLabel"><i class="fa-regular fa-clock" aria-hidden="true"></i> Kết thúc trong</span>
+              <div class="countdownWrapper" id="flashSaleCountdown">
+                <span class="timeBox" id="fsHours">00</span><span class="timeColon">:</span>
+                <span class="timeBox" id="fsMinutes">00</span><span class="timeColon">:</span>
+                <span class="timeBox" id="fsSeconds">00</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="flashSaleGrid" class="flashSaleGrid" role="list" aria-label="Sản phẩm Flash Sale">
+            <!-- Nạp động từ json/flashSales.json bởi js/index.js?v=8.1 -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════
+         VOUCHER PROMO SECTION
+         ══════════════════════════════════════ -->
+      <section id="voucherPromoSection" class="voucherPromoSection" aria-labelledby="voucherHeading">
+        <div class="container">
+          <div class="voucherStripHeader revealUp">
+            <div class="voucherHeaderIcon" aria-hidden="true"><i class="fa-solid fa-ticket"></i></div>
+            <div>
+              <h2 id="voucherHeading" class="voucherStripTitle">Kho Voucher Giảm Giá</h2>
+              <p class="voucherStripSubtitle">Thu thập voucher độc quyền — Tiết kiệm hơn cho mỗi ly đồ uống</p>
+            </div>
+          </div>
+          <div id="voucherCardsTrack" class="voucherCardsTrack revealUp" role="list" aria-label="Danh sách Voucher">
+            <!-- Nạp động từ json/vouchers.json bởi js/index.js?v=8.1 -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════
+         FEATURED PRODUCTS
+         ══════════════════════════════════════ -->
+      <section id="featuredProducts" aria-labelledby="featuredHeading">
+        <div class="container">
+          <div class="sectionHeader">
+            <p class="featuredTagline" aria-hidden="true">
+              <i class="fa-solid fa-fire"></i>
+              Best Sellers
+            </p>
+            <h2 id="featuredHeading" class="sectionTitle">
+              Món Được Yêu Thích Nhất
+            </h2>
+            <p class="sectionSubtitle">
+              Các món bán chạy được lấy trực tiếp từ dữ liệu thực đơn để bạn
+              chọn nhanh hơn.
+            </p>
+            <span class="titleUnderline" aria-hidden="true"></span>
+          </div>
+
+          <div class="productsGrid" role="list" aria-label="Sản phẩm nổi bật">
+            <!-- Sản phẩm được đồng bộ động từ json/products.json bởi js/index.js?v=8.1 -->
+          </div>
+          <!-- /productsGrid -->
+
+          <div class="featuredCta revealUp">
+            <a href="pages/menu.html" class="btnSecondary" id="viewAllMenuBtn">
+              <i class="fa-solid fa-grid-2" aria-hidden="true"></i>
+              Xem toàn bộ thực đơn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════
+         WHY KOFFIA SECTION — Apple Bento Grid
+         ══════════════════════════════════════ -->
+      <section id="whyKoffia" aria-labelledby="whyHeading">
+        <div class="container">
+          <div class="sectionHeader">
+            <p class="bentoSectionTag" aria-hidden="true">
+              <i class="fa-solid fa-sparkles"></i>
+              TIÊU CHUẨN KOFFIA
+            </p>
+            <h2
+              id="whyHeading"
+              class="sectionTitle"
+            >
+              Trải Nghiệm Cà Phê Thế Hệ Mới
+            </h2>
+            <p class="sectionSubtitle">
+              Từ hạt cà phê mộc thượng hạng đến công nghệ đóng gói giữ nhiệt và giao hỏa tốc 15 phút.
+            </p>
+            <span class="titleUnderline" aria-hidden="true"></span>
+          </div>
+
+          <div class="whyBentoGrid">
+            <!-- Bento 1: Large Featured Card (Span 2) -->
+            <article class="bentoCard bentoHero revealUp">
+              <div class="bentoCardTop">
+                <span class="bentoBadge primary"><i class="fa-solid fa-leaf" aria-hidden="true"></i> 100% NGUYÊN BẢN</span>
+                <span class="bentoIconAura" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span>
+              </div>
+              <h3 class="bentoTitle">Hạt Cà Phê Rang Mộc Cầu Đất &amp; Đắk Lắk</h3>
+              <p class="bentoDesc">
+                Koffia chỉ sử dụng hạt Robusta chín cây và Arabica Cầu Đất được thu hoạch thủ công. Từng mẻ rang mộc nhỏ mỗi tuần giữ trọn hương vị sô-cô-la mộc, hậu vị ngọt sâu và lớp crema óng ả không tẩm bơ phụ gia độc hại.
+              </p>
+              <div class="bentoPillGroup">
+                <span class="bentoPill"><i class="fa-solid fa-check" aria-hidden="true"></i> Rang mộc mẻ nhỏ</span>
+                <span class="bentoPill"><i class="fa-solid fa-check" aria-hidden="true"></i> 0% hương liệu nhân tạo</span>
+                <span class="bentoPill"><i class="fa-solid fa-check" aria-hidden="true"></i> Crema dày mịn tự nhiên</span>
+              </div>
+            </article>
+
+            <!-- Bento 2: Speed Delivery (Span 1) -->
+            <article class="bentoCard bentoSpeed revealUp">
+              <div class="bentoCardTop">
+                <span class="bentoBadge accent"><i class="fa-solid fa-bolt" aria-hidden="true"></i> SIÊU TỐC</span>
+                <span class="bentoIconAura" aria-hidden="true"><i class="fa-solid fa-rocket"></i></span>
+              </div>
+              <h3 class="bentoTitle">Giao Hỏa Tốc 15 Phút</h3>
+              <p class="bentoDesc">
+                Túi giữ nhiệt kép chuyên dụng bảo đảm đá không tan trong 45 phút, bảo toàn độ tươi mới trọn vẹn như vừa pha tại quầy.
+              </p>
+              <div class="bentoSpeedStat">
+                <span class="bentoBigNum">15</span>
+                <span class="bentoBigUnit">phút nhận đồ uống</span>
+              </div>
+            </article>
+
+            <!-- Bento 3: Customization (Span 1) -->
+            <article class="bentoCard bentoCustom revealUp">
+              <div class="bentoCardTop">
+                <span class="bentoBadge warm"><i class="fa-solid fa-sliders" aria-hidden="true"></i> CHUẨN GU RIÊNG</span>
+                <span class="bentoIconAura" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+              </div>
+              <h3 class="bentoTitle">Tùy Biến Theo Khẩu Vị</h3>
+              <p class="bentoDesc">
+                Tự do chọn 0% – 100% đường &amp; đá, đổi sang sữa yến mạch hạt thơm ngậy và thêm 8+ loại topping giòn dai chỉ với 1 chạm.
+              </p>
+              <div class="bentoTags">
+                <span class="bentoMiniTag active">30% Đường</span>
+                <span class="bentoMiniTag active">50% Đá</span>
+                <span class="bentoMiniTag">Sữa Yến Mạch</span>
+                <span class="bentoMiniTag">Trân Châu Hoàng Kim</span>
+              </div>
+            </article>
+
+            <!-- Bento 4: Rewards & Vouchers (Span 2) -->
+            <article class="bentoCard bentoRewards revealUp">
+              <div class="bentoCardTop">
+                <span class="bentoBadge success"><i class="fa-solid fa-gift" aria-hidden="true"></i> ĐẶC QUYỀN HỘI VIÊN</span>
+                <span class="bentoIconAura" aria-hidden="true"><i class="fa-solid fa-ticket"></i></span>
+              </div>
+              <h3 class="bentoTitle">Kho Voucher &amp; Tích Điểm Mỗi Ngày</h3>
+              <p class="bentoDesc">
+                Tích lũy điểm hạt cà phê trên mỗi hóa đơn, săn voucher giảm tới 50.000 ₫ mỗi tuần và đặc quyền tặng ly sinh nhật độc quyền.
+              </p>
+              <div class="bentoPerksRow">
+                <div class="bentoPerk"><i class="fa-solid fa-ticket fa-fw" aria-hidden="true"></i> Voucher 20K - 50K</div>
+                <div class="bentoPerk"><i class="fa-solid fa-truck-fast fa-fw" aria-hidden="true"></i> Miễn phí ship 3km</div>
+                <div class="bentoPerk"><i class="fa-solid fa-cake-candles fa-fw" aria-hidden="true"></i> Quà tặng sinh nhật</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════
+         TESTIMONIALS
+         ══════════════════════════════════════ -->
+      <section id="testimonials" aria-labelledby="testimonialsHeading">
+        <div class="container">
+          <div class="sectionHeader">
+            <h2 id="testimonialsHeading" class="sectionTitle">
+              Người dùng nói gì về nền tảng Koffia?
+            </h2>
+            <p class="sectionSubtitle">
+              Trải nghiệm thực tế từ khách hàng và đối tác quán về hệ thống đặt
+              đồ uống trực tuyến đa thương hiệu Koffia.
+            </p>
+            <span class="titleUnderline" aria-hidden="true"></span>
+          </div>
+          <div
+            class="testimonialsTrack"
+            role="list"
+            aria-label="Đánh giá hệ thống Koffia"
+          >
+            <article class="testimonialCard revealUp" role="listitem">
+              <div class="testimonialQuote" aria-hidden="true">"</div>
+              <p class="testimonialText">
+                Điểm mình thích nhất ở nền tảng Koffia là quy tụ đủ các quán từ
+                cà phê mộc truyền thống đến trà sữa nổi tiếng trên cùng một hệ
+                thống. Team mình mỗi người một gu, nhưng chỉ cần vào web là đặt
+                chung một lượt, tùy chỉnh đá đường topping chi tiết mà không phải
+                tải nhiều app riêng rẽ.
+              </p>
+              <div class="testimonialAuthor">
+                <div class="testimonialAvatar" aria-hidden="true">AN</div>
+                <div>
+                  <div class="testimonialName">Nguyễn Anh</div>
+                  <div class="testimonialRole">
+                    ⭐⭐⭐⭐⭐ — Đặt đồ uống văn phòng
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonialCard revealUp" role="listitem">
+              <div class="testimonialQuote" aria-hidden="true">"</div>
+              <p class="testimonialText">
+                Hệ thống web của Koffia được tối ưu cực kỳ mượt mà. Ấn tượng
+                nhất là tính năng chọn địa chỉ 3 cấp kết hợp bản đồ định vị ghim
+                nhà chuẩn xác, shipper tìm tới tận sảnh không cần gọi hỏi đường
+                nhiều lần. Quét mã VietQR tự động khớp số tiền và mã đơn siêu
+                tiện lợi!
+              </p>
+              <div class="testimonialAuthor">
+                <div class="testimonialAvatar" aria-hidden="true">LH</div>
+                <div>
+                  <div class="testimonialName">Linh Hoa</div>
+                  <div class="testimonialRole">
+                    ⭐⭐⭐⭐⭐ — Chuyên gia trải nghiệm số (UI/UX)
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonialCard revealUp" role="listitem">
+              <div class="testimonialQuote" aria-hidden="true">"</div>
+              <p class="testimonialText">
+                Từ khi đưa Mộc Coffee lên nền tảng Koffia, lượng đơn online của
+                quán tăng trưởng rõ rệt. Kênh quản lý đối tác (Seller Portal) cập
+                nhật đơn hàng theo thời gian thực rất nhanh, hệ thống phân loại
+                danh mục và đồng bộ kho món tự động giúp quán vận hành trơn tru
+                mỗi giờ cao điểm.
+              </p>
+              <div class="testimonialAuthor">
+                <div class="testimonialAvatar" aria-hidden="true">MK</div>
+                <div>
+                  <div class="testimonialName">Minh Khoa</div>
+                  <div class="testimonialRole">
+                    ⭐⭐⭐⭐⭐ — Đối tác quán (Mộc Coffee)
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonialCard revealUp" role="listitem">
+              <div class="testimonialQuote" aria-hidden="true">"</div>
+              <p class="testimonialText">
+                Web hoạt động mượt như ứng dụng native thực thụ. Giỏ hàng lưu tự
+                động theo tài khoản, kho voucher áp mã thông minh trừ thẳng phí
+                ship và flash sale giờ vàng. Mình có thể tra cứu lại toàn bộ
+                lịch sử đơn hàng và trạng thái pha chế bất cứ lúc nào rất an tâm.
+              </p>
+              <div class="testimonialAuthor">
+                <div class="testimonialAvatar" aria-hidden="true">TH</div>
+                <div>
+                  <div class="testimonialName">Thanh Hà</div>
+                  <div class="testimonialRole">
+                    ⭐⭐⭐⭐⭐ — Thành viên thân thiết Koffia
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════
+         CTA — ĐĂNG KÝ TÀI KHOẢN
+         ══════════════════════════════════════ -->
+      <section id="newsletter" aria-labelledby="newsletterHeading">
+        <div class="container">
+          <div class="newsletterInner">
+            <div class="newsletterText revealLeft">
+              <h2 id="newsletterHeading" class="newsletterTitle">
+                <i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Tham gia
+                cùng Koffia ngay hôm nay!
+              </h2>
+              <p class="newsletterSub">
+                Tạo tài khoản để lưu thông tin cá nhân và có trải nghiệm đặt món
+                liền mạch hơn trên website.
+              </p>
+            </div>
+            <div class="ctaAuthGroup revealRight">
+              <a href="pages/auth.html" class="btnPrimary" id="ctaSignUpBtn">
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                Bắt đầu nào!
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ══════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════ -->
+    <footer id="siteFooter" role="contentinfo">
+      <div class="container">
+        <div class="footerGrid">
+          <!-- Brand Column -->
+          <div class="footerBrand">
+            <a href="index.html" class="navLogo" aria-label="Koffia">
+              <span class="navLogoIcon" aria-hidden="true"
+                ><img
+                  src="assets/icons/logo.png"
+                  alt=""
+                  width="800"
+                  height="800"
+              /></span>
+              <span>Koffia</span>
+            </a>
+            <p class="footerTagline">
+              Koffia là website đặt đồ uống online: chọn món, tùy chỉnh, quản lý
+              giỏ hàng và xác nhận đơn trong một luồng đơn giản.
+            </p>
+            <div
+              class="footerSocials"
+              role="list"
+              aria-label="Mạng xã hội Koffia"
+            >
+              <a
+                href="#"
+                class="footerSocialLink"
+                role="listitem"
+                aria-label="Facebook Koffia"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="footerSocialLink"
+                role="listitem"
+                aria-label="Instagram Koffia"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="footerSocialLink"
+                role="listitem"
+                aria-label="TikTok Koffia"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+              <a
+                href="#"
+                class="footerSocialLink"
+                role="listitem"
+                aria-label="YouTube Koffia"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <nav aria-label="Footer navigation">
+            <h3 class="footerHeading">Liên kết nhanh</h3>
+            <ul class="footerLinkList" role="list">
+              <li><a href="index.html" class="footerLinkItem">Trang Chủ</a></li>
+              <li>
+                <a href="pages/menu.html" class="footerLinkItem">Thực Đơn</a>
+              </li>
+              <li>
+                <a href="pages/aboutUs.html" class="footerLinkItem"
+                  >Giới Thiệu</a
+                >
+              </li>
+              <li>
+                <a href="pages/contact.html" class="footerLinkItem">Liên Hệ</a>
+              </li>
+              <li>
+                <a href="#" class="footerLinkItem">Chính sách giao hàng</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Categories -->
+          <nav aria-label="Product categories">
+            <h3 class="footerHeading">Danh mục</h3>
+            <ul class="footerLinkList" role="list">
+              <li>
+                <a href="pages/menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Cà
+                  phê</a
+                >
+              </li>
+              <li>
+                <a href="pages/menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-mug-saucer" aria-hidden="true"></i> Trà
+                  sữa</a
+                >
+              </li>
+              <li>
+                <a href="pages/menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-lemon" aria-hidden="true"></i> Nước
+                  ép</a
+                >
+              </li>
+              <li>
+                <a href="pages/menu.html" class="footerLinkItem"
+                  ><i
+                    class="fa-solid fa-martini-glass-citrus"
+                    aria-hidden="true"
+                  ></i>
+                  Đặc biệt</a
+                >
+              </li>
+              <li>
+                <a href="pages/menu.html" class="footerLinkItem"
+                  ><i class="fa-solid fa-gift" aria-hidden="true"></i> Combo ưu
+                  đãi</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Contact -->
+          <address>
+            <h3 class="footerHeading">Liên hệ</h3>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-headset" aria-hidden="true"></i>
+              <span>Hỗ trợ đặt hàng online<br />trên website Koffia</span>
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <a href="tel:+84901234567" style="color: inherit">0901 234 567</a>
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:hello@koffia.vn" style="color: inherit"
+                >hello@koffia.vn</a
+              >
+            </div>
+            <div class="footerContactItem">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>Hỗ trợ: 08:00 – 22:00</span>
+            </div>
+          </address>
+        </div>
+
+        <div class="footerBottom">
+          <p class="footerCopyright">© 2026 Koffia. Đặt đồ uống online.</p>
+          <div class="footerBottomLinks">
+            <a href="#" class="footerBottomLink">Điều khoản sử dụng</a>
+            <a href="#" class="footerBottomLink">Chính sách bảo mật</a>
+            <a href="#" class="footerBottomLink">Cookie</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+    <!-- Scripts -->
+    <script src="js/productImages.js?v=8.1" defer></script>
+    <script src="js/main.js?v=8.1" defer></script>
+    <script src="js/index.js?v=8.1" defer></script>
+    <script src="js/productnav.js?v=8.1" defer></script>
+  </body>
+</html>
+

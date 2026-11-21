@@ -1,0 +1,434 @@
+#orderPage { padding: var(--space10) 0 var(--space20); background: transparent; }
+.orderLayout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr); gap:var(--space8); align-items:start; }
+.orderCard { background:var(--colorWhite); border:1px solid rgba(62, 39, 35, 0.08); border-radius:var(--radiusLg); padding:var(--space8); box-shadow:0 4px 24px -2px rgba(62, 39, 35, 0.06); }
+.orderCardTitle { display:flex; align-items:center; gap:var(--space3); color:var(--colorEspresso); font-family:var(--fontHeading); font-size:var(--fontSizeXl); margin-bottom:var(--space5); }
+.orderCartList { display:flex; flex-direction:column; gap:var(--space4); }
+.orderCartItem { display:grid; grid-template-columns:96px minmax(0,1fr) auto; gap:var(--space4); padding:var(--space4); border:1px solid rgba(62, 39, 35, 0.06); border-radius:var(--radiusMd); background:rgba(253, 246, 238, 0.45); align-items:center; transition:all var(--transitionNormal); }
+.orderCartItem:hover { background:var(--colorWhite); box-shadow:0 6px 18px rgba(62, 39, 35, 0.06); border-color:rgba(162, 110, 68, 0.25); }
+.orderCartImg { width:96px; height:96px; aspect-ratio:1 / 1; object-fit:cover; border-radius:var(--radiusMd); background:var(--colorGray100); }
+.orderCartImgFallback { display:flex; align-items:center; justify-content:center; font-size:2rem; }
+.orderCartInfo h3 { color:var(--colorEspresso); font-size:var(--fontSizeMd); margin-bottom:var(--space1); }
+.orderCartInfo p { color:var(--colorAccent); font-weight:700; font-size:var(--fontSizeSm); }
+.orderQtyControl { display:inline-flex; align-items:center; gap:var(--space3); margin-top:var(--space3); border:1px solid var(--colorGray200); border-radius:var(--radiusFull); padding:3px 6px; background:var(--colorWhite); }
+.orderQtyControl button { width:28px; height:28px; border-radius:var(--radiusFull); background:var(--colorCream); color:var(--colorEspresso); font-weight:700; transition:all var(--transitionFast); }
+.orderQtyControl button:hover { background:var(--colorEspresso); color:var(--colorCream); }
+.orderQtyControl button:active { transform:scale(0.9); }
+.orderQtyControl span { min-width:22px; text-align:center; font-weight:700; }
+.orderCartRight { align-self:stretch; display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between; gap:var(--space3); }
+.orderCartRight strong { color:var(--colorEspresso); white-space:nowrap; }
+.orderRemoveBtn { color:#b3261e; font-size:var(--fontSizeXs); background:none; cursor:pointer; transition:opacity var(--transitionFast); }
+.orderRemoveBtn:hover { opacity:0.8; }
+.orderEmpty { text-align:center; padding:var(--space12) var(--space4); color:var(--colorGray500); }
+.orderEmpty i { display:block; font-size:3rem; color:var(--colorAccent); margin-bottom:var(--space4); }
+.orderEmpty .btnPrimary { display:inline-flex; margin-top:var(--space5); }
+.orderSummary { margin-top:var(--space5); padding-top:var(--space5); border-top:1px solid var(--colorGray200); }
+.orderSummaryRow { display:flex; justify-content:space-between; gap:var(--space4); margin-bottom:var(--space2); color:var(--colorGray600); }
+.orderSummaryRowTotal { margin-top:var(--space4); padding-top:var(--space4); border-top:1px dashed var(--colorGray300); color:var(--colorEspresso); font-size:var(--fontSizeLg); font-weight:800; }
+.orderForm { display:flex; flex-direction:column; gap:var(--space4); }
+.orderField label { display:block; font-size:var(--fontSizeXs); font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--colorEspresso); margin-bottom:var(--space2); }
+.orderField input,.orderField textarea { width:100%; padding:12px 16px; border:1px solid var(--colorGray300); border-radius:var(--radiusMd); background:var(--colorWhite); font:inherit; color:var(--colorEspresso); outline:none; transition:all var(--transitionNormal); }
+.orderField input:focus,.orderField textarea:focus { border-color:var(--colorAccent); box-shadow:0 0 0 3px rgba(230, 81, 0, 0.15); }
+.orderField textarea { resize:vertical; min-height:86px; }
+.orderHint { display:flex; gap:var(--space2); align-items:flex-start; padding:var(--space4); border-radius:var(--radiusMd); background:var(--colorCream); color:var(--colorGray600); font-size:var(--fontSizeXs); line-height:1.6; }
+#placeOrderBtn { width:100%; justify-content:center; margin-top:var(--space2); border-radius:var(--radiusFull); box-shadow:var(--shadowAccent); transition:all var(--transitionSpring); }
+#placeOrderBtn:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 24px rgba(230, 81, 0, 0.35); }
+#placeOrderBtn:active:not(:disabled) { transform:scale(0.97); }
+#placeOrderBtn:disabled { opacity:.5; cursor:not-allowed; }
+.orderSuccess { text-align:center; padding:var(--space8) var(--space4); }
+.orderSuccessIcon { width:72px; height:72px; margin:0 auto var(--space4); border-radius:50%; display:grid; place-items:center; background:#e8f5e9; color:#1b5e20; font-size:2rem; }
+.orderSuccess h2 { color:var(--colorEspresso); margin-bottom:var(--space3); }
+.orderSuccess p { color:var(--colorGray600); line-height:1.7; }
+.orderSuccessCode { margin:var(--space5) auto; padding:var(--space4); border-radius:var(--radiusMd); background:var(--colorCream); color:var(--colorEspresso); font-weight:800; }
+.orderActions { display:flex; flex-wrap:wrap; justify-content:center; gap:var(--space3); margin-top:var(--space5); }
+@media (max-width:900px){ .orderLayout{grid-template-columns:1fr;} }
+@media (max-width:560px){ #orderPage{padding-top:var(--space6);} .orderCard{padding:var(--space4);} .orderCartItem{grid-template-columns:72px 1fr;} .orderCartImg{width:72px;height:72px;} .orderCartRight{grid-column:2; flex-direction:row; align-items:center;} }
+
+.orderHistoryHint { margin:var(--space3) auto 0; max-width:650px; font-size:var(--fontSizeXs); color:var(--colorGray500) !important; }
+
+.orderCartImgFallback i { color: var(--colorAccent); font-size: 1.75rem; }
+
+/* ── Cart Voucher System ─────────────────────────────────── */
+.cartVoucherBox {
+  margin-top: var(--space5);
+  padding: var(--space5);
+  background: rgba(245, 230, 211, 0.3);
+  border: 1.5px dashed rgba(162, 110, 68, 0.35);
+  border-radius: var(--radiusLg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+}
+
+.voucherInputRow {
+  display: flex;
+  gap: var(--space2);
+}
+
+.voucherInputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.voucherInputWrapper i {
+  position: absolute;
+  left: 14px;
+  color: var(--colorGray400);
+  font-size: var(--fontSizeSm);
+}
+
+.voucherInputWrapper input {
+  width: 100%;
+  padding: 10px 16px 10px 38px;
+  border: 1px solid var(--colorGray300);
+  border-radius: var(--radiusFull);
+  font: inherit;
+  font-size: var(--fontSizeSm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--colorEspresso);
+  background: var(--colorWhite);
+  outline: none;
+  transition: all var(--transitionNormal);
+}
+
+.voucherInputWrapper input:focus {
+  border-color: var(--colorAccent);
+  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.15);
+}
+
+.applyVoucherBtn {
+  padding: 0 var(--space5);
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  border-radius: var(--radiusFull);
+  transition: all var(--transitionNormal);
+}
+
+.applyVoucherBtn:active {
+  transform: scale(0.95);
+}
+
+.appliedVoucherTag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: var(--radiusFull);
+  color: #2e7d32;
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+}
+
+.appliedVoucherInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.removeVoucherBtn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #b71c1c;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform var(--transitionFast);
+}
+
+.removeVoucherBtn:hover {
+  transform: scale(1.15);
+}
+
+.openVoucherPickerBtn {
+  background: none;
+  border: none;
+  color: var(--colorAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: 0;
+  align-self: flex-start;
+  transition: all var(--transitionFast);
+}
+.openVoucherPickerBtn:hover { opacity: 0.85; transform: translateX(2px); }
+
+.orderDiscountRow strong { font-weight: 700; }
+
+/* ── Voucher Modal ────────────────────────────────────────── */
+.voucherModal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space4);
+}
+
+.voucherModalOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 8, 6, 0.48);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.voucherModal:not([hidden]) .voucherModalOverlay {
+  animation: appleFadeIn 0.3s ease forwards;
+}
+
+.voucherModalCard {
+  position: relative;
+  z-index: 2;
+  background: var(--colorWhite);
+  border-radius: var(--radiusXl);
+  width: 100%;
+  max-width: 520px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadowFloatLg);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+
+.voucherModal:not([hidden]) .voucherModalCard {
+  animation: appleModalPop 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.voucherModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space4) var(--space6);
+  border-bottom: 1px solid var(--colorGray200);
+}
+
+.voucherModalHeader h3 {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeLg);
+  color: var(--colorEspresso);
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.closeModalBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--colorGray500);
+  cursor: pointer;
+}
+
+.voucherModalList {
+  padding: var(--space4) var(--space6);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+}
+
+.modalVoucherItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space3) var(--space4);
+  background: var(--colorCreamLight);
+  border: 1px solid var(--colorGray200);
+  border-radius: var(--radiusMd);
+  gap: var(--space3);
+  transition: all var(--transitionNormal);
+}
+
+.modalVoucherItem:hover {
+  transform: translateY(-2px);
+  border-color: var(--colorAccent);
+  box-shadow: 0 4px 14px rgba(62, 39, 35, 0.08);
+}
+
+.modalVoucherCode {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--colorAccent);
+  font-size: var(--fontSizeSm);
+}
+
+.modalVoucherDesc {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray600);
+  margin-top: 2px;
+}
+
+.modalVoucherApplyBtn {
+  padding: 6px 14px;
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Dedicated Cart Page Enhancements ────────────────────────── */
+.cartSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space4);
+  max-width: 680px;
+  margin: 0 auto var(--space10);
+  padding: var(--space3) var(--space6);
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusFull);
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.05);
+}
+
+.cartStepItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  color: var(--colorGray400);
+  text-decoration: none;
+}
+
+.cartStepItem.stepActive {
+  color: var(--colorAccent);
+}
+
+.cartStepNum {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  background: var(--colorGray200);
+  color: var(--colorGray600);
+}
+
+.cartStepItem.stepActive .cartStepNum {
+  background: var(--colorAccent);
+  color: var(--colorWhite);
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.35);
+}
+
+.cartStepLine {
+  flex: 1;
+  height: 2px;
+  background: var(--colorGray200);
+  min-width: 32px;
+  border-radius: var(--radiusFull);
+}
+
+.cartActionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space6);
+  padding-top: var(--space4);
+  border-top: 1px dashed var(--colorGray300);
+  flex-wrap: wrap;
+  gap: var(--space3);
+}
+
+.btnClearCart {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  color: #b71c1c;
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--radiusFull);
+  transition: all var(--transitionFast);
+}
+
+.btnClearCart:hover {
+  background: #ffebee;
+}
+
+.btnProceedCheckout {
+  width: 100%;
+  justify-content: center;
+  padding: 14px 24px;
+  font-size: var(--fontSizeMd);
+  margin-top: var(--space5);
+  box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35);
+  text-decoration: none;
+}
+
+.orderCartCustoms {
+  font-size: 11px;
+  color: var(--colorGray500);
+  margin-top: 2px;
+}
+
+.cartTrustBadges {
+  margin-top: var(--space6);
+  padding: var(--space4);
+  background: rgba(253, 246, 238, 0.5);
+  border-radius: var(--radiusMd);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2);
+  font-size: var(--fontSizeXs);
+  color: var(--colorEspresso);
+}
+
+.cartTrustItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.cartTrustItem i {
+  color: var(--colorAccent);
+}
+
+/* Dark Mode */
+html.darkMode .cartSteps,
+body.darkMode .cartSteps,
+html.darkMode .orderCard,
+body.darkMode .orderCard,
+html.darkMode .cartTrustBadges,
+body.darkMode .cartTrustBadges {
+  background: rgba(30, 20, 16, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.7);
+}
+
+html.darkMode .orderCardTitle,
+body.darkMode .orderCardTitle,
+html.darkMode .orderCartInfo h3,
+body.darkMode .orderCartInfo h3,
+html.darkMode .orderCartRight strong,
+body.darkMode .orderCartRight strong,
+html.darkMode .orderSummaryRowTotal,
+body.darkMode .orderSummaryRowTotal,
+html.darkMode .cartTrustBadges,
+body.darkMode .cartTrustBadges {
+  color: #FFFFFF !important;
+}
+
+html.darkMode .orderCartItem,
+body.darkMode .orderCartItem {
+  background: rgba(45, 30, 24, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+

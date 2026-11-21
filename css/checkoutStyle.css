@@ -1,0 +1,1003 @@
+/* ═══════════════════════════════════════════════════════════════
+   KOFFIA CHECKOUT STYLE — Apple-Inspired Clean & Premium Flow
+   ═══════════════════════════════════════════════════════════════ */
+
+#checkoutPage {
+  padding: var(--space8) 0 var(--space20);
+  background: transparent;
+}
+
+/* ── Checkout Steps Bar ───────────────────────────────────────── */
+.checkoutSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space4);
+  max-width: 680px;
+  margin: 0 auto var(--space10);
+  padding: var(--space3) var(--space6);
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusFull);
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.05);
+}
+
+.checkoutStepItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  color: var(--colorGray400);
+  transition: all var(--transitionNormal);
+  text-decoration: none;
+}
+
+.checkoutStepItem.stepDone {
+  color: #2e7d32;
+}
+
+.checkoutStepItem.stepActive {
+  color: var(--colorAccent);
+}
+
+.checkoutStepNum {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  background: var(--colorGray200);
+  color: var(--colorGray600);
+  transition: all var(--transitionSpring);
+}
+
+.checkoutStepItem.stepDone .checkoutStepNum {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.checkoutStepItem.stepActive .checkoutStepNum {
+  background: var(--colorAccent);
+  color: var(--colorWhite);
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.35);
+}
+
+.checkoutStepLine {
+  flex: 1;
+  height: 2px;
+  background: var(--colorGray200);
+  min-width: 32px;
+  border-radius: var(--radiusFull);
+}
+
+.checkoutStepLine.lineActive {
+  background: linear-gradient(90deg, #2e7d32, var(--colorAccent));
+}
+
+/* ── Main Layout Grid ─────────────────────────────────────────── */
+.checkoutLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(360px, 0.85fr);
+  gap: var(--space8);
+  align-items: start;
+}
+
+.checkoutCard {
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusLg);
+  padding: var(--space8);
+  box-shadow: 0 4px 24px -2px rgba(62, 39, 35, 0.06);
+  margin-bottom: var(--space6);
+}
+
+.checkoutCard:last-child {
+  margin-bottom: 0;
+}
+
+.checkoutCardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  margin-bottom: var(--space6);
+  padding-bottom: var(--space4);
+  border-bottom: 1px solid rgba(62, 39, 35, 0.06);
+}
+
+.checkoutCardIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(230, 81, 0, 0.1);
+  color: var(--colorAccent);
+  font-size: var(--fontSizeMd);
+}
+
+.checkoutCardTitle {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeLg);
+  color: var(--colorEspresso);
+  margin: 0;
+}
+
+.checkoutCardSubtitle {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  margin: 2px 0 0;
+}
+
+/* ── Form Inputs & Layout ─────────────────────────────────────── */
+.checkoutFormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space4);
+}
+
+.checkoutFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2);
+}
+
+.checkoutFormGroup.colFull {
+  grid-column: 1 / -1;
+}
+
+.checkoutLabel {
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--colorEspresso);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.checkoutLabel .reqStar {
+  color: #d32f2f;
+}
+
+.checkoutInput,
+.checkoutSelect,
+.checkoutTextarea {
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid var(--colorGray300);
+  border-radius: var(--radiusMd);
+  background: var(--colorWhite);
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeSm);
+  color: var(--colorEspresso);
+  outline: none;
+  transition: all var(--transitionNormal);
+}
+
+.checkoutInput:focus,
+.checkoutSelect:focus,
+.checkoutTextarea:focus {
+  border-color: var(--colorAccent);
+  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.14);
+}
+
+.checkoutSelect {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%236D4C41'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.checkoutSelect:disabled {
+  background-color: var(--colorGray100);
+  color: var(--colorGray400);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.checkoutTextarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* ── Country Fixed Box (Vietnam Only) ─────────────────────────── */
+.countryLockedBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(253, 246, 238, 0.7);
+  border: 1px solid rgba(62, 39, 35, 0.12);
+  border-radius: var(--radiusMd);
+  color: var(--colorEspresso);
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+}
+
+.countryFlagBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.countryFlag {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.countryLockedNotice {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── Map Picker Trigger Button ────────────────────────────────── */
+.mapTriggerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space4);
+  padding: var(--space3) var(--space4);
+  background: linear-gradient(135deg, rgba(245, 230, 211, 0.4), rgba(255, 243, 224, 0.6));
+  border: 1.5px dashed rgba(230, 81, 0, 0.4);
+  border-radius: var(--radiusMd);
+  margin-top: var(--space2);
+}
+
+.mapTriggerNotice {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  font-size: var(--fontSizeXs);
+  color: var(--colorEspresso);
+}
+
+.mapTriggerNotice i {
+  color: var(--colorAccent);
+  font-size: var(--fontSizeMd);
+}
+
+.btnMapSelect {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: 9px 18px;
+  background: var(--colorAccent);
+  color: var(--colorWhite);
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  border-radius: var(--radiusFull);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.3);
+  transition: all var(--transitionSpring);
+}
+
+.btnMapSelect:hover {
+  background: var(--colorAccentHover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(230, 81, 0, 0.4);
+}
+
+.btnMapSelect:active {
+  transform: scale(0.96);
+}
+
+/* ── Full Address Preview Card ────────────────────────────────── */
+.fullAddressPreview {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space3);
+  padding: var(--space3) var(--space4);
+  background: #f1f8e9;
+  border: 1px solid #c5e1a5;
+  border-radius: var(--radiusMd);
+  color: #33691e;
+  font-size: var(--fontSizeXs);
+  line-height: 1.5;
+  margin-top: var(--space3);
+  transition: all var(--transitionNormal);
+}
+
+.fullAddressPreview i {
+  font-size: var(--fontSizeSm);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Payment Methods Selector ─────────────────────────────────── */
+.paymentOptions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+}
+
+.paymentOptionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space3);
+  padding: var(--space4);
+  border: 1.5px solid var(--colorGray200);
+  border-radius: var(--radiusLg);
+  cursor: pointer;
+  background: var(--colorWhite);
+  transition: all var(--transitionNormal);
+}
+
+.paymentOptionItem:hover {
+  border-color: rgba(230, 81, 0, 0.5);
+  background: rgba(253, 246, 238, 0.3);
+}
+
+.paymentOptionItem.paymentSelected {
+  border-color: var(--colorAccent);
+  background: rgba(253, 246, 238, 0.6);
+  box-shadow: 0 4px 16px rgba(230, 81, 0, 0.12);
+}
+
+.paymentRadio {
+  margin-top: 4px;
+  accent-color: var(--colorAccent);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.paymentOptionContent {
+  flex: 1;
+}
+
+.paymentOptionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeSm);
+  font-weight: 700;
+  color: var(--colorEspresso);
+  margin-bottom: 3px;
+}
+
+.paymentOptionBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radiusFull);
+  background: var(--colorCream);
+  color: var(--colorAccent);
+}
+
+.paymentOptionDesc {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* VietQR Dynamic Info Box */
+.vietqrBox {
+  margin-top: var(--space3);
+  padding: var(--space4);
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radiusMd);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+  align-items: center;
+}
+
+.vietqrImg {
+  max-width: 220px;
+  border-radius: var(--radiusMd);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.vietqrDetails {
+  width: 100%;
+  font-size: var(--fontSizeXs);
+  color: var(--colorEspresso);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vietqrRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ── Order Review Summary (Right Column) ──────────────────────── */
+.orderReviewCard {
+  position: sticky;
+  top: 96px;
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusLg);
+  padding: var(--space6);
+  box-shadow: 0 8px 32px -4px rgba(62, 39, 35, 0.08);
+}
+
+.orderReviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space4);
+  padding-bottom: var(--space3);
+  border-bottom: 1px solid rgba(62, 39, 35, 0.06);
+}
+
+.orderReviewTitle {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeLg);
+  color: var(--colorEspresso);
+  margin: 0;
+}
+
+.orderReviewCount {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  font-weight: 600;
+}
+
+.orderReviewList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: var(--space2);
+  margin-bottom: var(--space4);
+}
+
+.orderReviewItem {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: var(--space3);
+  align-items: center;
+  padding: var(--space2) 0;
+  border-bottom: 1px dashed var(--colorGray200);
+}
+
+.orderReviewItem:last-child {
+  border-bottom: none;
+}
+
+.orderReviewImg {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radiusMd);
+  object-fit: cover;
+  background: var(--colorGray100);
+}
+
+.orderReviewInfo h4 {
+  font-size: var(--fontSizeSm);
+  color: var(--colorEspresso);
+  margin: 0 0 2px;
+  font-weight: 600;
+}
+
+.orderReviewMeta {
+  font-size: 11px;
+  color: var(--colorGray500);
+}
+
+.orderReviewPrice {
+  font-weight: 700;
+  font-size: var(--fontSizeSm);
+  color: var(--colorEspresso);
+  white-space: nowrap;
+}
+
+/* Review Pricing Breakdown */
+.orderReviewBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2);
+  padding: var(--space4) 0;
+  border-top: 1px solid var(--colorGray200);
+  border-bottom: 1px solid var(--colorGray200);
+  font-size: var(--fontSizeSm);
+}
+
+.orderReviewRow {
+  display: flex;
+  justify-content: space-between;
+  color: var(--colorGray600);
+}
+
+.orderReviewRow.discountRow {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.orderReviewRowTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: var(--space4);
+  margin-top: var(--space2);
+  color: var(--colorEspresso);
+  font-size: var(--fontSizeLg);
+  font-weight: 800;
+}
+
+.orderReviewRowTotal span:last-child {
+  color: var(--colorAccent);
+  font-size: var(--fontSize2xl);
+  font-family: var(--fontDisplay);
+}
+
+/* Submit & Back Buttons */
+.btnPlaceOrder {
+  width: 100%;
+  justify-content: center;
+  padding: 14px 24px;
+  font-size: var(--fontSizeMd);
+  margin-top: var(--space5);
+  box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35);
+}
+
+.backToCartLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space2);
+  margin-top: var(--space3);
+  color: var(--colorGray500);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transitionFast);
+}
+
+.backToCartLink:hover {
+  color: var(--colorAccent);
+}
+
+/* ── Map Picker Modal Window ──────────────────────────────────── */
+.mapPickerModal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space4);
+}
+
+.mapPickerOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 8, 6, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: appleFadeIn 0.3s ease forwards;
+}
+
+.mapPickerCard {
+  position: relative;
+  z-index: 2;
+  background: var(--colorWhite);
+  border-radius: var(--radiusXl);
+  width: min(900px, 96vw);
+  height: min(720px, 90vh);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 32px 72px -16px rgba(44, 26, 20, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  animation: appleModalPop 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mapPickerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space4) var(--space6);
+  border-bottom: 1px solid var(--colorGray200);
+  background: var(--colorCreamLight);
+}
+
+.mapPickerTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+}
+
+.mapPickerTitleWrapper i {
+  font-size: 1.5rem;
+  color: var(--colorAccent);
+}
+
+.mapPickerTitleWrapper h3 {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeLg);
+  color: var(--colorEspresso);
+  margin: 0;
+}
+
+.mapModalSubtitle {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  margin: 2px 0 0;
+}
+
+.mapPickerHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+}
+
+.mapEngineToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radiusFull);
+  border: 1px solid var(--colorGray300);
+  background: var(--colorWhite);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  color: var(--colorEspresso);
+  cursor: pointer;
+  transition: all var(--transitionFast);
+}
+
+.mapEngineToggleBtn:hover {
+  background: var(--colorCream);
+  border-color: var(--colorAccent);
+}
+
+/* Google Maps API Key Box */
+.gmapsKeyBox {
+  padding: var(--space3) var(--space6);
+  background: #fff8e1;
+  border-bottom: 1px solid #ffe082;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2);
+  font-size: var(--fontSizeXs);
+}
+
+.gmapsKeyBox label {
+  font-weight: 700;
+  color: #f57f17;
+}
+
+.gmapsKeyInputRow {
+  display: flex;
+  gap: var(--space2);
+}
+
+.gmapsKeyInputRow input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ffd54f;
+  border-radius: var(--radiusMd);
+  font-family: monospace;
+}
+
+.gmapsKeyStatus {
+  font-size: 11px;
+  color: var(--colorGray600);
+}
+
+/* Map Toolbar */
+.mapToolbar {
+  display: flex;
+  gap: var(--space3);
+  padding: var(--space3) var(--space6);
+  background: var(--colorWhite);
+  border-bottom: 1px solid var(--colorGray200);
+  align-items: center;
+}
+
+.mapSearchBox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: 0 var(--space3);
+  border: 1px solid var(--colorGray300);
+  border-radius: var(--radiusFull);
+  background: var(--colorCreamLight);
+  transition: all var(--transitionNormal);
+}
+
+.mapSearchBox:focus-within {
+  border-color: var(--colorAccent);
+  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.12);
+  background: var(--colorWhite);
+}
+
+.mapSearchBox input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 9px 0;
+  font-size: var(--fontSizeSm);
+  outline: none;
+  color: var(--colorEspresso);
+}
+
+.mapSearchBtn {
+  padding: 5px 14px;
+  font-size: var(--fontSizeXs);
+  font-weight: 700;
+  border-radius: var(--radiusFull);
+}
+
+.mapGeoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: 8px 16px;
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  border-radius: var(--radiusFull);
+  white-space: nowrap;
+}
+
+/* Map Canvas */
+.mapCanvas {
+  flex: 1;
+  width: 100%;
+  background: #e5e3df;
+  position: relative;
+  z-index: 1;
+}
+
+/* Selected Bar */
+.mapSelectedBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space4);
+  padding: var(--space4) var(--space6);
+  background: var(--colorWhite);
+  border-top: 1px solid var(--colorGray200);
+}
+
+.mapSelectedInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  flex: 1;
+  min-width: 0;
+}
+
+.mapSelectedInfo i {
+  color: var(--colorAccent);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.mapSelectedText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mapSelectedLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--colorGray500);
+  font-weight: 700;
+}
+
+#mapSelectedAddress {
+  font-size: var(--fontSizeSm);
+  color: var(--colorEspresso);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mapSelectedCoords {
+  font-size: 11px;
+  color: var(--colorGray400);
+  font-family: monospace;
+}
+
+.mapActions {
+  display: flex;
+  gap: var(--space2);
+  flex-shrink: 0;
+}
+
+/* ── Order Success Modal / View ───────────────────────────────── */
+.checkoutSuccessCard {
+  text-align: center;
+  max-width: 700px;
+  margin: var(--space6) auto;
+  padding: var(--space10) var(--space8);
+  background: var(--colorWhite);
+  border-radius: var(--radiusXl);
+  box-shadow: 0 16px 48px -8px rgba(62, 39, 35, 0.1);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  animation: appleModalPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.checkoutSuccessIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space5);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 2.25rem;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.2);
+}
+
+.checkoutSuccessTitle {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSize2xl);
+  color: var(--colorEspresso);
+  margin-bottom: var(--space2);
+}
+
+.checkoutSuccessOrderCode {
+  display: inline-block;
+  padding: 8px 20px;
+  background: var(--colorCreamLight);
+  border: 1px dashed var(--colorAccent);
+  border-radius: var(--radiusFull);
+  color: var(--colorAccent);
+  font-family: monospace;
+  font-size: var(--fontSizeLg);
+  font-weight: 800;
+  margin: var(--space4) 0;
+}
+
+.checkoutSuccessDetails {
+  text-align: left;
+  background: var(--colorCreamLight);
+  border-radius: var(--radiusLg);
+  padding: var(--space5);
+  margin: var(--space6) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+  font-size: var(--fontSizeSm);
+}
+
+.checkoutSuccessRow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed var(--colorGray200);
+  padding-bottom: 6px;
+}
+
+.checkoutSuccessRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ── Dark Mode Adaptations ────────────────────────────────────── */
+html.darkMode .checkoutSteps,
+body.darkMode .checkoutSteps,
+html.darkMode .checkoutCard,
+body.darkMode .checkoutCard,
+html.darkMode .orderReviewCard,
+body.darkMode .orderReviewCard,
+html.darkMode .mapPickerCard,
+body.darkMode .mapPickerCard,
+html.darkMode .checkoutSuccessCard,
+body.darkMode .checkoutSuccessCard {
+  background: rgba(30, 20, 16, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.7);
+}
+
+html.darkMode .checkoutCardTitle,
+body.darkMode .checkoutCardTitle,
+html.darkMode .orderReviewTitle,
+body.darkMode .orderReviewTitle,
+html.darkMode .checkoutLabel,
+body.darkMode .checkoutLabel,
+html.darkMode .paymentOptionTitle,
+body.darkMode .paymentOptionTitle,
+html.darkMode .orderReviewInfo h4,
+body.darkMode .orderReviewInfo h4,
+html.darkMode .orderReviewPrice,
+body.darkMode .orderReviewPrice,
+html.darkMode .orderReviewRowTotal,
+body.darkMode .orderReviewRowTotal,
+html.darkMode .mapPickerTitleWrapper h3,
+body.darkMode .mapPickerTitleWrapper h3,
+html.darkMode #mapSelectedAddress,
+body.darkMode #mapSelectedAddress,
+html.darkMode .checkoutSuccessTitle,
+body.darkMode .checkoutSuccessTitle {
+  color: #FFFFFF !important;
+}
+
+html.darkMode .checkoutInput,
+body.darkMode .checkoutInput,
+html.darkMode .checkoutSelect,
+body.darkMode .checkoutSelect,
+html.darkMode .checkoutTextarea,
+body.darkMode .checkoutTextarea,
+html.darkMode .countryLockedBox,
+body.darkMode .countryLockedBox,
+html.darkMode .paymentOptionItem,
+body.darkMode .paymentOptionItem,
+html.darkMode .mapSearchBox,
+body.darkMode .mapSearchBox,
+html.darkMode .mapEngineToggleBtn,
+body.darkMode .mapEngineToggleBtn,
+html.darkMode .mapToolbar,
+body.darkMode .mapToolbar,
+html.darkMode .mapSelectedBar,
+body.darkMode .mapSelectedBar,
+html.darkMode .mapPickerHeader,
+body.darkMode .mapPickerHeader,
+html.darkMode .checkoutSuccessDetails,
+body.darkMode .checkoutSuccessDetails {
+  background: rgba(45, 30, 24, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .paymentOptionItem.paymentSelected,
+body.darkMode .paymentOptionItem.paymentSelected {
+  border-color: var(--colorAccent) !important;
+  background: rgba(230, 81, 0, 0.15) !important;
+}
+
+/* ── Responsive Breakpoints ───────────────────────────────────── */
+@media (max-width: 960px) {
+  .checkoutLayout {
+    grid-template-columns: 1fr;
+  }
+  .orderReviewCard {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .checkoutFormGrid {
+    grid-template-columns: 1fr;
+  }
+  .checkoutSteps {
+    padding: var(--space2) var(--space4);
+    gap: var(--space2);
+  }
+  .checkoutStepItem span:last-child {
+    display: none;
+  }
+  .mapTriggerRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .mapSelectedBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .mapActions {
+    width: 100%;
+  }
+  .mapActions button {
+    flex: 1;
+  }
+}

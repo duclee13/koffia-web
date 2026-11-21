@@ -1,0 +1,15 @@
+[
+  {
+    "id": "dev001",
+    "role": "dev",
+    "firstName": "Admin",
+    "lastName": "Koffia",
+    "username": "admin",
+    "email": "admin@koffia.vn",
+    "password": "KoffiaAdmin2026",
+    "avatar": "",
+    "createdAt": "2025-09-01T00:00:00.000Z",
+    "usernameChangeCount": 0,
+    "status": "active"
+  }
+]

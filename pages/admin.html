@@ -1,0 +1,440 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Hệ Thống Quản Trị Trung Tâm — Koffia Dev Admin</title>
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/175b48673e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/adminStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body class="adminBody">
+    <!-- ACCESS DENIED STATE (if not dev) -->
+    <div id="adminAccessDenied" class="accessDeniedCard" style="display: none">
+      <div class="deniedIcon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h1>Truy Cập Bị Giới Hạn (403)</h1>
+      <p>Trang này chỉ dành riêng cho tài khoản Quản trị viên hệ thống (Dev / Super Admin).</p>
+      <div class="deniedActions">
+        <a href="auth.html" class="btnPrimary">Đăng Nhập Tài Khoản Admin</a>
+        <a href="../index.html" class="btnSecondary">Về Trang Chủ</a>
+      </div>
+    </div>
+
+    <!-- MAIN ADMIN APP -->
+    <div id="adminApp" class="adminAppWrapper" style="display: none">
+      <!-- TOP HEADER -->
+      <header class="adminHeader">
+        <div class="adminHeaderLeft">
+          <a href="../index.html" class="adminBrandLogo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Koffia <strong>Dev Console</strong></span>
+          </a>
+          <span class="adminEnvBadge">Production Mock v2.6</span>
+        </div>
+        <div class="adminHeaderRight">
+          <button type="button" id="themeToggleBtn" class="adminTopAction themeToggleBtn" title="Đổi giao diện Sáng / Tối" aria-label="Chuyển giao diện Sáng / Tối">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          </button>
+          <div class="adminUserBadge">
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="adminUsernameDisplay">admin</span>
+          </div>
+          <a href="../index.html" class="adminTopAction" title="Xem website người dùng">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Xem Web
+          </a>
+          <button type="button" id="adminLogoutBtn" class="adminTopAction" title="Đăng xuất">
+            <i class="fa-solid fa-power-off"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="adminLayout">
+        <!-- SIDEBAR -->
+        <aside class="adminSidebar">
+          <nav class="adminNav">
+            <button type="button" class="adminNavItem active" data-tab="overview">
+              <i class="fa-solid fa-gauge-high fa-fw"></i> Tổng quan sàn
+            </button>
+            <button type="button" class="adminNavItem" data-tab="flashsales">
+              <i class="fa-solid fa-bolt fa-fw"></i> Quản lý Flash Sales
+            </button>
+            <button type="button" class="adminNavItem" data-tab="vouchers">
+              <i class="fa-solid fa-ticket fa-fw"></i> Quản lý Vouchers
+            </button>
+            <button type="button" class="adminNavItem" data-tab="users">
+              <i class="fa-solid fa-users-gear fa-fw"></i> Tài khoản &amp; Sellers
+            </button>
+            <button type="button" class="adminNavItem" data-tab="orders">
+              <i class="fa-solid fa-boxes-stacked fa-fw"></i> Toàn bộ đơn hàng
+            </button>
+          </nav>
+
+          <div class="adminSidebarInfo">
+            <div class="systemStatusWidget">
+              <div class="systemStatusDot"></div>
+              <span>Hệ thống hoạt động bình thường</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN VIEW -->
+        <main class="adminMain">
+          <!-- ══════════════════════════════════════
+               TAB 1: TỔNG QUAN (OVERVIEW)
+               ══════════════════════════════════════ -->
+          <section id="adm-overview" class="adminSection tabActive">
+            <div class="adminPageHeading">
+              <div>
+                <h1>Báo Cáo Tổng Quan Hệ Sinh Thái Koffia</h1>
+                <p>Thống kê số liệu hoạt động của người dùng, người bán và giao dịch toàn sàn.</p>
+              </div>
+              <div class="quickActionsRow">
+                <button type="button" class="btnPrimary" id="adminCreateFlashBtn">
+                  <i class="fa-solid fa-plus"></i> Tạo Flash Sale
+                </button>
+                <button type="button" class="btnSecondary" id="adminCreateVoucherBtn">
+                  <i class="fa-solid fa-plus"></i> Tạo Voucher Toàn Sàn
+                </button>
+              </div>
+            </div>
+
+            <div class="adminStatsGrid">
+              <div class="adminStatCard">
+                <div class="statIconBg iconRev"><i class="fa-solid fa-sack-dollar"></i></div>
+                <div>
+                  <span class="adminStatLabel">Tổng doanh thu toàn sàn</span>
+                  <strong class="adminStatNum" id="adminStatTotalRevenue">0 ₫</strong>
+                </div>
+              </div>
+              <div class="adminStatCard">
+                <div class="statIconBg iconOrders"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div>
+                  <span class="adminStatLabel">Tổng đơn hàng đã đặt</span>
+                  <strong class="adminStatNum" id="adminStatTotalOrders">0</strong>
+                </div>
+              </div>
+              <div class="adminStatCard">
+                <div class="statIconBg iconUsers"><i class="fa-solid fa-users"></i></div>
+                <div>
+                  <span class="adminStatLabel">Tổng số tài khoản</span>
+                  <strong class="adminStatNum" id="adminStatTotalUsers">0</strong>
+                </div>
+              </div>
+              <div class="adminStatCard">
+                <div class="statIconBg iconSellers"><i class="fa-solid fa-store"></i></div>
+                <div>
+                  <span class="adminStatLabel">Kênh người bán (Sellers)</span>
+                  <strong class="adminStatNum" id="adminStatTotalSellers">0</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- SYSTEM SNAPSHOT -->
+            <div class="adminCard">
+              <div class="adminCardHead">
+                <h2><i class="fa-solid fa-bolt"></i> Các đợt Flash Sale đang chạy</h2>
+                <button type="button" class="btnLink" data-adm-switch="flashsales">Quản lý chi tiết &rarr;</button>
+              </div>
+              <div id="adminActiveFlashSalesWrap" class="adminGridList">
+                <!-- Populated by admin.js -->
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════════════════════════
+               TAB 2: FLASH SALES
+               ══════════════════════════════════════ -->
+          <section id="adm-flashsales" class="adminSection" style="display: none">
+            <div class="adminPageHeading">
+              <div>
+                <h1>Quản Lý Đợt Flash Sales</h1>
+                <p>Thiết lập các khung giờ sale sốc, chọn sản phẩm và mức chiết khấu %.</p>
+              </div>
+              <button type="button" class="btnPrimary" id="openCreateFlashSaleModal">
+                <i class="fa-solid fa-plus"></i> Tạo Đợt Flash Sale Mới
+              </button>
+            </div>
+
+            <div class="adminCard">
+              <div class="tableWrap">
+                <table class="adminTable">
+                  <thead>
+                    <tr>
+                      <th>Tên Đợt Sale</th>
+                      <th>Bắt Đầu</th>
+                      <th>Kết Thúc</th>
+                      <th>Số Lượng SP</th>
+                      <th>Trạng Thái</th>
+                      <th>Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminFlashSalesTbody">
+                    <!-- Populated by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════════════════════════
+               TAB 3: VOUCHERS
+               ══════════════════════════════════════ -->
+          <section id="adm-vouchers" class="adminSection" style="display: none">
+            <div class="adminPageHeading">
+              <div>
+                <h1>Quản Lý Vouchers Toàn Sàn</h1>
+                <p>Phát hành và kiểm soát các mã giảm giá, khuyến mãi cho khách hàng.</p>
+              </div>
+              <button type="button" class="btnPrimary" id="openCreateGlobalVoucherModal">
+                <i class="fa-solid fa-plus"></i> Tạo Voucher Toàn Sàn Mới
+              </button>
+            </div>
+
+            <div class="adminCard">
+              <div class="tableWrap">
+                <table class="adminTable">
+                  <thead>
+                    <tr>
+                      <th>Mã Code</th>
+                      <th>Tên Chương Trình</th>
+                      <th>Loại &amp; Mức Giảm</th>
+                      <th>Đơn Tối Thiểu</th>
+                      <th>Đã Dùng / Tối Đa</th>
+                      <th>Phạm Vi</th>
+                      <th>Trạng Thái</th>
+                      <th>Thao Tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminVouchersTbody">
+                    <!-- Populated by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════════════════════════
+               TAB 4: NGƯỜI DÙNG & SELLERS
+               ══════════════════════════════════════ -->
+          <section id="adm-users" class="adminSection" style="display: none">
+            <div class="adminPageHeading">
+              <div>
+                <h1>Quản Lý Tài Khoản &amp; Người Bán</h1>
+                <p>Kiểm duyệt kênh người bán, gia hạn gói trial và phân quyền tài khoản.</p>
+              </div>
+              <div class="roleFilterTabs">
+                <button type="button" class="filterPill active" data-user-filter="all">Tất cả</button>
+                <button type="button" class="filterPill" data-user-filter="seller">Người Bán (Sellers)</button>
+                <button type="button" class="filterPill" data-user-filter="customer">Khách Hàng</button>
+                <button type="button" class="filterPill" data-user-filter="dev">Quản Trị Viên (Dev)</button>
+              </div>
+            </div>
+
+            <div class="adminCard">
+              <div class="tableWrap">
+                <table class="adminTable">
+                  <thead>
+                    <tr>
+                      <th>Người Dùng</th>
+                      <th>Email / Username</th>
+                      <th>Vai Trò</th>
+                      <th>Thông Tin Kênh (Nếu có)</th>
+                      <th>Hạn Trial</th>
+                      <th>Trạng Thái</th>
+                      <th>Hành Động Quản Trị</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminUsersTbody">
+                    <!-- Populated by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- ══════════════════════════════════════
+               TAB 5: TOÀN BỘ ĐƠN HÀNG
+               ══════════════════════════════════════ -->
+          <section id="adm-orders" class="adminSection" style="display: none">
+            <div class="adminPageHeading">
+              <div>
+                <h1>Quản Lý Đơn Hàng Toàn Sàn</h1>
+                <p>Theo dõi và cập nhật trạng thái mọi đơn hàng phát sinh trên Koffia.</p>
+              </div>
+              <div class="adminOrderSearchWrapper">
+                <input type="text" id="adminOrderSearch" class="inputField" placeholder="Tìm theo mã đơn, tên hoặc số điện thoại..." />
+              </div>
+            </div>
+
+            <div class="adminCard">
+              <div class="tableWrap">
+                <table class="adminTable">
+                  <thead>
+                    <tr>
+                      <th>Mã Đơn</th>
+                      <th>Thời Gian</th>
+                      <th>Khách Hàng</th>
+                      <th>Địa Chỉ Giao</th>
+                      <th>Số Lượng Món</th>
+                      <th>Tổng Tiền</th>
+                      <th>Trạng Thái</th>
+                      <th>Cập Nhật</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminOrdersTbody">
+                    <!-- Populated by admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MODAL: TẠO FLASH SALE (ADMIN)
+         ══════════════════════════════════════ -->
+    <div id="adminFlashModal" class="adminModal" style="display: none;" role="dialog" aria-label="Tạo Flash Sale">
+      <div class="adminModalOverlay" id="adminFlashModalOverlay"></div>
+      <div class="adminModalCard">
+        <div class="adminModalHeader">
+          <h3><i class="fa-solid fa-bolt"></i> Tạo Đợt Flash Sale Mới</h3>
+          <button type="button" id="closeAdminFlashModalBtn" class="closeModalBtn">&times;</button>
+        </div>
+        <form id="adminFlashForm" class="adminForm">
+          <div class="formGroup">
+            <label class="formLabel" for="flashName">Tên đợt sale <span class="formRequired">*</span></label>
+            <input type="text" id="flashName" class="inputField" placeholder="Ví dụ: Mega Flash Sale Đêm Nay" required />
+          </div>
+          <div class="formGroup">
+            <label class="formLabel" for="flashDesc">Mô tả ngắn</label>
+            <input type="text" id="flashDesc" class="inputField" placeholder="Ví dụ: Giảm sốc 30% - 50% toàn bộ đồ uống mát lạnh" />
+          </div>
+          <div class="formRow">
+            <div class="formGroup">
+              <label class="formLabel" for="flashStartTime">Thời gian bắt đầu <span class="formRequired">*</span></label>
+              <input type="datetime-local" id="flashStartTime" class="inputField" required />
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="flashEndTime">Thời gian kết thúc <span class="formRequired">*</span></label>
+              <input type="datetime-local" id="flashEndTime" class="inputField" required />
+            </div>
+          </div>
+          <div class="formGroup">
+            <label class="formLabel">Mức giảm giá mặc định cho đợt này</label>
+            <div class="formRow">
+              <input type="number" id="flashDefaultDiscount" class="inputField" value="30" min="5" max="90" />
+              <span style="align-self:center;font-weight:700;">% giảm giá</span>
+            </div>
+          </div>
+          <div class="adminModalActions">
+            <button type="button" id="cancelAdminFlashBtn" class="btnSecondary">Hủy</button>
+            <button type="submit" class="btnPrimary"><i class="fa-solid fa-check"></i> Tạo Đợt Flash Sale</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MODAL: TẠO VOUCHER TOÀN SÀN (ADMIN)
+         ══════════════════════════════════════ -->
+    <div id="adminVoucherModal" class="adminModal" style="display: none;" role="dialog" aria-label="Tạo Voucher Toàn Sàn">
+      <div class="adminModalOverlay" id="adminVoucherModalOverlay"></div>
+      <div class="adminModalCard">
+        <div class="adminModalHeader">
+          <h3><i class="fa-solid fa-ticket"></i> Tạo Voucher Toàn Sàn (Platform Voucher)</h3>
+          <button type="button" id="closeAdminVoucherModalBtn" class="closeModalBtn">&times;</button>
+        </div>
+        <form id="adminVoucherForm" class="adminForm">
+          <div class="formRow">
+            <div class="formGroup">
+              <label class="formLabel" for="admVoucherCode">Mã code <span class="formRequired">*</span></label>
+              <input type="text" id="admVoucherCode" class="inputField" placeholder="KOFFIA30" required style="text-transform: uppercase;" />
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="admVoucherType">Loại giảm giá</label>
+              <select id="admVoucherType" class="inputField">
+                <option value="percent">Giảm theo %</option>
+                <option value="fixed">Giảm số tiền cố định (₫)</option>
+                <option value="freeShip">Miễn phí giao hàng (Free Ship)</option>
+              </select>
+            </div>
+          </div>
+          <div class="formGroup">
+            <label class="formLabel" for="admVoucherName">Tên chương trình voucher <span class="formRequired">*</span></label>
+            <input type="text" id="admVoucherName" class="inputField" placeholder="Ví dụ: Siêu hội săn deal cà phê" required />
+          </div>
+          <div class="formRow">
+            <div class="formGroup">
+              <label class="formLabel" for="admVoucherValue">Giá trị giảm <span class="formRequired">*</span></label>
+              <input type="number" id="admVoucherValue" class="inputField" placeholder="30 (cho 30%) hoặc 20000" value="20" required />
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="admVoucherMaxDiscount">Giảm tối đa (₫)</label>
+              <input type="number" id="admVoucherMaxDiscount" class="inputField" value="30000" />
+            </div>
+          </div>
+          <div class="formRow">
+            <div class="formGroup">
+              <label class="formLabel" for="admVoucherMinOrder">Đơn tối thiểu (₫)</label>
+              <input type="number" id="admVoucherMinOrder" class="inputField" value="50000" />
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="admVoucherMaxUsage">Tổng lượt dùng tối đa</label>
+              <input type="number" id="admVoucherMaxUsage" class="inputField" value="1000" />
+            </div>
+          </div>
+          <div class="adminModalActions">
+            <button type="button" id="cancelAdminVoucherBtn" class="btnSecondary">Hủy</button>
+            <button type="submit" class="btnPrimary"><i class="fa-solid fa-check"></i> Phát Hành Voucher</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+    <!-- Scripts -->
+    <script src="../js/productImages.js?v=8.1"></script>
+    <script src="../js/main.js?v=8.1"></script>
+    <script src="../js/admin.js?v=8.1"></script>
+  </body>
+</html>
+

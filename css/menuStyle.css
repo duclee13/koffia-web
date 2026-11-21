@@ -1,0 +1,1042 @@
+/* ============================================================
+   KOFFIA — Menu Page Stylesheet (menuStyle.css)
+   Naming : camelCase
+   ============================================================ */
+
+/* ── In-page Category Filter (under Page Hero) ────────────── */
+#categoryFilter {
+  position: relative;
+  width: min(1200px, calc(100% - 32px));
+  margin: 18px auto 24px auto;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(62, 39, 35, 0.12);
+  border-radius: var(--radiusFull);
+  box-shadow: 0 10px 32px -4px rgba(62, 39, 35, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+              background 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+#categoryFilter.isMergedHidden {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+
+#categoryFilter .container {
+  padding: 0 !important;
+  max-width: 100% !important;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  #categoryFilter {
+    width: min(1200px, calc(100% - 20px));
+    margin: 12px auto 18px auto;
+    padding: 6px 14px;
+    border-radius: var(--radiusFull);
+  }
+}
+
+/* ── Merged Dual-Row Navbar (Smooth Downward Expand on Scroll) ── */
+#navBar.navMenuMerged {
+  border-radius: 26px;
+  box-shadow: 0 14px 42px -4px rgba(62, 39, 35, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+}
+
+/* Bottom shelf holding compact category tabs — CSS Grid 0fr -> 1fr (Zero Jolt) */
+.navCategoryShelf {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  transition: grid-template-rows 0.44s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.28s ease;
+}
+
+.navCategoryShelfClip {
+  min-height: 0;
+  overflow: hidden;
+}
+
+#navBar.navMenuMerged .navCategoryShelf {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navFilterInner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.navFilterInner::-webkit-scrollbar {
+  display: none;
+}
+
+.navFilterLabel {
+  font-family: var(--fontAccent);
+  font-size: 0.70rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--colorEspressoDark);
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navFilterLabel i {
+  font-size: 0.68rem;
+}
+
+.navFilterDivider {
+  width: 1px;
+  height: 14px;
+  background: rgba(62, 39, 35, 0.14);
+  flex-shrink: 0;
+}
+
+.navFilterBtnGroup {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.navFilterBtnGroup::-webkit-scrollbar {
+  display: none;
+}
+
+/* Các tab nhỏ gọn tinh tế trên hàng thứ 2 của Navbar */
+.navFilterBtnGroup .filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  height: 24px;
+  border-radius: 12px;
+  font-family: var(--fontAccent);
+  font-size: 0.70rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--colorEspressoDark);
+  background: rgba(62, 39, 35, 0.04);
+  border: 1px solid rgba(62, 39, 35, 0.09);
+  transition: all 0.18s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.navFilterBtnGroup .filterBtn i {
+  font-size: 0.66rem;
+}
+
+.navFilterBtnGroup .filterBtn:hover {
+  background: rgba(230, 81, 0, 0.08);
+  border-color: var(--colorAccent);
+  color: var(--colorAccent);
+}
+
+.navFilterBtnGroup .filterBtn.filterActive {
+  background: var(--colorAccent) !important;
+  color: #FFFFFF !important;
+  border-color: var(--colorAccent) !important;
+  box-shadow: 0 2px 8px rgba(230, 81, 0, 0.35) !important;
+}
+
+.navFilterBtnGroup .filterBtn .filterCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 15px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 7.5px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  background: rgba(62, 39, 35, 0.08);
+  color: var(--colorEspressoDark);
+  padding: 0 3px;
+}
+
+.navFilterBtnGroup .filterBtn.filterActive .filterCount {
+  background: rgba(255, 255, 255, 0.28);
+  color: #FFFFFF;
+}
+
+@media (max-width: 900px) {
+  #navBar.navMenuMerged {
+    border-radius: 24px;
+    width: min(1200px, calc(100% - 24px));
+  }
+
+  .navFilterBtnGroup .filterBtn {
+    padding: 0 8px;
+    height: 24px;
+    font-size: 0.7rem;
+    border-radius: var(--radiusFull);
+  }
+}
+
+.filterInner {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.filterInner::-webkit-scrollbar { display: none; }
+
+.filterLabel {
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--colorGray500);
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.filterDivider {
+  width: 1px;
+  height: 20px;
+  background: var(--colorGray300);
+  flex-shrink: 0;
+}
+
+.filterBtnGroup {
+  display: flex;
+  gap: var(--space2);
+  flex-wrap: nowrap;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radiusFull);
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: var(--colorGray600);
+  background: var(--colorWhite);
+  border: 1px solid var(--colorGray200);
+  transition: all var(--transitionNormal);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filterBtn:hover {
+  border-color: var(--colorEspresso);
+  color: var(--colorEspresso);
+  background: var(--colorCream);
+  transform: translateY(-1px);
+}
+
+.filterBtn:active {
+  transform: scale(0.96);
+}
+
+.filterBtn.filterActive {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  border-color: var(--colorEspresso);
+  box-shadow: 0 4px 14px rgba(62, 39, 35, 0.18);
+}
+
+.filterCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: rgba(0,0,0,.08);
+  border-radius: var(--radiusFull);
+  font-family: var(--fontBody);
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.filterActive .filterCount { background: rgba(245,230,211,.2); }
+
+/* ── Sort & Results Bar ──────────────────────────────────── */
+.menuResultsBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space6);
+  flex-wrap: wrap;
+  gap: var(--space3);
+}
+
+.menuResultsCount {
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeSm);
+  color: var(--colorGray500);
+}
+
+.menuResultsCount strong { color: var(--colorEspresso); font-weight: 600; }
+
+.menuSortSelect {
+  padding: var(--space2) var(--space4);
+  border: 1px solid var(--colorGray200);
+  border-radius: var(--radiusFull);
+  background: var(--colorWhite);
+  color: var(--colorEspresso);
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transitionFast);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 36px;
+}
+
+.menuSortSelect:focus { border-color: var(--colorEspresso); }
+
+/* ── Menu Product Grid ───────────────────────────────────── */
+#menuSection {
+  padding: var(--space8) 0 var(--space24);
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space6);
+}
+
+/* Menu card (extends productCard) */
+.menuCard {
+  background: var(--colorWhite);
+  border-radius: var(--radiusLg);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.05), 0 1px 3px rgba(62, 39, 35, 0.02);
+  transition: transform var(--transitionNormal), border-color var(--transitionNormal), box-shadow var(--transitionNormal);
+  display: flex;
+  flex-direction: column;
+}
+
+.menuCard:hover {
+  transform: translateY(-6px) scale(1.012);
+  box-shadow: 0 20px 40px -4px rgba(62, 39, 35, 0.12), 0 4px 12px rgba(62, 39, 35, 0.04);
+  border-color: rgba(162, 110, 68, 0.35);
+}
+
+.menuCard:hover .menuCardImg { transform: scale(1.06); }
+
+.menuCardImgWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  overflow: hidden;
+  background: var(--colorGray100);
+}
+
+.menuCardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--transitionNormal), transform var(--transitionSlow);
+}
+
+.menuCardImg.menuCardImgLoaded { opacity: 1; }
+
+.menuCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44,26,20,.7) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transitionNormal);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: var(--space4);
+}
+
+.menuCard:hover .menuCardOverlay { opacity: 1; }
+
+.quickViewBtn {
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--colorEspresso);
+  border-radius: var(--radiusFull);
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all var(--transitionNormal);
+}
+
+.quickViewBtn:hover {
+  background: var(--colorAccent);
+  color: var(--colorWhite);
+  transform: translateY(-2px);
+}
+
+.quickViewBtn:active {
+  transform: scale(0.95);
+}
+
+.menuCardBody {
+  padding: var(--space5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuCardCategory {
+  font-family: var(--fontAccent);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--colorAccent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: var(--space2);
+}
+
+.menuCardName {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeMd);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--colorEspresso);
+  margin-bottom: var(--space2);
+}
+
+.menuCardDesc {
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.menuCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space4);
+  padding-top: var(--space4);
+  border-top: 1px solid var(--colorGray100);
+}
+
+.menuCardPrice {
+  font-family: var(--fontDisplay);
+  font-size: var(--fontSizeXl);
+  font-weight: 400;
+  color: var(--colorEspresso);
+}
+
+.menuCardAddBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  padding: 0.45rem 1rem;
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  border-radius: var(--radiusFull);
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeXs);
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(62, 39, 35, 0.15);
+  transition: all var(--transitionNormal);
+}
+
+.menuCardAddBtn i {
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menuCardAddBtn:hover {
+  background: var(--colorAccent);
+  box-shadow: 0 6px 18px rgba(230, 81, 0, 0.35);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.menuCardAddBtn:hover i {
+  transform: rotate(90deg) scale(1.2);
+}
+
+.menuCardAddBtn:active {
+  transform: scale(0.93);
+}
+
+/* ── Product Badges (bestseller / sale) ──────────────────── */
+.menuCardBadge {
+  position: absolute;
+  top: var(--space3);
+  left: var(--space3);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--fontAccent);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--space1) var(--space3);
+  border-radius: var(--radiusFull);
+  color: var(--colorWhite);
+  box-shadow: 0 3px 8px rgba(13,8,6,.18);
+  z-index: 1;
+}
+
+.menuCardBadge + .menuCardBadge { top: calc(var(--space3) + 26px); }
+
+.menuCardBadge i { font-size: 9px; }
+
+.badgeBestSeller { background: var(--colorAccentHover); }
+.badgeSale        { background: #C62828; }
+
+/* ── Image Fallback Placeholder ───────────────────────────── */
+.menuCardImgFallback { background: var(--colorGray100); }
+
+.menuCardImgPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--colorGray100), var(--colorCream));
+}
+
+/* ── Sold Out State ───────────────────────────────────────── */
+.menuCardSoldOut .menuCardImg { filter: grayscale(65%); opacity: 0.6; }
+
+.menuCardSoldOutTag {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44,26,20,.45);
+  color: var(--colorCream);
+  font-family: var(--fontAccent);
+  font-size: var(--fontSizeSm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.menuCardAddBtn:disabled {
+  background: var(--colorGray300);
+  color: var(--colorGray500);
+  cursor: not-allowed;
+}
+
+.menuCardAddBtn:disabled:hover { background: var(--colorGray300); transform: none; }
+
+/* ── Rating / Sold meta row ───────────────────────────────── */
+.menuCardMetaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  margin-top: var(--space2);
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+}
+
+.menuCardRating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--colorEspresso);
+  font-weight: 600;
+}
+
+.menuCardRating i { color: var(--colorAccent); font-size: 11px; }
+
+.menuCardRatingCount { color: var(--colorGray400); font-weight: 400; }
+
+/* ── Price group (giá gốc gạch ngang khi có khuyến mãi) ──── */
+.menuCardPriceGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.menuCardPriceOriginal {
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray400);
+  text-decoration: line-through;
+}
+
+/* ── Skeleton Loading State ───────────────────────────────── */
+.menuCardSkeleton { pointer-events: none; }
+
+.skeletonBlock,
+.skeletonLine {
+  background: linear-gradient(90deg, var(--colorGray100) 25%, var(--colorGray200) 50%, var(--colorGray100) 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radiusSm);
+}
+
+.skeletonLine { height: 12px; margin-bottom: var(--space3); }
+.skeletonLineSm { width: 40%; }
+.skeletonLineMd { width: 70%; height: 16px; }
+.skeletonLineLg { width: 100%; height: 30px; }
+
+@keyframes skeletonShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Error State ──────────────────────────────────────────── */
+.menuErrorState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space24) var(--space6);
+  color: var(--colorGray500);
+}
+
+.menuErrorState i {
+  font-size: 3rem;
+  color: var(--colorAccent);
+  margin-bottom: var(--space4);
+  display: block;
+}
+
+.menuErrorState h3 {
+  font-size: var(--fontSizeXl);
+  color: var(--colorEspresso);
+  margin-bottom: var(--space2);
+}
+
+.menuErrorState p { font-size: var(--fontSizeSm); margin-bottom: var(--space6); }
+
+/* Empty state */
+.menuEmptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space24) var(--space6);
+  color: var(--colorGray400);
+  display: none;
+}
+
+.menuEmptyState.visible { display: block; }
+.menuEmptyState i { font-size: 4rem; margin-bottom: var(--space4); display: block; }
+.menuEmptyState h3 { font-size: var(--fontSizeXl); color: var(--colorGray500); margin-bottom: var(--space2); }
+.menuEmptyState p  { font-size: var(--fontSizeSm); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .menuGrid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space4); }
+}
+
+@media (max-width: 480px) {
+  .menuGrid { grid-template-columns: 1fr 1fr; gap: var(--space3); }
+  .menuCardBody { padding: var(--space3); }
+  .menuCardPrice { font-size: var(--fontSizeMd); }
+}
+
+@media (max-width: 360px) {
+  .menuGrid { grid-template-columns: 1fr; }
+}
+/* Search bar — icon nằm cố định bên trong ô, không phụ thuộc absolute positioning */
+.menuSearchBar {
+  max-width: 720px;
+  margin: 0 auto var(--space6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  border: 1px solid var(--colorGray200);
+  border-radius: var(--radiusMd);
+  background: var(--colorWhite);
+  box-shadow: var(--shadowSm);
+  transition: border-color var(--transitionFast), box-shadow var(--transitionFast);
+}
+.menuSearchBar:focus-within {
+  border-color: var(--colorAccent);
+  box-shadow: 0 0 0 3px rgba(166,109,69,.12);
+}
+.menuSearchBar i {
+  position: static;
+  flex: 0 0 auto;
+  width: 18px;
+  text-align: center;
+  color: var(--colorGray400);
+  pointer-events: none;
+}
+#menuSearchInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  padding: 13px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--colorEspresso);
+  font: inherit;
+  outline: none;
+  box-shadow: none;
+}
+#menuSearchInput:focus { border: 0; box-shadow: none; }
+#menuSearchInput::placeholder { color:var(--colorGray400); }
+
+
+.menuCardSeller {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -2px 0 8px;
+  font-size: 12px;
+  color: var(--colorGray500);
+}
+.menuCardSeller i { color: var(--colorAccent); font-size: 11px; }
+
+
+/* Font Awesome categories */
+.filterBtn > i, .menuCardCategory > i { width: 1.15em; text-align: center; }
+.menuCardImgPlaceholder > i { color: var(--colorAccent); font-size: 3rem; }
+
+/* ============================================================
+   HIGH-CONTRAST & THEME STYLING (Light & Dark Mode)
+   Eliminates any blending into surrounding background / cards
+   ============================================================ */
+
+/* ── Light Mode High-Contrast Rules ───────────────────────── */
+
+.filterBtn {
+  background: #FFFFFF;
+  border: 1px solid rgba(62, 39, 35, 0.16);
+  color: #2C1A14;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(62, 39, 35, 0.04);
+}
+
+.filterBtn:hover {
+  background: rgba(230, 81, 0, 0.08);
+  border-color: var(--colorAccent);
+  color: var(--colorAccent);
+}
+
+.filterBtn.filterActive {
+  background: var(--colorAccent) !important;
+  color: #FFFFFF !important;
+  border-color: var(--colorAccent) !important;
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.35) !important;
+}
+
+.filterBtn.filterActive .filterCount {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+.menuCard {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(62, 39, 35, 0.08) !important;
+  box-shadow: 0 4px 18px -2px rgba(62, 39, 35, 0.05), 0 1px 3px rgba(62, 39, 35, 0.02) !important;
+  border-radius: 20px !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
+}
+
+.menuCard:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 14px 30px -4px rgba(62, 39, 35, 0.11), 0 2px 6px rgba(62, 39, 35, 0.04) !important;
+  border-color: rgba(230, 81, 0, 0.35) !important;
+}
+
+.menuCardCategory {
+  color: #BF360C !important;
+  font-weight: 700 !important;
+}
+
+.menuCardName {
+  color: #1A0F0B !important;
+  font-weight: 700 !important;
+  font-size: var(--fontSizeMd) !important;
+}
+
+.menuCardSeller {
+  color: #5D4037 !important;
+  font-weight: 600 !important;
+}
+
+.menuCardDesc {
+  color: #4A3B32 !important;
+  line-height: 1.6 !important;
+}
+
+.menuCardRating {
+  color: #1A0F0B !important;
+  font-weight: 700 !important;
+}
+
+.menuCardRatingCount,
+.menuCardSold {
+  color: #6D4C41 !important;
+}
+
+.menuCardPrice {
+  color: #D84315 !important;
+  font-weight: 800 !important;
+}
+
+.menuCardAddBtn {
+  background: var(--colorAccent) !important;
+  color: #FFFFFF !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+.menuCardAddBtn:hover {
+  background: var(--colorAccentHover) !important;
+  transform: scale(1.05) !important;
+}
+
+/* ── Dark Mode High-Contrast Rules ────────────────────────── */
+html.darkMode #categoryFilter,
+body.darkMode #categoryFilter {
+  background: rgba(22, 14, 11, 0.94) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 26px !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+}
+
+html.darkMode #navBar.navMenuMerged,
+body.darkMode #navBar.navMenuMerged {
+  background: rgba(22, 14, 11, 0.96) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 18px 48px -4px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+}
+
+html.darkMode .navCategoryShelf {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.darkMode .navFilterLabel {
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .navFilterDivider {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+html.darkMode .navFilterBtnGroup .filterBtn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .navFilterBtnGroup .filterBtn:hover {
+  background: rgba(230, 81, 0, 0.15) !important;
+  border-color: var(--colorAccentLight) !important;
+  color: var(--colorAccentLight) !important;
+}
+
+html.darkMode .navFilterBtnGroup .filterBtn.filterActive {
+  background: var(--colorAccent) !important;
+  border-color: var(--colorAccent) !important;
+  color: #FFFFFF !important;
+}
+
+html.darkMode .navFilterBtnGroup .filterBtn .filterCount {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .navFilterBtnGroup .filterBtn.filterActive .filterCount {
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: #FFFFFF !important;
+}
+
+html.darkMode .filterLabel,
+body.darkMode .filterLabel {
+  color: #D6CDBC !important;
+}
+
+html.darkMode .filterDivider,
+body.darkMode .filterDivider {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+html.darkMode .filterBtn,
+body.darkMode .filterBtn {
+  background: rgba(36, 23, 18, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #F5E6D3 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.darkMode .filterBtn:hover,
+body.darkMode .filterBtn:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: var(--colorAccentLight) !important;
+  color: var(--colorAccentLight) !important;
+}
+
+html.darkMode .filterBtn.filterActive,
+body.darkMode .filterBtn.filterActive {
+  background: var(--colorAccent) !important;
+  border-color: var(--colorAccentLight) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(230, 81, 0, 0.5) !important;
+}
+
+html.darkMode .filterCount,
+body.darkMode .filterCount {
+  background: rgba(255, 255, 255, 0.12);
+  color: #EDE8E1;
+}
+
+html.darkMode .menuSearchBar,
+body.darkMode .menuSearchBar {
+  background: rgba(32, 21, 16, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+html.darkMode #menuSearchInput,
+body.darkMode #menuSearchInput {
+  color: #FFFFFF !important;
+}
+
+html.darkMode #menuSearchInput::placeholder,
+body.darkMode #menuSearchInput::placeholder {
+  color: rgba(245, 230, 211, 0.4) !important;
+}
+
+html.darkMode .menuSortSelect,
+body.darkMode .menuSortSelect {
+  background-color: rgba(32, 21, 16, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  color: #FFFFFF !important;
+}
+
+html.darkMode .menuResultsCount,
+body.darkMode .menuResultsCount,
+html.darkMode .menuResultsCount strong,
+body.darkMode .menuResultsCount strong {
+  color: #EDE8E1 !important;
+}
+
+html.darkMode .menuCard,
+body.darkMode .menuCard {
+  background: #18100C !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.05) inset !important;
+}
+
+html.darkMode .menuCard:hover,
+body.darkMode .menuCard:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(230, 81, 0, 0.5) !important;
+  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.85) !important;
+}
+
+html.darkMode .menuCardCategory,
+body.darkMode .menuCardCategory {
+  color: #FFA726 !important;
+  font-weight: 700 !important;
+}
+
+html.darkMode .menuCardName,
+body.darkMode .menuCardName {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+html.darkMode .menuCardSeller,
+body.darkMode .menuCardSeller {
+  color: #E8D8C8 !important;
+  font-weight: 600 !important;
+}
+
+html.darkMode .menuCardDesc,
+body.darkMode .menuCardDesc {
+  color: #D6CDBC !important;
+  line-height: 1.6 !important;
+}
+
+html.darkMode .menuCardMetaRow,
+body.darkMode .menuCardMetaRow {
+  color: #BFB0A3 !important;
+}
+
+html.darkMode .menuCardRating,
+body.darkMode .menuCardRating {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+html.darkMode .menuCardRatingCount,
+body.darkMode .menuCardRatingCount,
+html.darkMode .menuCardSold,
+body.darkMode .menuCardSold {
+  color: #BFB0A3 !important;
+}
+
+html.darkMode .menuCardFooter,
+body.darkMode .menuCardFooter {
+  border-top-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.darkMode .menuCardPrice,
+body.darkMode .menuCardPrice {
+  color: #FF9800 !important;
+  font-weight: 800 !important;
+}
+
+html.darkMode .menuCardPriceOriginal,
+body.darkMode .menuCardPriceOriginal {
+  color: rgba(245, 230, 211, 0.45) !important;
+}
+
+html.darkMode .quickViewBtn,
+body.darkMode .quickViewBtn {
+  background: rgba(35, 22, 17, 0.9) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+html.darkMode .quickViewBtn:hover,
+body.darkMode .quickViewBtn:hover {
+  background: var(--colorAccent) !important;
+  border-color: var(--colorAccentLight) !important;
+}

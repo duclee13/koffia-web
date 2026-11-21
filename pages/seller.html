@@ -1,0 +1,457 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kênh Người Bán — Koffia Seller Portal</title>
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/175b48673e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/sellerStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body class="sellerBody">
+    <!-- TOP BAR (ẩn cho đến khi xác thực quyền Seller / Dev để không nháy DOM) -->
+    <header class="sellerHeader" id="sellerHeader" style="display: none">
+      <div class="sellerHeaderLeft">
+        <a href="../index.html" class="sellerBrandLogo">
+          <img src="../assets/icons/logo.png" alt="" width="32" height="32" />
+          <span>Koffia <strong>Seller</strong></span>
+        </a>
+        <div class="sellerStoreBadge" id="sellerStoreNameBadge">
+          <i class="fa-solid fa-store"></i> <span id="sellerStoreName">Cửa Hàng Của Bạn</span>
+        </div>
+      </div>
+      <div class="sellerHeaderRight">
+        <span class="sellerTrialPill" id="sellerTrialPill">
+          <i class="fa-regular fa-clock"></i> <span id="sellerTrialDays">Trial: còn 10 ngày</span>
+        </span>
+        <button type="button" id="themeToggleBtn" class="sellerNavActionBtn themeToggleBtn" title="Đổi giao diện Sáng / Tối" aria-label="Chuyển giao diện Sáng / Tối">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+        <a href="../index.html" class="sellerNavActionBtn" title="Về trang chủ">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <a href="account.html" class="sellerNavActionBtn" title="Tài khoản cá nhân">
+          <i class="fa-regular fa-circle-user"></i>
+        </a>
+      </div>
+    </header>
+
+    <div class="sellerLayout" id="sellerLayout" style="display: none">
+      <!-- SIDEBAR NAVIGATION -->
+      <aside class="sellerSidebar">
+        <nav class="sellerNav">
+          <button type="button" class="sellerNavItem active" data-tab="overview">
+            <i class="fa-solid fa-chart-pie fa-fw"></i> Tổng quan
+          </button>
+          <button type="button" class="sellerNavItem" data-tab="products">
+            <i class="fa-solid fa-mug-hot fa-fw"></i> Sản phẩm quán
+          </button>
+          <button type="button" class="sellerNavItem" data-tab="orders">
+            <i class="fa-solid fa-receipt fa-fw"></i> Đơn hàng nhận
+          </button>
+          <button type="button" class="sellerNavItem" data-tab="vouchers">
+            <i class="fa-solid fa-ticket fa-fw"></i> Voucher riêng
+          </button>
+          <button type="button" class="sellerNavItem" data-tab="settings">
+            <i class="fa-solid fa-gear fa-fw"></i> Cài đặt kênh
+          </button>
+        </nav>
+
+        <div class="sellerSidebarFooter">
+          <div class="sellerTrialBox">
+            <p class="trialBoxTitle"><i class="fa-solid fa-gift"></i> Gói Dùng Thử</p>
+            <p class="trialBoxDesc">Trải nghiệm miễn phí trọn vẹn tính năng quản lý sản phẩm và đơn hàng.</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="sellerMain">
+        <!-- ══════════════════════════════════════
+             TAB 1: TỔNG QUAN (OVERVIEW)
+             ══════════════════════════════════════ -->
+        <section id="tab-overview" class="sellerSection tabActive">
+          <div class="sectionTitleRow">
+            <div>
+              <h1 class="sellerPageTitle">Tổng Quan Doanh Thu &amp; Hoạt Động</h1>
+              <p class="sellerPageSubtitle">Theo dõi hiệu suất bán hàng của quán bạn theo thời gian thực.</p>
+            </div>
+            <button type="button" class="btnPrimary" id="quickAddProductBtn">
+              <i class="fa-solid fa-plus"></i> Thêm Món Mới
+            </button>
+          </div>
+
+          <div class="statsGrid">
+            <div class="statCard">
+              <div class="statIcon revenueIcon"><i class="fa-solid fa-coins"></i></div>
+              <div class="statInfo">
+                <span class="statLabel">Doanh thu tạm tính</span>
+                <strong class="statValue" id="statRevenue">0 ₫</strong>
+              </div>
+            </div>
+            <div class="statCard">
+              <div class="statIcon ordersIcon"><i class="fa-solid fa-bag-shopping"></i></div>
+              <div class="statInfo">
+                <span class="statLabel">Tổng số đơn hàng</span>
+                <strong class="statValue" id="statOrdersCount">0</strong>
+              </div>
+            </div>
+            <div class="statCard">
+              <div class="statIcon productsIcon"><i class="fa-solid fa-mug-saucer"></i></div>
+              <div class="statInfo">
+                <span class="statLabel">Sản phẩm đang bán</span>
+                <strong class="statValue" id="statProductsCount">0</strong>
+              </div>
+            </div>
+            <div class="statCard">
+              <div class="statIcon ratingIcon"><i class="fa-solid fa-star"></i></div>
+              <div class="statInfo">
+                <span class="statLabel">Đánh giá trung bình</span>
+                <strong class="statValue" id="statRating">5.0 ⭐</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECENT ORDERS SNAPSHOT -->
+          <div class="sellerCard">
+            <div class="sellerCardHeader">
+              <h2><i class="fa-solid fa-clock-rotate-left"></i> Đơn hàng gần nhất của quán</h2>
+              <button type="button" class="btnSecondary" data-switch-tab="orders">Xem tất cả</button>
+            </div>
+            <div id="recentOrdersTableWrap" class="tableWrap">
+              <table class="sellerTable">
+                <thead>
+                  <tr>
+                    <th>Mã Đơn</th>
+                    <th>Thời Gian</th>
+                    <th>Khách Hàng</th>
+                    <th>Món Của Quán</th>
+                    <th>Tổng Tiền</th>
+                    <th>Trạng Thái</th>
+                  </tr>
+                </thead>
+                <tbody id="recentOrdersTbody">
+                  <!-- Populated by seller.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             TAB 2: SẢN PHẨM (PRODUCTS)
+             ══════════════════════════════════════ -->
+        <section id="tab-products" class="sellerSection" style="display: none">
+          <div class="sectionTitleRow">
+            <div>
+              <h1 class="sellerPageTitle">Quản Lý Thực Đơn Quán</h1>
+              <p class="sellerPageSubtitle">Thêm, chỉnh sửa giá bán và quản lý trạng thái các món của quán.</p>
+            </div>
+            <button type="button" class="btnPrimary" id="addNewProductBtn">
+              <i class="fa-solid fa-plus"></i> Thêm Món Mới
+            </button>
+          </div>
+
+          <div class="sellerCard">
+            <div class="tableFilterBar">
+              <input type="text" id="sellerProductSearch" class="inputField searchInput" placeholder="Tìm kiếm món theo tên hoặc danh mục..." />
+              <select id="sellerProductCategoryFilter" class="inputField filterSelect">
+                <option value="all">Tất cả danh mục</option>
+                <option value="coffee">Cà phê</option>
+                <option value="milk-tea">Trà sữa</option>
+                <option value="tea">Trà trái cây</option>
+                <option value="juice">Nước ép</option>
+                <option value="smoothie">Sinh tố</option>
+                <option value="soda">Soda</option>
+                <option value="other">Khác</option>
+              </select>
+            </div>
+            <div class="tableWrap">
+              <table class="sellerTable">
+                <thead>
+                  <tr>
+                    <th>Món</th>
+                    <th>Danh mục</th>
+                    <th>Giá Bán</th>
+                    <th>Giá Gốc</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody id="sellerProductsTbody">
+                  <!-- Populated by seller.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             TAB 3: ĐƠN HÀNG (ORDERS)
+             ══════════════════════════════════════ -->
+        <section id="tab-orders" class="sellerSection" style="display: none">
+          <div class="sectionTitleRow">
+            <div>
+              <h1 class="sellerPageTitle">Quản Lý Đơn Hàng</h1>
+              <p class="sellerPageSubtitle">Cập nhật tiến độ chuẩn bị và giao hàng cho khách.</p>
+            </div>
+            <div class="orderStatusFilterGroup">
+              <button type="button" class="filterPill active" data-order-filter="all">Tất cả</button>
+              <button type="button" class="filterPill" data-order-filter="new">Đã tiếp nhận</button>
+              <button type="button" class="filterPill" data-order-filter="preparing">Đang chuẩn bị</button>
+              <button type="button" class="filterPill" data-order-filter="delivering">Đang giao</button>
+              <button type="button" class="filterPill" data-order-filter="completed">Hoàn thành</button>
+            </div>
+          </div>
+
+          <div class="sellerCard">
+            <div class="tableWrap">
+              <table class="sellerTable">
+                <thead>
+                  <tr>
+                    <th>Mã Đơn</th>
+                    <th>Thời Gian</th>
+                    <th>Khách Hàng &amp; Đ/C</th>
+                    <th>Món Đặt</th>
+                    <th>Tổng Tiền</th>
+                    <th>Trạng Thái</th>
+                    <th>Cập Nhật Tiến Độ</th>
+                  </tr>
+                </thead>
+                <tbody id="allSellerOrdersTbody">
+                  <!-- Populated by seller.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             TAB 4: VOUCHER QUÁN (VOUCHERS)
+             ══════════════════════════════════════ -->
+        <section id="tab-vouchers" class="sellerSection" style="display: none">
+          <div class="sectionTitleRow">
+            <div>
+              <h1 class="sellerPageTitle">Voucher Giảm Giá Riêng Của Quán</h1>
+              <p class="sellerPageSubtitle">Tạo mã ưu đãi độc quyền để thu hút khách đặt món tại quán bạn.</p>
+            </div>
+            <button type="button" class="btnPrimary" id="openAddVoucherModalBtn">
+              <i class="fa-solid fa-plus"></i> Tạo Mã Voucher Mới
+            </button>
+          </div>
+
+          <div class="sellerCard">
+            <div class="tableWrap">
+              <table class="sellerTable">
+                <thead>
+                  <tr>
+                    <th>Mã Code</th>
+                    <th>Tên Voucher</th>
+                    <th>Mức Giảm</th>
+                    <th>Đơn Tối Thiểu</th>
+                    <th>Đã Dùng / Giới Hạn</th>
+                    <th>Hiệu Lực</th>
+                    <th>Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody id="sellerVouchersTbody">
+                  <!-- Populated by seller.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             TAB 5: CÀI ĐẶT KÊNH (SETTINGS)
+             ══════════════════════════════════════ -->
+        <section id="tab-settings" class="sellerSection" style="display: none">
+          <div class="sectionTitleRow">
+            <div>
+              <h1 class="sellerPageTitle">Cài Đặt Hồ Sơ Quán</h1>
+              <p class="sellerPageSubtitle">Cập nhật thông tin quán hiển thị cho khách hàng trên menu.</p>
+            </div>
+          </div>
+
+          <div class="sellerCard" style="max-width: 680px">
+            <form id="sellerSettingsForm" class="sellerForm">
+              <div class="formGroup">
+                <label class="formLabel" for="storeChannelName">Tên quán / Kênh bán <span class="formRequired">*</span></label>
+                <input type="text" id="storeChannelName" class="inputField" required />
+              </div>
+              <div class="formRow">
+                <div class="formGroup">
+                  <label class="formLabel" for="storePhone">Số điện thoại liên hệ <span class="formRequired">*</span></label>
+                  <input type="tel" id="storePhone" class="inputField" required />
+                </div>
+                <div class="formGroup">
+                  <label class="formLabel" for="storeAddress">Địa chỉ quán <span class="formRequired">*</span></label>
+                  <input type="text" id="storeAddress" class="inputField" required />
+                </div>
+              </div>
+              <div class="formGroup">
+                <label class="formLabel" for="storeDescription">Mô tả quán &amp; phong cách đồ uống</label>
+                <textarea id="storeDescription" class="inputField" style="min-height: 90px"></textarea>
+              </div>
+              <div class="accountFormActions">
+                <button type="submit" class="btnPrimary">
+                  <i class="fa-solid fa-floppy-disk"></i> Lưu Thông Tin Quán
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MODAL: THÊM / SỬA SẢN PHẨM
+         ══════════════════════════════════════ -->
+    <div id="productModal" class="sellerModal" style="display: none;" role="dialog" aria-label="Thêm hoặc sửa sản phẩm">
+      <div class="sellerModalOverlay" id="productModalOverlay"></div>
+      <div class="sellerModalCard">
+        <div class="sellerModalHeader">
+          <h3 id="productModalTitle"><i class="fa-solid fa-mug-hot"></i> Thêm Món Mới Cho Quán</h3>
+          <button type="button" id="closeProductModalBtn" class="closeModalBtn">&times;</button>
+        </div>
+        <form id="sellerProductForm" class="sellerForm">
+          <input type="hidden" id="prodEditId" value="" />
+          <div class="formGroup">
+            <label class="formLabel" for="prodName">Tên thức uống <span class="formRequired">*</span></label>
+            <input type="text" id="prodName" class="inputField" placeholder="Ví dụ: Cà Phê Trứng Béo Ngậy" required />
+          </div>
+          <div class="formRow">
+            <div class="formGroup">
+              <label class="formLabel" for="prodCategory">Danh mục <span class="formRequired">*</span></label>
+              <select id="prodCategory" class="inputField" required>
+                <option value="coffee">Cà phê</option>
+                <option value="milk-tea">Trà sữa</option>
+                <option value="tea">Trà trái cây</option>
+                <option value="juice">Nước ép</option>
+                <option value="smoothie">Sinh tố</option>
+                <option value="soda">Soda</option>
+                <option value="kombucha">Kombucha</option>
+                <option value="other">Khác</option>
+              </select>
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="prodPrice">Giá bán (₫) <span class="formRequired">*</span></label>
+              <input type="number" id="prodPrice" class="inputField" min="1000" step="1000" placeholder="35000" required />
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="prodOriginalPrice">Giá gốc niêm yết (₫)</label>
+              <input type="number" id="prodOriginalPrice" class="inputField" min="0" step="1000" placeholder="45000" />
+            </div>
+          </div>
+          <div class="formGroup">
+            <label class="formLabel" for="prodDesc">Mô tả thức uống</label>
+            <textarea id="prodDesc" class="inputField" style="min-height: 70px" placeholder="Hương vị, thành phần nguyên liệu nổi bật..."></textarea>
+          </div>
+          <div class="formGroup">
+            <label class="checkboxLabel">
+              <input type="checkbox" id="prodIsAvailable" checked />
+              Đang có sẵn để bán (bỏ chọn nếu tạm hết nguyên liệu)
+            </label>
+          </div>
+          <div class="sellerModalActions">
+            <button type="button" id="cancelProductBtn" class="btnSecondary">Hủy</button>
+            <button type="submit" class="btnPrimary"><i class="fa-solid fa-check"></i> Lưu Sản Phẩm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         MODAL: TẠO VOUCHER MỚI
+         ══════════════════════════════════════ -->
+    <div id="sellerVoucherModal" class="sellerModal" style="display: none;" role="dialog" aria-label="Tạo voucher cho quán">
+      <div class="sellerModalOverlay" id="sellerVoucherOverlay"></div>
+      <div class="sellerModalCard">
+        <div class="sellerModalHeader">
+          <h3><i class="fa-solid fa-ticket"></i> Tạo Voucher Riêng Cho Quán</h3>
+          <button type="button" id="closeSellerVoucherModalBtn" class="closeModalBtn">&times;</button>
+        </div>
+        <form id="sellerVoucherForm" class="sellerForm">
+          <div class="formGroup">
+            <label class="formLabel" for="voucherCode">Mã code viết hoa <span class="formRequired">*</span></label>
+            <input type="text" id="voucherCode" class="inputField" placeholder="Ví dụ: QUAN15, CHUBA20" required style="text-transform: uppercase;" />
+          </div>
+          <div class="formGroup">
+            <label class="formLabel" for="voucherName">Tên voucher hiển thị <span class="formRequired">*</span></label>
+            <input type="text" id="voucherName" class="inputField" placeholder="Ví dụ: Ưu đãi tri ân khách quen" required />
+          </div>
+          <div class="formRow">
+            <div class="formGroup">
+              <label class="formLabel" for="voucherType">Loại giảm giá</label>
+              <select id="voucherType" class="inputField">
+                <option value="percent">Giảm theo %</option>
+                <option value="fixed">Giảm số tiền cố định (₫)</option>
+              </select>
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="voucherValue">Giá trị giảm <span class="formRequired">*</span></label>
+              <input type="number" id="voucherValue" class="inputField" placeholder="Ví dụ: 15 (cho 15%) hoặc 20000" required />
+            </div>
+          </div>
+          <div class="formRow">
+            <div class="formGroup">
+              <label class="formLabel" for="voucherMinOrder">Đơn hàng tối thiểu (₫)</label>
+              <input type="number" id="voucherMinOrder" class="inputField" placeholder="50000" value="50000" />
+            </div>
+            <div class="formGroup">
+              <label class="formLabel" for="voucherMaxDiscount">Giảm tối đa (₫)</label>
+              <input type="number" id="voucherMaxDiscount" class="inputField" placeholder="30000" value="25000" />
+            </div>
+          </div>
+          <div class="sellerModalActions">
+            <button type="button" id="cancelSellerVoucherBtn" class="btnSecondary">Hủy</button>
+            <button type="submit" class="btnPrimary"><i class="fa-solid fa-check"></i> Tạo Voucher</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+    <!-- Scripts -->
+    <script src="../js/productImages.js?v=8.1"></script>
+    <script src="../js/main.js?v=8.1"></script>
+    <script src="../js/seller.js?v=8.1"></script>
+  </body>
+</html>
+

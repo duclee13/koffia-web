@@ -1,0 +1,6768 @@
+[
+  {
+    "id": "prod001",
+    "name": "Cà phê muối",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod001",
+    "price": 32000,
+    "originalPrice": 37000,
+    "soldCount": 2318,
+    "ratings": {
+      "5": 238,
+      "4": 86,
+      "3": 10,
+      "2": 4,
+      "1": 3
+    },
+    "description": "Cà phê phin đậm đà hòa quyện lớp kem muối béo mịn tan chảy đầu lưỡi.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod002",
+    "name": "Trà mảng cầu",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod002",
+    "price": 37000,
+    "originalPrice": 42000,
+    "soldCount": 2009,
+    "ratings": {
+      "5": 193,
+      "4": 73,
+      "3": 35,
+      "2": 15,
+      "1": 9
+    },
+    "description": "Trà thơm mát kết hợp vị ngọt dịu, chua nhẹ đặc trưng của mãng cầu chín.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod003",
+    "name": "Matcha latte kem trứng",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod003",
+    "price": 29000,
+    "originalPrice": 41000,
+    "soldCount": 1207,
+    "ratings": {
+      "5": 146,
+      "4": 50,
+      "3": 21,
+      "2": 9,
+      "1": 5
+    },
+    "description": "Matcha Nhật Bản nguyên chất béo ngậy cùng lớp kem trứng bồng bềnh thơm lừng.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod004",
+    "name": "Trà sữa ô long nướng",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod004",
+    "price": 39000,
+    "originalPrice": 44000,
+    "soldCount": 2354,
+    "ratings": {
+      "5": 292,
+      "4": 82,
+      "3": 59,
+      "2": 25,
+      "1": 15
+    },
+    "description": "Trà ô long rang nướng đậm hương khói quyện cùng sữa béo thơm đặc trưng.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod005",
+    "name": "Cà phê trứng",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod005",
+    "price": 39000,
+    "originalPrice": 44000,
+    "soldCount": 989,
+    "ratings": {
+      "5": 97,
+      "4": 30,
+      "3": 18,
+      "2": 7,
+      "1": 4
+    },
+    "description": "Cà phê đen truyền thống phủ lớp kem trứng đánh bông mịn màng, ngọt béo hài hòa.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod006",
+    "name": "Trà đào cam sả",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod006",
+    "price": 29000,
+    "originalPrice": 44000,
+    "soldCount": 1740,
+    "ratings": {
+      "5": 189,
+      "4": 70,
+      "3": 26,
+      "2": 11,
+      "1": 6
+    },
+    "description": "Trà đào ngọt thanh quyện vị cam tươi và chút the mát của sả thơm.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod007",
+    "name": "Trà ô long đậm vị",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod007",
+    "price": 39000,
+    "originalPrice": 39000,
+    "soldCount": 2066,
+    "ratings": {
+      "5": 253,
+      "4": 69,
+      "3": 65,
+      "2": 27,
+      "1": 16
+    },
+    "description": "Trà ô long ủ lâu cho vị chát nhẹ hậu ngọt sâu, hương thơm thanh khiết.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod008",
+    "name": "Trà chanh giã tay",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod008",
+    "price": 39000,
+    "originalPrice": 45000,
+    "soldCount": 2383,
+    "ratings": {
+      "5": 211,
+      "4": 58,
+      "3": 51,
+      "2": 21,
+      "1": 13
+    },
+    "description": "Trà chanh giã tay chuẩn vị truyền thống, chua thanh the mát sảng khoái.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod009",
+    "name": "Bạc xỉu",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod009",
+    "price": 37000,
+    "originalPrice": 47000,
+    "soldCount": 2101,
+    "ratings": {
+      "5": 265,
+      "4": 107,
+      "3": 33,
+      "2": 14,
+      "1": 8
+    },
+    "description": "Cà phê sữa đá phiên bản nhẹ nhàng, béo thơm sữa tươi hòa cùng cà phê phin.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod010",
+    "name": "Cà phê cốt dừa",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod010",
+    "price": 31000,
+    "originalPrice": 43000,
+    "soldCount": 2100,
+    "ratings": {
+      "5": 167,
+      "4": 59,
+      "3": 36,
+      "2": 15,
+      "1": 9
+    },
+    "description": "Cà phê phin đậm đà kết hợp cốt dừa béo ngậy tạo vị lạ miệng khó quên.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod011",
+    "name": "Sữa tươi trân châu đường đen",
+    "category": "other",
+    "imageDir": "assets/images/products/prod011",
+    "price": 36000,
+    "originalPrice": 51000,
+    "soldCount": 1464,
+    "ratings": {
+      "5": 178,
+      "4": 46,
+      "3": 45,
+      "2": 19,
+      "1": 11
+    },
+    "description": "Sữa tươi thanh mát cùng trân châu đường đen dẻo dai ngọt thơm caramel.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod012",
+    "name": "Trà mận Hà Nội",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod012",
+    "price": 34000,
+    "originalPrice": 44000,
+    "soldCount": 1348,
+    "ratings": {
+      "5": 113,
+      "4": 44,
+      "3": 8,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Trà mận chua ngọt hài hòa, gợi nhớ hương vị mùa hè Hà Nội.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod013",
+    "name": "Trà sen vàng kem cheese",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod013",
+    "price": 32000,
+    "originalPrice": 47000,
+    "soldCount": 1822,
+    "ratings": {
+      "5": 186,
+      "4": 55,
+      "3": 29,
+      "2": 12,
+      "1": 7
+    },
+    "description": "Trà sen thanh tao phủ lớp kem cheese béo mặn đặc trưng của Koffia.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod014",
+    "name": "Trà dâu tằm kem cheese",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod014",
+    "price": 32000,
+    "originalPrice": 47000,
+    "soldCount": 1949,
+    "ratings": {
+      "5": 215,
+      "4": 80,
+      "3": 26,
+      "2": 11,
+      "1": 6
+    },
+    "description": "Trà dâu tằm chua ngọt tự nhiên hòa quyện lớp kem cheese béo thơm.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod015",
+    "name": "Trà ổi hồng xí muội",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod015",
+    "price": 34000,
+    "originalPrice": 40000,
+    "soldCount": 1083,
+    "ratings": {
+      "5": 103,
+      "4": 31,
+      "3": 30,
+      "2": 13,
+      "1": 8
+    },
+    "description": "Trà ổi hồng ngọt dịu điểm xuyết vị mặn chua đặc trưng của xí muội.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod016",
+    "name": "Cold brew cam sả",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod016",
+    "price": 34000,
+    "originalPrice": 49000,
+    "soldCount": 1664,
+    "ratings": {
+      "5": 199,
+      "4": 66,
+      "3": 20,
+      "2": 8,
+      "1": 5
+    },
+    "description": "Cà phê ủ lạnh 12 giờ thanh mát kết hợp cam tươi và sả the nhẹ.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod017",
+    "name": "Trà xanh xoài dừa",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod017",
+    "price": 33000,
+    "originalPrice": 45000,
+    "soldCount": 823,
+    "ratings": {
+      "5": 112,
+      "4": 40,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Trà xanh thanh mát quyện xoài chín ngọt và nước cốt dừa béo nhẹ.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod018",
+    "name": "Trà dừa nước",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod018",
+    "price": 39000,
+    "originalPrice": 39000,
+    "soldCount": 1496,
+    "ratings": {
+      "5": 126,
+      "4": 57,
+      "3": 8,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Trà thơm nhẹ kết hợp cơm dừa nước giòn sần sật, thanh mát tự nhiên.",
+    "isBestSeller": true,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod019",
+    "name": "Trà sữa nướng caramel",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod019",
+    "price": 49000,
+    "originalPrice": 64000,
+    "soldCount": 1339,
+    "ratings": {
+      "5": 189,
+      "4": 48,
+      "3": 32,
+      "2": 13,
+      "1": 8
+    },
+    "description": "Trà sữa nướng hương khói đậm đà quyện sốt caramel ngọt béo quyến rũ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod020",
+    "name": "Trà ô long vải dầm",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod020",
+    "price": 39000,
+    "originalPrice": 39000,
+    "soldCount": 1411,
+    "ratings": {
+      "5": 170,
+      "4": 59,
+      "3": 35,
+      "2": 15,
+      "1": 9
+    },
+    "description": "Trà ô long thanh nhẹ kết hợp vải thiều dầm ngọt mọng nước.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod021",
+    "name": "Cà phê kem muối béo",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod021",
+    "price": 34000,
+    "originalPrice": 46000,
+    "soldCount": 593,
+    "ratings": {
+      "5": 81,
+      "4": 21,
+      "3": 14,
+      "2": 6,
+      "1": 3
+    },
+    "description": "Cà phê đậm vị phủ lớp kem muối béo mịn, cân bằng đắng ngọt mặn.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod022",
+    "name": "Matcha việt quất latte",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod022",
+    "price": 34000,
+    "originalPrice": 34000,
+    "soldCount": 364,
+    "ratings": {
+      "5": 35,
+      "4": 8,
+      "3": 5,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Matcha béo mịn hòa cùng sốt việt quất chua ngọt tạo vị mới lạ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod023",
+    "name": "Trà sữa Thái xanh",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod023",
+    "price": 46000,
+    "originalPrice": 56000,
+    "soldCount": 120,
+    "ratings": {
+      "5": 15,
+      "4": 6,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà Thái xanh thơm nồng đặc trưng hòa quyện sữa béo ngậy chuẩn vị.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod024",
+    "name": "Trà sữa Thái đỏ",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod024",
+    "price": 43000,
+    "originalPrice": 49000,
+    "soldCount": 321,
+    "ratings": {
+      "5": 41,
+      "4": 16,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Trà Thái đỏ đậm đà thơm nức mùi trà truyền thống pha cùng sữa tươi.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod025",
+    "name": "Sinh tố bơ dừa",
+    "category": "smoothie",
+    "imageDir": "assets/images/products/prod025",
+    "price": 47000,
+    "originalPrice": 47000,
+    "soldCount": 255,
+    "ratings": {
+      "5": 33,
+      "4": 10,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Sinh tố bơ sáp béo mịn xay cùng nước cốt dừa thơm lừng, sánh mượt.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 0
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 8000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        50,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top11",
+          "name": "Hạt Chia",
+          "price": 5000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod026",
+    "name": "Trà chanh xí muội",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod026",
+    "price": 37000,
+    "originalPrice": 37000,
+    "soldCount": 512,
+    "ratings": {
+      "5": 41,
+      "4": 16,
+      "3": 6,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Trà chanh chua thanh điểm nhấn vị mặn ngọt đặc trưng của xí muội.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod027",
+    "name": "Cà phê Cold brew tonic",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod027",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 652,
+    "ratings": {
+      "5": 62,
+      "4": 17,
+      "3": 8,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Cold brew đậm đà kết hợp nước tonic sủi bọt the mát, sảng khoái.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod028",
+    "name": "Trà vải kim quất",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod028",
+    "price": 29000,
+    "originalPrice": 29000,
+    "soldCount": 388,
+    "ratings": {
+      "5": 34,
+      "4": 9,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Trà vải ngọt thơm quyện cùng kim quất chua nhẹ, hương thơm quyến rũ.",
+    "isBestSeller": false,
+    "isAvailable": false,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod029",
+    "name": "Trà trái cây nhiệt đới",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod029",
+    "price": 31000,
+    "originalPrice": 31000,
+    "soldCount": 634,
+    "ratings": {
+      "5": 72,
+      "4": 24,
+      "3": 10,
+      "2": 4,
+      "1": 2
+    },
+    "description": "Trà pha cùng hỗn hợp trái cây nhiệt đới chua ngọt tươi mát.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod030",
+    "name": "Sữa chua dầm hoa quả",
+    "category": "yogurt",
+    "imageDir": "assets/images/products/prod030",
+    "price": 30000,
+    "originalPrice": 30000,
+    "soldCount": 149,
+    "ratings": {
+      "5": 17,
+      "4": 8,
+      "3": 1,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Sữa chua sánh mịn dầm cùng trái cây tươi theo mùa, chua ngọt hài hòa.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top12",
+          "name": "Granola",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod031",
+    "name": "Cà phê Espresso sữa đá",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod031",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 150,
+    "ratings": {
+      "5": 13,
+      "4": 3,
+      "3": 1,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Espresso đậm đà nguyên chất hòa cùng sữa tươi mát lạnh.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod032",
+    "name": "Cappuccino",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod032",
+    "price": 41000,
+    "originalPrice": 41000,
+    "soldCount": 244,
+    "ratings": {
+      "5": 25,
+      "4": 9,
+      "3": 5,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Espresso hòa quyện lớp bọt sữa mịn màng, béo thơm chuẩn Ý.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod033",
+    "name": "Caramel Macchiato",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod033",
+    "price": 37000,
+    "originalPrice": 37000,
+    "soldCount": 503,
+    "ratings": {
+      "5": 58,
+      "4": 25,
+      "3": 11,
+      "2": 5,
+      "1": 3
+    },
+    "description": "Espresso kết hợp sữa tươi và sốt caramel ngọt ngào quyến rũ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod034",
+    "name": "Trà nhài hạt đác cốt dừa",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod034",
+    "price": 37000,
+    "originalPrice": 37000,
+    "soldCount": 65,
+    "ratings": {
+      "5": 10,
+      "4": 2,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Trà nhài thơm dịu kết hợp hạt đác giòn sần sật và cốt dừa béo nhẹ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod035",
+    "name": "Trà thanh long đỏ cốt dừa",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod035",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 542,
+    "ratings": {
+      "5": 43,
+      "4": 16,
+      "3": 11,
+      "2": 4,
+      "1": 3
+    },
+    "description": "Trà thanh long đỏ ngọt thanh hòa quyện cốt dừa béo thơm lạ miệng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod036",
+    "name": "Trà việt quất nha đam",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod036",
+    "price": 35000,
+    "originalPrice": 35000,
+    "soldCount": 321,
+    "ratings": {
+      "5": 41,
+      "4": 17,
+      "3": 6,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Trà việt quất chua ngọt kết hợp nha đam giòn mát, thanh nhẹ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod037",
+    "name": "Trà sữa Earl Grey",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod037",
+    "price": 46000,
+    "originalPrice": 46000,
+    "soldCount": 619,
+    "ratings": {
+      "5": 68,
+      "4": 21,
+      "3": 16,
+      "2": 7,
+      "1": 4
+    },
+    "description": "Trà Earl Grey hương bergamot đặc trưng hòa quyện sữa tươi béo nhẹ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod038",
+    "name": "Trà atiso đỏ Hibiscus",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod038",
+    "price": 29000,
+    "originalPrice": 29000,
+    "soldCount": 643,
+    "ratings": {
+      "5": 76,
+      "4": 20,
+      "3": 17,
+      "2": 7,
+      "1": 4
+    },
+    "description": "Trà hoa atiso đỏ chua thanh nhẹ nhàng, tốt cho sức khỏe và giải nhiệt.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod039",
+    "name": "Trà xoài kem cheese",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod039",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 564,
+    "ratings": {
+      "5": 67,
+      "4": 27,
+      "3": 15,
+      "2": 6,
+      "1": 4
+    },
+    "description": "Trà xoài chín ngọt thơm phủ lớp kem cheese béo mặn hấp dẫn.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod040",
+    "name": "Cà phê Phin sữa đá",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod040",
+    "price": 34000,
+    "originalPrice": 39000,
+    "soldCount": 659,
+    "ratings": {
+      "5": 52,
+      "4": 24,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Cà phê phin truyền thống pha cùng sữa đặc, đậm đà chuẩn vị Việt.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod041",
+    "name": "Cà phê Phin đen đá",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod041",
+    "price": 36000,
+    "originalPrice": 48000,
+    "soldCount": 658,
+    "ratings": {
+      "5": 55,
+      "4": 19,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Cà phê phin đen nguyên chất, đắng nhẹ hậu ngọt, thơm nồng nàn.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod042",
+    "name": "Cà phê Americano đá",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod042",
+    "price": 39000,
+    "originalPrice": 39000,
+    "soldCount": 317,
+    "ratings": {
+      "5": 26,
+      "4": 9,
+      "3": 5,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Espresso pha loãng cùng nước lạnh, thanh nhẹ và ít gắt hơn cà phê phin.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod043",
+    "name": "Cà phê Latte đá",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod043",
+    "price": 38000,
+    "originalPrice": 38000,
+    "soldCount": 518,
+    "ratings": {
+      "5": 44,
+      "4": 17,
+      "3": 10,
+      "2": 4,
+      "1": 3
+    },
+    "description": "Espresso hòa cùng sữa tươi mát lạnh, vị béo nhẹ nhàng dễ uống.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod044",
+    "name": "Soda việt quất mint",
+    "category": "soda",
+    "imageDir": "assets/images/products/prod044",
+    "price": 38000,
+    "originalPrice": 38000,
+    "soldCount": 152,
+    "ratings": {
+      "5": 11,
+      "4": 6,
+      "3": 1,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Soda sủi bọt vị việt quất chua ngọt điểm xuyết bạc hà the mát.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller006"
+  },
+  {
+    "id": "prod045",
+    "name": "Soda chanh dây bạc hà",
+    "category": "soda",
+    "imageDir": "assets/images/products/prod045",
+    "price": 30000,
+    "originalPrice": 30000,
+    "soldCount": 300,
+    "ratings": {
+      "5": 34,
+      "4": 12,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Soda chanh dây chua thanh kết hợp bạc hà tươi mát sảng khoái.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller006"
+  },
+  {
+    "id": "prod046",
+    "name": "Nước ép cam nguyên chất",
+    "category": "juice",
+    "imageDir": "assets/images/products/prod046",
+    "price": 38000,
+    "originalPrice": 38000,
+    "soldCount": 591,
+    "ratings": {
+      "5": 43,
+      "4": 18,
+      "3": 6,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Nước cam vắt nguyên chất tươi ngon, giàu vitamin C, vị chua ngọt tự nhiên.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod047",
+    "name": "Nước ép dứa thơm",
+    "category": "juice",
+    "imageDir": "assets/images/products/prod047",
+    "price": 31000,
+    "originalPrice": 31000,
+    "soldCount": 320,
+    "ratings": {
+      "5": 28,
+      "4": 8,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Nước ép dứa tươi ngọt thanh, hương thơm nồng nàn đặc trưng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod048",
+    "name": "Nước ép bưởi hồng",
+    "category": "juice",
+    "imageDir": "assets/images/products/prod048",
+    "price": 38000,
+    "originalPrice": 38000,
+    "soldCount": 265,
+    "ratings": {
+      "5": 34,
+      "4": 9,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Nước ép bưởi hồng chua thanh nhẹ, thơm mát và tốt cho sức khỏe.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod049",
+    "name": "Nước ép dưa hấu dâu tây",
+    "category": "juice",
+    "imageDir": "assets/images/products/prod049",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 307,
+    "ratings": {
+      "5": 36,
+      "4": 14,
+      "3": 8,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Nước ép dưa hấu mọng nước hòa cùng dâu tây chua ngọt tươi mát.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod050",
+    "name": "Cacao nóng marshmallow",
+    "category": "other",
+    "imageDir": "assets/images/products/prod050",
+    "price": 37000,
+    "originalPrice": 37000,
+    "soldCount": 95,
+    "ratings": {
+      "5": 7,
+      "4": 2,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Cacao nóng béo ngậy phủ lớp marshmallow mềm dẻo tan chảy hấp dẫn.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod051",
+    "name": "Cacao đá trân châu",
+    "category": "other",
+    "imageDir": "assets/images/products/prod051",
+    "price": 43000,
+    "originalPrice": 43000,
+    "soldCount": 614,
+    "ratings": {
+      "5": 67,
+      "4": 34,
+      "3": 10,
+      "2": 4,
+      "1": 2
+    },
+    "description": "Cacao mát lạnh béo thơm kết hợp trân châu dẻo dai ngọt bùi.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller006"
+  },
+  {
+    "id": "prod052",
+    "name": "Trà sữa khoai môn",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod052",
+    "price": 46000,
+    "originalPrice": 52000,
+    "soldCount": 608,
+    "ratings": {
+      "5": 50,
+      "4": 16,
+      "3": 6,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Trà sữa khoai môn thơm béo, màu tím bắt mắt, vị ngọt bùi đặc trưng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod053",
+    "name": "Trà sữa Socola đắng",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod053",
+    "price": 35000,
+    "originalPrice": 35000,
+    "soldCount": 365,
+    "ratings": {
+      "5": 42,
+      "4": 9,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà sữa hòa quyện socola đắng nhẹ, đậm đà và quyến rũ.",
+    "isBestSeller": false,
+    "isAvailable": false,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod054",
+    "name": "Trà sữa Matcha trân châu hoàng kim",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod054",
+    "price": 40000,
+    "originalPrice": 46000,
+    "soldCount": 305,
+    "ratings": {
+      "5": 37,
+      "4": 16,
+      "3": 2,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Matcha béo mịn kết hợp trân châu hoàng kim dẻo ngọt thơm mật ong.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod055",
+    "name": "Trà ô long dưa lưới",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod055",
+    "price": 38000,
+    "originalPrice": 38000,
+    "soldCount": 208,
+    "ratings": {
+      "5": 26,
+      "4": 12,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Trà ô long thanh nhẹ hòa quyện hương dưa lưới ngọt mát tự nhiên.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod056",
+    "name": "Cà phê hạnh nhân Latte",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod056",
+    "price": 40000,
+    "originalPrice": 40000,
+    "soldCount": 472,
+    "ratings": {
+      "5": 35,
+      "4": 17,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Espresso hòa quyện sữa hạnh nhân béo thơm, hương vị mới lạ tinh tế.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod057",
+    "name": "Cà phê Mocha nóng",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod057",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 323,
+    "ratings": {
+      "5": 27,
+      "4": 7,
+      "3": 6,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Espresso đậm đà kết hợp socola nóng béo ngọt, ấm áp và quyến rũ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod058",
+    "name": "Trà sữa hoa cúc",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod058",
+    "price": 42000,
+    "originalPrice": 42000,
+    "soldCount": 277,
+    "ratings": {
+      "5": 24,
+      "4": 10,
+      "3": 2,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà sữa hương hoa cúc dịu nhẹ, thanh tao và dễ chịu.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod059",
+    "name": "Trà dưa hấu mint",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod059",
+    "price": 32000,
+    "originalPrice": 32000,
+    "soldCount": 278,
+    "ratings": {
+      "5": 21,
+      "4": 10,
+      "3": 2,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà dưa hấu ngọt mát điểm xuyết bạc hà the lạnh sảng khoái.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod060",
+    "name": "Sữa chua việt quất",
+    "category": "yogurt",
+    "imageDir": "assets/images/products/prod060",
+    "price": 33000,
+    "originalPrice": 33000,
+    "soldCount": 409,
+    "ratings": {
+      "5": 56,
+      "4": 17,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Sữa chua sánh mịn hòa cùng sốt việt quất chua ngọt thơm ngon.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top12",
+          "name": "Granola",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod061",
+    "name": "Sữa chua dừa xay",
+    "category": "yogurt",
+    "imageDir": "assets/images/products/prod061",
+    "price": 29000,
+    "originalPrice": 29000,
+    "soldCount": 168,
+    "ratings": {
+      "5": 23,
+      "4": 10,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Sữa chua xay cùng cơm dừa nạo béo bùi, mát lạnh sảng khoái.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top12",
+          "name": "Granola",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod062",
+    "name": "Trà sữa bánh flan",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod062",
+    "price": 35000,
+    "originalPrice": 35000,
+    "soldCount": 161,
+    "ratings": {
+      "5": 20,
+      "4": 6,
+      "3": 1,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Trà sữa béo thơm kết hợp bánh flan mềm mịn, ngọt ngào hấp dẫn.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod063",
+    "name": "Trà gừng mật ong nóng",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod063",
+    "price": 37000,
+    "originalPrice": 37000,
+    "soldCount": 168,
+    "ratings": {
+      "5": 16,
+      "4": 7,
+      "3": 2,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà gừng ấm nóng hòa cùng mật ong nguyên chất, dịu nhẹ cổ họng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod064",
+    "name": "Trà quất mật ong hoa nhài",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod064",
+    "price": 29000,
+    "originalPrice": 29000,
+    "soldCount": 582,
+    "ratings": {
+      "5": 85,
+      "4": 32,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà hoa nhài thơm dịu kết hợp quất chua thanh và mật ong ngọt nhẹ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod065",
+    "name": "Cold brew dâu tây",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod065",
+    "price": 35000,
+    "originalPrice": 35000,
+    "soldCount": 422,
+    "ratings": {
+      "5": 50,
+      "4": 17,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Cà phê ủ lạnh thanh mát kết hợp sốt dâu tây chua ngọt hấp dẫn.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod066",
+    "name": "Sinh tố dừa cacao",
+    "category": "smoothie",
+    "imageDir": "assets/images/products/prod066",
+    "price": 45000,
+    "originalPrice": 45000,
+    "soldCount": 177,
+    "ratings": {
+      "5": 20,
+      "4": 7,
+      "3": 4,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Sinh tố cốt dừa béo ngậy hòa quyện cacao đậm đà, sánh mịn thơm ngon.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 0
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 8000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        50,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top11",
+          "name": "Hạt Chia",
+          "price": 5000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod067",
+    "name": "Sinh tố mảng cầu dầm",
+    "category": "smoothie",
+    "imageDir": "assets/images/products/prod067",
+    "price": 41000,
+    "originalPrice": 41000,
+    "soldCount": 352,
+    "ratings": {
+      "5": 42,
+      "4": 13,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Sinh tố mãng cầu thơm ngọt tự nhiên, sánh mịn và mát lạnh.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 0
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 8000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        50,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top11",
+          "name": "Hạt Chia",
+          "price": 5000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod068",
+    "name": "Trà xanh chanh tươi",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod068",
+    "price": 31000,
+    "originalPrice": 31000,
+    "soldCount": 680,
+    "ratings": {
+      "5": 86,
+      "4": 23,
+      "3": 6,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Trà xanh thanh mát kết hợp chanh tươi chua nhẹ, giải khát tức thì.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod069",
+    "name": "Trà sữa gạo nướng Genmaicha",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod069",
+    "price": 47000,
+    "originalPrice": 47000,
+    "soldCount": 490,
+    "ratings": {
+      "5": 60,
+      "4": 21,
+      "3": 10,
+      "2": 4,
+      "1": 2
+    },
+    "description": "Trà gạo rang Nhật Bản thơm bùi hòa quyện sữa béo, hương vị độc đáo.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod070",
+    "name": "Trà ô long sữa dừa",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod070",
+    "price": 39000,
+    "originalPrice": 39000,
+    "soldCount": 268,
+    "ratings": {
+      "5": 33,
+      "4": 12,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Trà ô long thanh nhẹ kết hợp sữa dừa béo thơm, lạ miệng cuốn hút.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod071",
+    "name": "Trà sữa khúc bạch",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod071",
+    "price": 45000,
+    "originalPrice": 45000,
+    "soldCount": 136,
+    "ratings": {
+      "5": 13,
+      "4": 3,
+      "3": 2,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Trà sữa béo thơm kèm khúc bạch mềm mịn tan nhẹ trong miệng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod072",
+    "name": "Soda Blue Curacao",
+    "category": "soda",
+    "imageDir": "assets/images/products/prod072",
+    "price": 32000,
+    "originalPrice": 32000,
+    "soldCount": 367,
+    "ratings": {
+      "5": 29,
+      "4": 10,
+      "3": 8,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Soda xanh biếc vị cam the mát, sủi bọt sảng khoái và bắt mắt.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller006"
+  },
+  {
+    "id": "prod073",
+    "name": "Trà cúc táo đỏ kỷ tử",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod073",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 675,
+    "ratings": {
+      "5": 87,
+      "4": 34,
+      "3": 10,
+      "2": 4,
+      "1": 3
+    },
+    "description": "Trà hoa cúc thanh mát kết hợp táo đỏ và kỷ tử bổ dưỡng, thơm dịu.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod074",
+    "name": "Trà quất sả dầm",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod074",
+    "price": 32000,
+    "originalPrice": 32000,
+    "soldCount": 443,
+    "ratings": {
+      "5": 51,
+      "4": 11,
+      "3": 8,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Trà quất chua thanh dầm cùng sả tươi the nhẹ, giải khát tự nhiên.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod075",
+    "name": "Kombucha đào sả",
+    "category": "kombucha",
+    "imageDir": "assets/images/products/prod075",
+    "price": 36000,
+    "originalPrice": 36000,
+    "soldCount": 485,
+    "ratings": {
+      "5": 47,
+      "4": 15,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Trà lên men kombucha thanh mát hòa quyện hương đào và sả the nhẹ.",
+    "isBestSeller": false,
+    "isAvailable": false,
+    "options": {
+      "sizes": [
+        {
+          "code": "M",
+          "name": "Chai 350ml",
+          "extraPrice": 0
+        },
+        {
+          "code": "L",
+          "name": "Chai 500ml",
+          "extraPrice": 12000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod076",
+    "name": "Kombucha việt quất",
+    "category": "kombucha",
+    "imageDir": "assets/images/products/prod076",
+    "price": 43000,
+    "originalPrice": 43000,
+    "soldCount": 305,
+    "ratings": {
+      "5": 37,
+      "4": 14,
+      "3": 8,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Trà lên men kombucha chua nhẹ kết hợp sốt việt quất thơm ngon.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "M",
+          "name": "Chai 350ml",
+          "extraPrice": 0
+        },
+        {
+          "code": "L",
+          "name": "Chai 500ml",
+          "extraPrice": 12000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50
+      ],
+      "iceLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller006"
+  },
+  {
+    "id": "prod077",
+    "name": "Cà phê Macchiato kem phô mai",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod077",
+    "price": 51000,
+    "originalPrice": 51000,
+    "soldCount": 622,
+    "ratings": {
+      "5": 81,
+      "4": 27,
+      "3": 2,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Espresso đậm đà phủ lớp kem phô mai béo mặn, hòa quyện tinh tế.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod078",
+    "name": "Trà chanh dây kim quất",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod078",
+    "price": 37000,
+    "originalPrice": 37000,
+    "soldCount": 486,
+    "ratings": {
+      "5": 71,
+      "4": 26,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Trà chanh dây chua ngọt kết hợp kim quất thơm the, giải khát tuyệt vời.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod079",
+    "name": "Sữa tươi sương sáo đường đen",
+    "category": "other",
+    "imageDir": "assets/images/products/prod079",
+    "price": 44000,
+    "originalPrice": 44000,
+    "soldCount": 510,
+    "ratings": {
+      "5": 50,
+      "4": 20,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Sữa tươi mát lạnh cùng sương sáo giòn mát và đường đen ngọt thơm.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod080",
+    "name": "Trà sữa pudding trứng",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod080",
+    "price": 43000,
+    "originalPrice": 43000,
+    "soldCount": 546,
+    "ratings": {
+      "5": 56,
+      "4": 19,
+      "3": 14,
+      "2": 6,
+      "1": 4
+    },
+    "description": "Trà sữa béo thơm kết hợp pudding trứng mềm mịn tan trong miệng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod081",
+    "name": "Sinh tố việt quất chuối",
+    "category": "smoothie",
+    "imageDir": "assets/images/products/prod081",
+    "price": 39000,
+    "originalPrice": 39000,
+    "soldCount": 393,
+    "ratings": {
+      "5": 34,
+      "4": 11,
+      "3": 8,
+      "2": 4,
+      "1": 2
+    },
+    "description": "Sinh tố việt quất chua ngọt hòa quyện chuối béo mịn, sánh thơm.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 0
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 8000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        50,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top11",
+          "name": "Hạt Chia",
+          "price": 5000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod082",
+    "name": "Sinh tố mâm xôi",
+    "category": "smoothie",
+    "imageDir": "assets/images/products/prod082",
+    "price": 46000,
+    "originalPrice": 46000,
+    "soldCount": 206,
+    "ratings": {
+      "5": 25,
+      "4": 9,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Sinh tố mâm xôi chua ngọt tươi mát, sánh mịn và giàu vitamin.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 0
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 8000
+        }
+      ],
+      "sugarLevels": [
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        50,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top10",
+          "name": "Trái Cây Dầm Extra",
+          "price": 8000
+        },
+        {
+          "id": "top11",
+          "name": "Hạt Chia",
+          "price": 5000
+        }
+      ]
+    },
+    "sellerId": "seller005"
+  },
+  {
+    "id": "prod083",
+    "name": "Nước ép táo cà rốt",
+    "category": "juice",
+    "imageDir": "assets/images/products/prod083",
+    "price": 35000,
+    "originalPrice": 35000,
+    "soldCount": 113,
+    "ratings": {
+      "5": 11,
+      "4": 4,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Nước ép táo ngọt thanh kết hợp cà rốt tươi, bổ dưỡng và dễ uống.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod084",
+    "name": "Nước ép dừa tắc",
+    "category": "juice",
+    "imageDir": "assets/images/products/prod084",
+    "price": 29000,
+    "originalPrice": 29000,
+    "soldCount": 639,
+    "ratings": {
+      "5": 62,
+      "4": 26,
+      "3": 7,
+      "2": 3,
+      "1": 2
+    },
+    "description": "Nước dừa tươi mát kết hợp tắc chua thanh, giải khát cực đã.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": []
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod085",
+    "name": "Trà chanh leo nha đam",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod085",
+    "price": 35000,
+    "originalPrice": 35000,
+    "soldCount": 601,
+    "ratings": {
+      "5": 78,
+      "4": 21,
+      "3": 10,
+      "2": 4,
+      "1": 3
+    },
+    "description": "Trà chanh leo chua ngọt kết hợp nha đam giòn mát, thanh nhẹ dễ chịu.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod086",
+    "name": "Trà ô long mâm xôi",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod086",
+    "price": 32000,
+    "originalPrice": 32000,
+    "soldCount": 329,
+    "ratings": {
+      "5": 33,
+      "4": 13,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Trà ô long thanh nhẹ hòa quyện sốt mâm xôi chua ngọt hấp dẫn.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod087",
+    "name": "Matcha Float",
+    "category": "other",
+    "imageDir": "assets/images/products/prod087",
+    "price": 41000,
+    "originalPrice": 41000,
+    "soldCount": 219,
+    "ratings": {
+      "5": 33,
+      "4": 10,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Matcha đá xay mát lạnh phủ kem tươi béo mịn tan chảy trên đầu.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod088",
+    "name": "Cà phê Hazelnut Latte",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod088",
+    "price": 47000,
+    "originalPrice": 47000,
+    "soldCount": 656,
+    "ratings": {
+      "5": 78,
+      "4": 20,
+      "3": 10,
+      "2": 4,
+      "1": 3
+    },
+    "description": "Espresso hòa quyện sữa và sốt hạt phỉ thơm béo, hương vị tinh tế.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod089",
+    "name": "Cà phê Americano cam sả",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod089",
+    "price": 43000,
+    "originalPrice": 43000,
+    "soldCount": 236,
+    "ratings": {
+      "5": 17,
+      "4": 6,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Americano thanh nhẹ kết hợp cam tươi và sả the mát lạ miệng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod090",
+    "name": "Trà dâu kem phô mai",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod090",
+    "price": 35000,
+    "originalPrice": 35000,
+    "soldCount": 334,
+    "ratings": {
+      "5": 39,
+      "4": 11,
+      "3": 9,
+      "2": 4,
+      "1": 2
+    },
+    "description": "Trà dâu chua ngọt phủ lớp kem phô mai béo mặn đặc trưng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod091",
+    "name": "Trà sữa Hokkaido",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod091",
+    "price": 41000,
+    "originalPrice": 41000,
+    "soldCount": 602,
+    "ratings": {
+      "5": 45,
+      "4": 12,
+      "3": 11,
+      "2": 5,
+      "1": 3
+    },
+    "description": "Trà sữa phong cách Hokkaido béo ngậy đậm vị sữa tươi cao cấp.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod092",
+    "name": "Trà sữa Okinawa",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod092",
+    "price": 45000,
+    "originalPrice": 45000,
+    "soldCount": 91,
+    "ratings": {
+      "5": 10,
+      "4": 3,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà sữa đường nâu Okinawa đậm đà, thơm mùi caramel đặc trưng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod093",
+    "name": "Trà thảo mộc cung đình",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod093",
+    "price": 31000,
+    "originalPrice": 31000,
+    "soldCount": 294,
+    "ratings": {
+      "5": 25,
+      "4": 7,
+      "3": 4,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Trà thảo mộc pha chế theo bí quyết cung đình, thanh mát bổ dưỡng.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod094",
+    "name": "Nước dừa tươi tắc dầm",
+    "category": "other",
+    "imageDir": "assets/images/products/prod094",
+    "price": 37000,
+    "originalPrice": 37000,
+    "soldCount": 427,
+    "ratings": {
+      "5": 41,
+      "4": 10,
+      "3": 5,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Nước dừa tươi mát lành kết hợp tắc dầm chua thanh, giải nhiệt tức thì.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller006"
+  },
+  {
+    "id": "prod095",
+    "name": "Rau má đậu xanh cốt dừa",
+    "category": "other",
+    "imageDir": "assets/images/products/prod095",
+    "price": 34000,
+    "originalPrice": 34000,
+    "soldCount": 368,
+    "ratings": {
+      "5": 29,
+      "4": 12,
+      "3": 4,
+      "2": 2,
+      "1": 1
+    },
+    "description": "Rau má thanh mát hòa quyện đậu xanh bùi béo và cốt dừa thơm ngậy.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  },
+  {
+    "id": "prod096",
+    "name": "Rau má sữa dừa trân châu",
+    "category": "other",
+    "imageDir": "assets/images/products/prod096",
+    "price": 41000,
+    "originalPrice": 41000,
+    "soldCount": 456,
+    "ratings": {
+      "5": 65,
+      "4": 27,
+      "3": 3,
+      "2": 1,
+      "1": 1
+    },
+    "description": "Rau má mát lành kết hợp sữa dừa béo thơm và trân châu dẻo dai.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top13",
+          "name": "Thạch Sương Sáo",
+          "price": 7000
+        }
+      ]
+    },
+    "sellerId": "seller004"
+  },
+  {
+    "id": "prod097",
+    "name": "Trà xoài chanh dây",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod097",
+    "price": 32000,
+    "originalPrice": 32000,
+    "soldCount": 154,
+    "ratings": {
+      "5": 20,
+      "4": 8,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Trà xoài ngọt thơm hòa quyện chanh dây chua thanh, hương vị cuốn hút.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller002"
+  },
+  {
+    "id": "prod098",
+    "name": "Trà ô long sen nhài",
+    "category": "tea",
+    "imageDir": "assets/images/products/prod098",
+    "price": 38000,
+    "originalPrice": 38000,
+    "soldCount": 92,
+    "ratings": {
+      "5": 9,
+      "4": 3,
+      "3": 1,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Trà ô long thanh nhẹ quyện hương sen và hoa nhài dịu dàng thanh tao.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top04",
+          "name": "Thạch Trái Cây",
+          "price": 7000
+        },
+        {
+          "id": "top05",
+          "name": "Trân Châu Trắng",
+          "price": 7000
+        },
+        {
+          "id": "top06",
+          "name": "Nha Đam",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod099",
+    "name": "Trà sữa socola nướng",
+    "category": "milk-tea",
+    "imageDir": "assets/images/products/prod099",
+    "price": 40000,
+    "originalPrice": 40000,
+    "soldCount": 62,
+    "ratings": {
+      "5": 7,
+      "4": 4,
+      "3": 1,
+      "2": 0,
+      "1": 0
+    },
+    "description": "Trà sữa hòa quyện socola nướng đậm đà, thơm béo và quyến rũ.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top07",
+          "name": "Trân Châu Đen",
+          "price": 8000
+        },
+        {
+          "id": "top08",
+          "name": "Bánh Flan",
+          "price": 10000
+        },
+        {
+          "id": "top09",
+          "name": "Pudding Trứng",
+          "price": 10000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        }
+      ]
+    },
+    "sellerId": "seller003"
+  },
+  {
+    "id": "prod100",
+    "name": "Cà phê Affogato kem vani",
+    "category": "coffee",
+    "imageDir": "assets/images/products/prod100",
+    "price": 55000,
+    "originalPrice": 65000,
+    "soldCount": 206,
+    "ratings": {
+      "5": 25,
+      "4": 6,
+      "3": 1,
+      "2": 1,
+      "1": 0
+    },
+    "description": "Espresso nóng hổi rưới lên kem vani mát lạnh, tan chảy hòa quyện tinh tế.",
+    "isBestSeller": false,
+    "isAvailable": true,
+    "options": {
+      "sizes": [
+        {
+          "code": "S",
+          "name": "Nhỏ",
+          "extraPrice": 0
+        },
+        {
+          "code": "M",
+          "name": "Vừa",
+          "extraPrice": 6000
+        },
+        {
+          "code": "L",
+          "name": "Lớn",
+          "extraPrice": 10000
+        }
+      ],
+      "sugarLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "iceLevels": [
+        0,
+        30,
+        50,
+        70,
+        100
+      ],
+      "toppings": [
+        {
+          "id": "top01",
+          "name": "Thạch Cà Phê",
+          "price": 8000
+        },
+        {
+          "id": "top02",
+          "name": "Kem Cheese Extra",
+          "price": 10000
+        },
+        {
+          "id": "top03",
+          "name": "Trân Châu Đường Đen",
+          "price": 8000
+        }
+      ]
+    },
+    "sellerId": "seller001"
+  }
+]

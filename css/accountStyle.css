@@ -1,0 +1,603 @@
+/* ============================================================
+   KOFFIA — Account Page Stylesheet (accountStyle.css)
+   Naming : camelCase — no exceptions
+   Design : Editorial / Humanized — consistent with globalStyle
+   ============================================================ */
+
+#accountSection {
+  padding: var(--space12) 0 var(--space24);
+}
+
+.accountLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space8);
+  align-items: start;
+}
+
+/* ── Left — Identity Card ────────────────────────────────── */
+.accountIdentityCard {
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusLg);
+  padding: var(--space8) var(--space6);
+  text-align: center;
+  position: sticky;
+  top: calc(var(--navHeight) + var(--space6));
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.05);
+}
+
+.avatarUploader {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto var(--space5);
+}
+
+.avatarUploaderImg {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radiusFull);
+  object-fit: cover;
+  border: 3px solid var(--colorCream);
+  box-shadow: var(--shadowMd);
+  background: var(--colorGray100);
+}
+
+.avatarChangeBtn {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  border-radius: var(--radiusFull);
+  border: 2px solid var(--colorWhite);
+  font-size: var(--fontSizeSm);
+  transition: all var(--transitionFast);
+}
+
+.avatarChangeBtn:hover {
+  background: var(--colorAccent);
+  transform: scale(1.06);
+}
+
+.avatarHint {
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray400);
+  margin-bottom: var(--space6);
+}
+
+.accountIdentityName {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeLg);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--colorEspresso);
+  margin-bottom: var(--space1);
+}
+
+.accountIdentityHandle {
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeSm);
+  color: var(--colorGray500);
+  word-break: break-word;
+  margin-bottom: var(--space6);
+}
+
+.accountIdentityMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space3);
+  text-align: left;
+  padding-top: var(--space5);
+  border-top: 1px solid var(--colorGray200);
+  margin-bottom: var(--space6);
+}
+
+.accountIdentityMetaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeSm);
+  color: var(--colorGray600);
+}
+
+.accountIdentityMetaRow i {
+  width: 18px;
+  color: var(--colorAccent);
+  flex-shrink: 0;
+}
+
+.accountLogoutBtn {
+  width: 100%;
+  justify-content: center;
+  padding: var(--space3) var(--space4);
+  font-size: var(--fontSizeXs);
+}
+
+/* ── Right — Editable Info ───────────────────────────────── */
+.accountFormCard {
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusLg);
+  padding: var(--space8);
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.05);
+}
+
+.accountFormCard + .accountFormCard { margin-top: var(--space6); }
+
+.accountCardHeading {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeXl);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--colorEspresso);
+  margin-bottom: var(--space2);
+}
+
+.accountCardSubtitle {
+  font-family: var(--fontBody);
+  font-size: var(--fontSizeSm);
+  color: var(--colorGray500);
+  line-height: 1.6;
+  margin-bottom: var(--space6);
+}
+
+.accountForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space5);
+}
+
+.accountFormActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space4);
+  margin-top: var(--space2);
+}
+
+.accountSaveBtn {
+  padding: var(--space3) var(--space8);
+  font-size: var(--fontSizeSm);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .accountLayout { grid-template-columns: 1fr; }
+  .accountIdentityCard { position: static; }
+}
+
+@media (max-width: 480px) {
+  .accountFormCard { padding: var(--space6) var(--space4); }
+}
+
+.accountFieldHint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--colorGray500);
+}
+.accountFieldHint.limitUsed { color: #9b4f19; }
+.inputField:disabled {
+  background: var(--colorGray100);
+  color: var(--colorGray500);
+  cursor: not-allowed;
+}
+
+.accountOrdersBtn {
+  width: 100%;
+  justify-content: center;
+  padding: var(--space3) var(--space4);
+  font-size: var(--fontSizeXs);
+  margin-bottom: var(--space3);
+  text-decoration: none;
+}
+
+/* ── Role & Seller Portal Card ───────────────────────────── */
+.accountRoleCard {
+  margin-top: var(--space6);
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusLg);
+  padding: var(--space6);
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.05);
+}
+
+.roleCardHeader {
+  display: flex;
+  gap: var(--space4);
+  align-items: flex-start;
+  margin-bottom: var(--space5);
+}
+
+.roleCardIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radiusMd);
+  background: var(--colorCream);
+  color: var(--colorEspresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fontSizeXl);
+  flex-shrink: 0;
+}
+
+.roleCardIcon.isSeller {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.roleCardIcon.isDev {
+  background: #0f172a;
+  color: #38bdf8;
+}
+
+.roleCardTitle {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeLg);
+  color: var(--colorEspresso);
+  margin-bottom: 4px;
+}
+
+.roleCardSub {
+  font-size: var(--fontSizeSm);
+  color: var(--colorGray500);
+  line-height: 1.4;
+}
+
+.roleBadgeTitleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  flex-wrap: wrap;
+}
+
+.roleTrialBadge {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radiusFull);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.roleDevBadge {
+  background: #0f172a;
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radiusFull);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ── Account Vouchers Card ───────────────────────────────── */
+.accountVouchersCard {
+  margin-top: var(--space6);
+  background: var(--colorWhite);
+  border: 1px solid rgba(62, 39, 35, 0.08);
+  border-radius: var(--radiusLg);
+  padding: var(--space6);
+  box-shadow: 0 4px 20px -2px rgba(62, 39, 35, 0.05);
+}
+
+.accountVouchersList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space4);
+  margin-top: var(--space4);
+}
+
+.accountVoucherItem {
+  background: rgba(253, 246, 238, 0.5);
+  border: 1.5px dashed rgba(162, 110, 68, 0.35);
+  border-radius: var(--radiusMd);
+  padding: var(--space4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transitionNormal);
+}
+
+.accountVoucherItem:hover {
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(62, 39, 35, 0.06);
+  transform: translateY(-2px);
+}
+
+.voucherHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.voucherCodeTxt {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--colorAccent);
+}
+
+.voucherNameTxt {
+  font-weight: 600;
+  color: var(--colorEspresso);
+  font-size: var(--fontSizeSm);
+  margin-bottom: 4px;
+}
+
+.voucherDescTxt {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  line-height: 1.3;
+  margin-bottom: var(--space3);
+}
+
+.copyVoucherBtnSmall {
+  border: 1px solid var(--colorGray300);
+  background: #fff;
+  border-radius: var(--radiusFull);
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--colorEspresso);
+  cursor: pointer;
+  align-self: flex-start;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all var(--transitionFast);
+}
+
+.copyVoucherBtnSmall:hover {
+  background: var(--colorEspresso);
+  color: var(--colorCream);
+  border-color: var(--colorEspresso);
+}
+
+/* ── Seller Modal ─────────────────────────────────────────── */
+.sellerModal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space4);
+}
+
+.sellerModalOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 8, 6, 0.48);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sellerModal:not([hidden]) .sellerModalOverlay {
+  animation: appleFadeIn 0.3s ease forwards;
+}
+
+.sellerModalCard {
+  position: relative;
+  z-index: 2;
+  background: var(--colorWhite);
+  border-radius: var(--radiusXl);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--space6);
+  box-shadow: var(--shadowFloatLg);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.sellerModal:not([hidden]) .sellerModalCard {
+  animation: appleModalPop 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sellerModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space5);
+  padding-bottom: var(--space3);
+  border-bottom: 1px solid var(--colorGray200);
+}
+
+.sellerModalHeader h3 {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeXl);
+  color: var(--colorEspresso);
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+}
+
+.trialNotice {
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  border-radius: var(--radiusMd);
+  padding: var(--space3) var(--space4);
+  font-size: var(--fontSizeXs);
+  color: #92400e;
+  display: flex;
+  align-items: center;
+  gap: var(--space3);
+  margin-bottom: var(--space4);
+}
+
+.sellerCategoryCheckboxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space2);
+  margin-top: var(--space2);
+  font-size: var(--fontSizeSm);
+}
+
+@media (max-width: 768px) {
+  .accountVouchersList { grid-template-columns: 1fr; }
+  .sellerCategoryCheckboxes { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Theme & Appearance Settings ─────────────────────────── */
+.themeOptionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space4);
+  margin-top: var(--space5);
+}
+
+.themeOptionChoice {
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+
+.themeOptionChoice input[type="radio"] {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--colorAccent);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.themeChoiceBox {
+  border: 1.5px solid rgba(62, 39, 35, 0.12);
+  border-radius: var(--radiusLg);
+  padding: var(--space5);
+  background: rgba(255, 255, 255, 0.9);
+  transition: all var(--transitionNormal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.themeChoiceBox:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(62, 39, 35, 0.08);
+}
+
+.themeOptionChoice input[type="radio"]:checked + .themeChoiceBox {
+  border-color: var(--colorAccent);
+  background: rgba(230, 81, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(230, 81, 0, 0.18);
+}
+
+.themeChoicePreview {
+  height: 90px;
+  border-radius: var(--radiusMd);
+  padding: 8px;
+  margin-bottom: var(--space4);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.previewLight {
+  background: #fbf9f5;
+}
+
+.previewLight .miniNav {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--radiusFull);
+  border: 1px solid rgba(62, 39, 35, 0.1);
+}
+
+.previewLight .miniBody {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.previewLight .miniCard {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 6px;
+  border: 1px solid rgba(62, 39, 35, 0.08);
+}
+
+.previewDark {
+  background: #0C0806;
+}
+
+.previewDark .miniNav {
+  height: 14px;
+  background: rgba(28, 18, 14, 0.95);
+  border-radius: var(--radiusFull);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.previewDark .miniBody {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.previewDark .miniCard {
+  flex: 1;
+  background: rgba(26, 17, 13, 0.9);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.themeChoiceTitle {
+  font-family: var(--fontHeading);
+  font-size: var(--fontSizeSm);
+  font-weight: 700;
+  color: var(--colorEspresso);
+  display: flex;
+  align-items: center;
+  gap: var(--space2);
+  margin-bottom: 4px;
+}
+
+.themeChoiceDesc {
+  font-size: var(--fontSizeXs);
+  color: var(--colorGray500);
+  line-height: 1.5;
+}
+
+/* Dark Mode Theme Box Overrides */
+html.darkMode .themeChoiceBox,
+body.darkMode .themeChoiceBox {
+  background: rgba(32, 21, 16, 0.92) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+html.darkMode .themeChoiceTitle,
+body.darkMode .themeChoiceTitle {
+  color: #FFFFFF !important;
+}
+
+html.darkMode .themeChoiceDesc,
+body.darkMode .themeChoiceDesc {
+  color: #BFB0A3 !important;
+}
+
+html.darkMode .themeOptionChoice input[type="radio"]:checked + .themeChoiceBox,
+body.darkMode .themeOptionChoice input[type="radio"]:checked + .themeChoiceBox {
+  border-color: var(--colorAccentLight) !important;
+  background: rgba(230, 81, 0, 0.15) !important;
+  box-shadow: 0 8px 24px rgba(230, 81, 0, 0.3) !important;
+}
+
+@media (max-width: 640px) {
+  .themeOptionsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+

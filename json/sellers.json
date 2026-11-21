@@ -1,0 +1,123 @@
+[
+  {
+    "id": "seller001",
+    "role": "seller",
+    "channelName": "Mộc Coffee",
+    "username": "moccoffee",
+    "email": "seller.moc@koffia.demo",
+    "password": "MocCoffee26A",
+    "phone": "0902 114 221",
+    "address": "Cầu Giấy, Hà Nội",
+    "description": "Kênh chuyên cà phê pha máy, cà phê Việt và các món cà phê biến tấu.",
+    "categories": [
+      "coffee",
+      "other"
+    ],
+    "rating": 4.8,
+    "totalSold": 18420,
+    "verified": true,
+    "status": "active",
+    "joinedAt": "2025-10-18T07:30:00.000Z"
+  },
+  {
+    "id": "seller002",
+    "role": "seller",
+    "channelName": "Trà Nhà Mây",
+    "username": "tranhamay",
+    "email": "seller.may@koffia.demo",
+    "password": "TraNhaMay8B",
+    "phone": "0918 320 455",
+    "address": "Thanh Xuân, Hà Nội",
+    "description": "Trà trái cây, trà nguyên lá và kombucha theo phong cách thanh nhẹ, dễ uống.",
+    "categories": [
+      "tea",
+      "kombucha"
+    ],
+    "rating": 4.9,
+    "totalSold": 21350,
+    "verified": true,
+    "status": "active",
+    "joinedAt": "2025-11-02T09:10:00.000Z"
+  },
+  {
+    "id": "seller003",
+    "role": "seller",
+    "channelName": "Boba Bụi",
+    "username": "bobabui",
+    "email": "seller.boba@koffia.demo",
+    "password": "BobaBui2026C",
+    "phone": "0936 550 818",
+    "address": "Đống Đa, Hà Nội",
+    "description": "Kênh trà sữa trẻ trung với topping đa dạng và nhiều lựa chọn mức đường, đá.",
+    "categories": [
+      "milk-tea",
+      "tea"
+    ],
+    "rating": 4.7,
+    "totalSold": 27680,
+    "verified": true,
+    "status": "active",
+    "joinedAt": "2025-12-06T13:25:00.000Z"
+  },
+  {
+    "id": "seller004",
+    "role": "seller",
+    "channelName": "Vườn Ép",
+    "username": "vuonep",
+    "email": "seller.vuonep@koffia.demo",
+    "password": "VuonEp2026D",
+    "phone": "0971 402 633",
+    "address": "Hai Bà Trưng, Hà Nội",
+    "description": "Nước ép và thức uống trái cây tập trung vào hương vị tươi, sáng và dễ kết hợp bữa ăn.",
+    "categories": [
+      "juice",
+      "other"
+    ],
+    "rating": 4.8,
+    "totalSold": 14510,
+    "verified": false,
+    "status": "active",
+    "joinedAt": "2026-01-14T02:40:00.000Z"
+  },
+  {
+    "id": "seller005",
+    "role": "seller",
+    "channelName": "Chill Blend",
+    "username": "chillblend",
+    "email": "seller.chill@koffia.demo",
+    "password": "ChillBlend9E",
+    "phone": "0988 612 704",
+    "address": "Nam Từ Liêm, Hà Nội",
+    "description": "Sinh tố, sữa chua và các món xay mịn dành cho những ngày cần một ly mát lạnh.",
+    "categories": [
+      "smoothie",
+      "yogurt"
+    ],
+    "rating": 4.6,
+    "totalSold": 11880,
+    "verified": true,
+    "status": "active",
+    "joinedAt": "2026-02-09T06:00:00.000Z"
+  },
+  {
+    "id": "seller006",
+    "role": "seller",
+    "channelName": "Fizz Lab",
+    "username": "fizzlab",
+    "email": "seller.fizz@koffia.demo",
+    "password": "FizzLab2026F",
+    "phone": "0904 883 179",
+    "address": "Bình Thạnh, TP. Hồ Chí Minh",
+    "description": "Soda và đồ uống sparkling nhiều tầng hương vị, phù hợp nhóm thích đồ uống sảng khoái.",
+    "categories": [
+      "soda",
+      "kombucha",
+      "other"
+    ],
+    "rating": 4.7,
+    "totalSold": 9620,
+    "verified": false,
+    "status": "active",
+    "joinedAt": "2026-03-18T10:15:00.000Z"
+  }
+]

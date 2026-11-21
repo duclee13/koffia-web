@@ -1,0 +1,486 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Đăng nhập hoặc tạo tài khoản Koffia để đặt hàng nhanh hơn và quản lý thông tin cá nhân trên website."
+    />
+    <title>Đăng nhập / Đăng ký — Koffia</title>
+
+    
+    <link rel="icon" type="image/png" href="../assets/icons/logo.png" />
+
+    <!-- Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/175b48673e.js" crossorigin="anonymous"></script>
+
+    <!-- Early Theme Loader (Zero FOUC - Default Light Mode) -->
+    <script>
+      (function () {
+        try {
+          const t = localStorage.getItem("koffiaTheme");
+          if (t === "dark") {
+            document.documentElement.classList.add("darkMode");
+            document.documentElement.setAttribute("data-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("darkMode");
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/authStyle.css?v=8.1" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+    <!-- Fonts Preload (5 Local iOS Font Families + Brand Logo — Zero FOUT) -->
+    <link rel="preload" href="../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Be_Vietnam_Pro/BeVietnamPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="../assets/fonts/DFVNNewEddy/DFVN NewEddy.otf" as="font" type="font/otf" crossorigin />
+  </head>
+  <body class="authPage">
+    <!-- ══════════════════════════════════════
+       LEFT — BRAND PANEL
+       ══════════════════════════════════════ -->
+    <div class="authBrandPanel" aria-hidden="true">
+      <div class="authBrandBg"></div>
+      <div class="authBrandOverlay"></div>
+
+      <div class="authBrandContent">
+        <!-- Back to home -->
+        <a href="../index.html" class="authBackLink">
+          <i class="fa-solid fa-arrow-left"></i>
+          Quay về trang chủ
+        </a>
+
+        <!-- Brand block -->
+        <div>
+          <div class="authBrandLogo">
+            <span class="authBrandLogoIcon" aria-hidden="true"><img src="../assets/icons/logo.png" alt="" width="800" height="800" /></span>
+            Koffia
+          </div>
+          <p class="authBrandTagline">
+            Khám phá 100 món đồ uống, tùy chỉnh theo sở thích và đặt hàng nhanh hơn với tài khoản Koffia.
+          </p>
+
+          <!-- Stats strip -->
+          <div class="authBrandStats">
+            <div class="authBrandStat">
+              <div class="authBrandStatNum">100</div>
+              <div class="authBrandStatLabel">Món đồ uống</div>
+            </div>
+            <div class="authBrandStat">
+              <div class="authBrandStatNum">9</div>
+              <div class="authBrandStatLabel">Danh mục</div>
+            </div>
+            <div class="authBrandStat">
+              <div class="authBrandStatNum">4</div>
+              <div class="authBrandStatLabel">Nhóm tùy chọn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+       RIGHT — AUTH FORM PANEL
+       ══════════════════════════════════════ -->
+    <div class="authFormPanel">
+      <div class="authCard">
+        <!-- ── Tab Switcher Header ─────────────── -->
+        <div
+          class="authTabHeader"
+          role="tablist"
+          aria-label="Chọn đăng nhập hoặc đăng ký"
+        >
+          <button
+            id="loginTabBtn"
+            class="authTabBtn authTabActive"
+            role="tab"
+            aria-selected="true"
+            aria-controls="loginPanel"
+          >
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            Đăng Nhập
+          </button>
+          <button
+            id="registerTabBtn"
+            class="authTabBtn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="registerPanel"
+          >
+            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+            Đăng Ký
+          </button>
+        </div>
+
+        <!-- ══════════════════════════════════════
+           LOGIN FORM PANEL
+           ══════════════════════════════════════ -->
+        <div
+          id="loginPanel"
+          class="authFormPanel_tab authPanelActive"
+          role="tabpanel"
+          aria-labelledby="loginTabBtn"
+        >
+          <h1 class="authFormHeading">Chào mừng trở lại!</h1>
+          <p class="authFormSubtitle">
+            Đăng nhập để tiếp tục đặt hàng và quản lý tài khoản của bạn.
+          </p>
+
+          <form id="loginForm" class="authForm" novalidate>
+            <!-- Email / Tên người dùng -->
+            <div class="formGroup">
+              <label class="formLabel" for="loginIdentifier">
+                Email / Tên người dùng <span class="formRequired">*</span>
+              </label>
+              <div class="inputWrapper">
+                <i
+                  class="fa-regular fa-circle-user inputIcon"
+                  aria-hidden="true"
+                ></i>
+                <input
+                  id="loginIdentifier"
+                  name="identifier"
+                  type="text"
+                  class="inputField hasIcon"
+                  placeholder="ban@example.com hoặc tên người dùng"
+                  required
+                  autocomplete="username"
+                />
+              </div>
+              <span id="loginIdentifierError" class="formErrorText"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="formGroup">
+              <label class="formLabel" for="loginPassword">
+                Mật khẩu <span class="formRequired">*</span>
+              </label>
+              <div class="inputWrapper">
+                <i class="fa-solid fa-lock inputIcon" aria-hidden="true"></i>
+                <input
+                  id="loginPassword"
+                  type="password"
+                  class="inputField hasIcon"
+                  placeholder="••••••••"
+                  required
+                  autocomplete="current-password"
+                />
+                <button
+                  type="button"
+                  class="passwordToggle"
+                  data-togglePassword="loginPassword"
+                  data-toggleIcon="loginPasswordIcon"
+                  aria-label="Hiện/ẩn mật khẩu"
+                >
+                  <i
+                    id="loginPasswordIcon"
+                    class="fa-solid fa-eye"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember / Forgot -->
+            <div class="authOptionsRow">
+              <label class="checkboxLabel">
+                <input type="checkbox" id="rememberMe" autocomplete="off" />
+                Ghi nhớ đăng nhập
+              </label>
+              <a href="#" class="forgotLink">Quên mật khẩu?</a>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="btnPrimary authSubmitBtn"
+              id="loginSubmitBtn"
+            >
+              <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+              Đăng Nhập
+            </button>
+
+            <!-- Divider -->
+            <div class="authDivider" aria-hidden="true">
+              <span class="authDividerLine"></span>
+              <span class="authDividerText">hoặc đăng nhập qua</span>
+              <span class="authDividerLine"></span>
+            </div>
+
+            <!-- Social login -->
+            <div class="socialAuthRow">
+              <button
+                type="button"
+                class="socialAuthBtn socialAuthGoogleBtn"
+                aria-label="Đăng nhập bằng Google"
+              >
+                <i class="fa-brands fa-google" aria-hidden="true"></i>
+                Google
+              </button>
+              <button
+                type="button"
+                class="socialAuthBtn socialAuthFbBtn"
+                aria-label="Đăng nhập bằng Facebook"
+              >
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                Facebook
+              </button>
+            </div>
+          </form>
+
+          <!-- Switch to register -->
+          <p class="authSwitchPrompt">
+            Chưa có tài khoản?
+            <span
+              class="authSwitchLink"
+              id="switchToRegister"
+              role="button"
+              tabindex="0"
+            >
+              Đăng ký ngay
+            </span>
+          </p>
+        </div>
+        <!-- /loginPanel -->
+
+        <!-- ══════════════════════════════════════
+           REGISTER FORM PANEL
+           ══════════════════════════════════════ -->
+        <div
+          id="registerPanel"
+          class="authFormPanel_tab"
+          role="tabpanel"
+          aria-labelledby="registerTabBtn"
+        >
+          <h1 class="authFormHeading">Tạo tài khoản mới</h1>
+          <p class="authFormSubtitle">
+            Miễn phí mãi mãi. Tích điểm ngay từ đơn hàng đầu tiên.
+          </p>
+
+          <form id="registerForm" class="authForm" novalidate>
+            <!-- Full name row -->
+            <div class="formRow">
+              <div class="formGroup">
+                <label class="formLabel" for="registerFirstName">
+                  Họ <span class="formRequired">*</span>
+                </label>
+                <div class="inputWrapper">
+                  <i class="fa-regular fa-circle-user inputIcon" aria-hidden="true"></i>
+                  <input
+                    id="registerFirstName"
+                    type="text"
+                    class="inputField hasIcon"
+                    placeholder="Nguyễn"
+                    required
+                    autocomplete="given-name"
+                  />
+                </div>
+              </div>
+
+              <div class="formGroup">
+                <label class="formLabel" for="registerLastName">
+                  Tên <span class="formRequired">*</span>
+                </label>
+                <div class="inputWrapper">
+                  <input
+                    id="registerLastName"
+                    type="text"
+                    class="inputField"
+                    placeholder="Văn A"
+                    required
+                    autocomplete="family-name"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Email / Tên người dùng -->
+            <div class="formGroup">
+              <label class="formLabel" for="registerIdentifier">
+                Email / Tên người dùng <span class="formRequired">*</span>
+              </label>
+              <div class="inputWrapper">
+                <i
+                  class="fa-regular fa-circle-user inputIcon"
+                  aria-hidden="true"
+                ></i>
+                <input
+                  id="registerIdentifier"
+                  name="identifier"
+                  type="text"
+                  class="inputField hasIcon"
+                  placeholder="ban@example.com hoặc tên người dùng"
+                  required
+                  autocomplete="username"
+                />
+              </div>
+              <div id="identifierRequirements" class="identifierRequirements" aria-live="polite">
+                <div id="usernameRequirementGroup" class="identifierRequirementGroup">
+                  <p class="identifierRequirementsTitle">Tên người dùng cần đáp ứng</p>
+                  <ul>
+                    <li data-username-rule="length"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Độ dài từ 4–20 ký tự</span></li>
+                    <li data-username-rule="characters"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Chỉ gồm A–Z, a–z, 0–9, dấu chấm (.) và gạch dưới (_)</span></li>
+                    <li data-username-rule="edges"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Không bắt đầu hoặc kết thúc bằng dấu chấm hay gạch dưới</span></li>
+                    <li data-username-rule="available"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Tên người dùng chưa được sử dụng</span></li>
+                  </ul>
+                </div>
+                <div id="emailRequirementGroup" class="identifierRequirementGroup" hidden>
+                  <p class="identifierRequirementsTitle">Đăng ký bằng email</p>
+                  <ul>
+                    <li data-email-rule="valid"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Địa chỉ email hợp lệ</span></li>
+                    <li data-email-rule="available"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i><span>Email chưa được sử dụng</span></li>
+                    <li data-email-rule="auto"><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Koffia sẽ tự tạo tên người dùng cho bạn</span></li>
+                  </ul>
+                </div>
+              </div>
+              <span id="registerIdentifierError" class="formErrorText"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="formGroup">
+              <label class="formLabel" for="registerPassword">
+                Mật khẩu <span class="formRequired">*</span>
+              </label>
+              <div class="inputWrapper">
+                <i class="fa-solid fa-lock inputIcon" aria-hidden="true"></i>
+                <input
+                  id="registerPassword"
+                  type="password"
+                  class="inputField hasIcon"
+                  placeholder="8–32 ký tự"
+                  required
+                  autocomplete="new-password"
+                  minlength="8"
+                  maxlength="32"
+                />
+                <button
+                  type="button"
+                  class="passwordToggle"
+                  data-togglePassword="registerPassword"
+                  data-toggleIcon="registerPasswordIcon"
+                  aria-label="Hiện/ẩn mật khẩu"
+                >
+                  <i
+                    id="registerPasswordIcon"
+                    class="fa-solid fa-eye"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+              <div id="passwordRequirements" class="passwordRequirements" aria-live="polite">
+                <p class="passwordRequirementsTitle">Hãy chọn một mật khẩu mạnh</p>
+                <ul>
+                  <li data-password-rule="length"><i class="fa-solid fa-circle"></i><span>Độ dài từ 8–32 ký tự</span></li>
+                  <li data-password-rule="common"><i class="fa-solid fa-circle"></i><span>Không dùng mật khẩu quá phổ biến hoặc quá dễ đoán</span></li>
+                </ul>
+              </div>
+              <span id="registerPasswordError" class="formErrorText"></span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="formGroup">
+              <label class="formLabel" for="registerConfirmPassword">
+                Xác nhận mật khẩu <span class="formRequired">*</span>
+              </label>
+              <div class="inputWrapper">
+                <i
+                  class="fa-solid fa-lock-open inputIcon"
+                  aria-hidden="true"
+                ></i>
+                <input
+                  id="registerConfirmPassword"
+                  type="password"
+                  class="inputField hasIcon"
+                  placeholder="Nhập lại mật khẩu"
+                  required
+                  autocomplete="new-password"
+                  minlength="8"
+                  maxlength="32"
+                />
+                <button
+                  type="button"
+                  class="passwordToggle"
+                  data-togglePassword="registerConfirmPassword"
+                  data-toggleIcon="registerConfirmPasswordIcon"
+                  aria-label="Hiện/ẩn mật khẩu xác nhận"
+                >
+                  <i
+                    id="registerConfirmPasswordIcon"
+                    class="fa-solid fa-eye"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+              <span
+                id="registerConfirmPasswordError"
+                class="formErrorText"
+              ></span>
+            </div>
+
+            <!-- Terms checkbox -->
+            <div class="formGroup">
+              <label class="termsGroup">
+                <input
+                  id="termsCheckbox"
+                  type="checkbox"
+                  required
+                  autocomplete="off"
+                />
+                <span class="termsText">
+                  Tôi đồng ý với
+                  <a href="#" class="termsLink">Điều khoản dịch vụ</a>
+                  và
+                  <a href="#" class="termsLink">Chính sách bảo mật</a>
+                  của Koffia.
+                </span>
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="btnPrimary authSubmitBtn"
+              id="registerSubmitBtn"
+            >
+              <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+              Tạo tài khoản
+            </button>
+          </form>
+
+          <!-- Switch to login -->
+          <p class="authSwitchPrompt">
+            Đã có tài khoản?
+            <span
+              class="authSwitchLink"
+              id="switchToLogin"
+              role="button"
+              tabindex="0"
+            >
+              Đăng nhập ngay
+            </span>
+          </p>
+        </div>
+        <!-- /registerPanel -->
+      </div>
+      <!-- /authCard -->
+    </div>
+    <!-- /authFormPanel -->
+
+    <!-- Toast container (reuse global pattern) -->
+    <div id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Scripts -->
+    <script src="../js/productImages.js?v=8.1"></script>
+    <script src="../js/main.js?v=8.1"></script>
+    <script src="../js/auth.js?v=8.1"></script>
+  </body>
+</html>
+
