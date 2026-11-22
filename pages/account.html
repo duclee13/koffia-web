@@ -33,10 +33,10 @@
       })();
     </script>
 
-    <link rel="stylesheet" href="../css/globalStyle.css?v=8.1" />
-    <link rel="stylesheet" href="../css/authStyle.css?v=8.1" />
-    <link rel="stylesheet" href="../css/accountStyle.css?v=8.1" />
-    <link rel="stylesheet" href="../css/iosTheme.css?v=8.1" />
+    <link rel="stylesheet" href="../css/globalStyle.css?v=8.2" />
+    <link rel="stylesheet" href="../css/authStyle.css?v=8.2" />
+    <link rel="stylesheet" href="../css/accountStyle.css?v=8.2" />
+    <link rel="stylesheet" href="../css/iosTheme.css?v=8.2" />
   
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/175b48673e.js" crossorigin="anonymous"></script>
@@ -707,19 +707,49 @@
               <span>Chúc mừng! Bạn sẽ được <strong>dùng thử miễn phí 10 ngày</strong> đầy đủ mọi tính năng quản lý sản phẩm, đơn hàng và tạo voucher.</span>
             </div>
 
-            <div class="formGroup">
-              <label class="formLabel" for="sellerRegChannelName">Tên kênh / Quán đồ uống <span class="formRequired">*</span></label>
-              <input type="text" id="sellerRegChannelName" class="inputField" placeholder="Ví dụ: Cà Phê Chú Ba, Trà Sữa Mây..." required minlength="3" />
-            </div>
-
             <div class="formRow">
+              <div class="formGroup">
+                <label class="formLabel" for="sellerRegChannelName">Tên kênh / Quán đồ uống <span class="formRequired">*</span></label>
+                <input type="text" id="sellerRegChannelName" class="inputField" placeholder="Ví dụ: Cà Phê Chú Ba, Trà Sữa Mây..." required minlength="3" />
+              </div>
               <div class="formGroup">
                 <label class="formLabel" for="sellerRegPhone">Số điện thoại liên hệ <span class="formRequired">*</span></label>
                 <input type="tel" id="sellerRegPhone" class="inputField" placeholder="0901 234 567" required />
               </div>
-              <div class="formGroup">
-                <label class="formLabel" for="sellerRegAddress">Địa chỉ quán / Cơ sở <span class="formRequired">*</span></label>
-                <input type="text" id="sellerRegAddress" class="inputField" placeholder="Quận / Thành phố..." required />
+            </div>
+
+            <div class="sellerAddrSection">
+              <div class="sellerAddrSectionHead">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span>Địa chỉ quán / Cơ sở kinh doanh <span class="formRequired">*</span></span>
+              </div>
+              <div class="sellerAddrGrid">
+                <div class="formGroup">
+                  <label class="formLabel" for="sellerRegProvince">Tỉnh / Thành phố <span class="formRequired">*</span></label>
+                  <select id="sellerRegProvince" class="inputField addrSelect" required>
+                    <option value="">-- Chọn Tỉnh / TP --</option>
+                  </select>
+                </div>
+                <div class="formGroup">
+                  <label class="formLabel" for="sellerRegDistrict">Quận / Huyện <span class="formRequired">*</span></label>
+                  <select id="sellerRegDistrict" class="inputField addrSelect" required disabled>
+                    <option value="">-- Chọn Quận / Huyện --</option>
+                  </select>
+                </div>
+                <div class="formGroup">
+                  <label class="formLabel" for="sellerRegWard">Phường / Xã <span class="formRequired">*</span></label>
+                  <select id="sellerRegWard" class="inputField addrSelect" required disabled>
+                    <option value="">-- Chọn Phường / Xã --</option>
+                  </select>
+                </div>
+                <div class="formGroup">
+                  <label class="formLabel" for="sellerRegStreet">Số nhà, Tên đường <span class="formRequired">*</span></label>
+                  <input type="text" id="sellerRegStreet" class="inputField" placeholder="VD: Số 88 Nguyễn Huệ..." required />
+                </div>
+              </div>
+              <div id="sellerRegAddressPreview" class="sellerAddrPreview" hidden>
+                <i class="fa-solid fa-map-pin" aria-hidden="true"></i>
+                <span id="sellerRegAddressPreviewText"></span>
               </div>
             </div>
 
@@ -823,9 +853,9 @@
     </footer>
 
     <div id="toastContainer" aria-live="polite" aria-atomic="false"></div>
-    <script src="../js/productImages.js?v=8.1" defer></script>
-    <script src="../js/main.js?v=8.1" defer></script>
-    <script src="../js/account.js?v=8.1" defer></script>
+    <script src="../js/productImages.js?v=8.2" defer></script>
+    <script src="../js/main.js?v=8.2" defer></script>
+    <script src="../js/account.js?v=8.2" defer></script>
   </body>
 </html>
 

@@ -392,12 +392,83 @@
   background: var(--colorWhite);
   border-radius: var(--radiusXl);
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   max-height: 90vh;
   overflow-y: auto;
   padding: var(--space6);
   box-shadow: var(--shadowFloatLg);
   border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.sellerAddrSection {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(62, 39, 35, 0.035);
+  border: 1px solid rgba(62, 39, 35, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+html.darkMode .sellerAddrSection {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.sellerAddrSectionHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--colorEspresso);
+}
+
+.sellerAddrSectionHead i {
+  color: var(--colorAccent);
+}
+
+html.darkMode .sellerAddrSectionHead {
+  color: #F5F5F7;
+}
+
+.sellerAddrGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sellerAddrPreview {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 11px;
+  background: rgba(230, 81, 0, 0.08);
+  color: var(--colorAccent);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.sellerAddrPreview[hidden] {
+  display: none !important;
+}
+
+.sellerAddrPreview i {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+html.darkMode .sellerAddrPreview {
+  background: rgba(255, 138, 61, 0.14);
+  color: #FFB27A;
+}
+
+@media (max-width: 580px) {
+  .sellerAddrGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sellerModal:not([hidden]) .sellerModalCard {

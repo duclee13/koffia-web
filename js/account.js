@@ -378,9 +378,187 @@ function wireSellerRegistration(user) {
   const closeBtn = document.getElementById("closeSellerModalBtn");
   const overlay = document.getElementById("sellerModalOverlay");
   const form = document.getElementById("sellerRegisterForm");
+  const provSelect = document.getElementById("sellerRegProvince");
+  const distSelect = document.getElementById("sellerRegDistrict");
+  const wardSelect = document.getElementById("sellerRegWard");
+  const streetInput = document.getElementById("sellerRegStreet");
+  const previewWrap = document.getElementById("sellerRegAddressPreview");
+  const previewText = document.getElementById("sellerRegAddressPreviewText");
 
-  openBtn?.addEventListener("click", () => {
+  if (!form || form.dataset.wired === "1") return;
+  form.dataset.wired = "1";
+
+  const districtsCache = new Map();
+
+  async function ensureSellerProvincesLoaded() {
+    if (!provSelect || provSelect.options.length > 1) return;
+    let provinces = [];
+    try {
+      const res = await fetch("../json/vietnamProvinces.json");
+      if (res.ok) provinces = await res.json();
+    } catch {}
+    if (!Array.isArray(provinces) || !provinces.length) {
+      provinces = [
+        { code: 1, name: "Thành phố Hà Nội" },
+        { code: 79, name: "Thành phố Hồ Chí Minh" },
+        { code: 48, name: "Thành phố Đà Nẵng" },
+      ];
+    }
+    provSelect.innerHTML = '<option value="">-- Chọn Tỉnh / TP --</option>';
+    provinces.forEach((p) => {
+      const opt = document.createElement("option");
+      opt.value = p.code;
+      opt.textContent = p.name;
+      provSelect.appendChild(opt);
+    });
+  }
+
+  function buildSellerAddressParts() {
+    const street = streetInput?.value.trim() || "";
+    const wardName = wardSelect?.value
+      ? wardSelect.options[wardSelect.selectedIndex]?.textContent?.trim() || ""
+      : "";
+    const districtName = distSelect?.value
+      ? distSelect.options[distSelect.selectedIndex]?.textContent?.trim() || ""
+      : "";
+    const provinceName = provSelect?.value
+      ? provSelect.options[provSelect.selectedIndex]?.textContent?.trim() || ""
+      : "";
+    const full = [street, wardName, districtName, provinceName].filter(Boolean).join(", ");
+    return {
+      street,
+      wardCode: wardSelect?.value || "",
+      wardName,
+      districtCode: distSelect?.value || "",
+      districtName,
+      provinceCode: provSelect?.value || "",
+      provinceName,
+      full,
+    };
+  }
+
+  function updateSellerAddrPreview() {
+    if (!previewWrap || !previewText) return;
+    const { full } = buildSellerAddressParts();
+    if (full) {
+      previewText.textContent = full;
+      previewWrap.hidden = false;
+    } else {
+      previewWrap.hidden = true;
+    }
+  }
+
+  provSelect?.addEventListener("change", async () => {
+    const code = provSelect.value;
+    if (!code) {
+      if (distSelect) {
+        distSelect.innerHTML = '<option value="">-- Chọn Quận / Huyện --</option>';
+        distSelect.disabled = true;
+      }
+      if (wardSelect) {
+        wardSelect.innerHTML = '<option value="">-- Chọn Phường / Xã --</option>';
+        wardSelect.disabled = true;
+      }
+      updateSellerAddrPreview();
+      return;
+    }
+
+    if (distSelect) {
+      distSelect.innerHTML = '<option value="">Đang tải...</option>';
+      distSelect.disabled = true;
+    }
+    if (wardSelect) {
+      wardSelect.innerHTML = '<option value="">-- Chọn Phường / Xã --</option>';
+      wardSelect.disabled = true;
+    }
+
+    let districts = districtsCache.get(code);
+    if (!districts) {
+      try {
+        const res = await fetch(`https://provinces.open-api.vn/api/v1/p/${code}?depth=2`);
+        if (res.ok) {
+          const data = await res.json();
+          districts = data.districts || [];
+        }
+      } catch {}
+      if (!districts || !districts.length) {
+        districts = ACCOUNT_FALLBACK_DIVISIONS[code] || [
+          { code: Number(code) * 10 + 1, name: "Quận / Huyện Trung Tâm", wards: ["Phường Trung Tâm", "Phường 1", "Phường 2"] },
+        ];
+      }
+      districtsCache.set(code, districts);
+    }
+
+    if (distSelect) {
+      distSelect.innerHTML = '<option value="">-- Chọn Quận / Huyện --</option>';
+      districts.forEach((d) => {
+        const opt = document.createElement("option");
+        opt.value = d.code;
+        opt.textContent = d.name;
+        distSelect.appendChild(opt);
+      });
+      distSelect.disabled = false;
+    }
+    updateSellerAddrPreview();
+  });
+
+  distSelect?.addEventListener("change", async () => {
+    const dCode = distSelect.value;
+    if (!dCode) {
+      if (wardSelect) {
+        wardSelect.innerHTML = '<option value="">-- Chọn Phường / Xã --</option>';
+        wardSelect.disabled = true;
+      }
+      updateSellerAddrPreview();
+      return;
+    }
+
+    if (wardSelect) {
+      wardSelect.innerHTML = '<option value="">Đang tải...</option>';
+      wardSelect.disabled = true;
+    }
+
+    let wards = [];
+    try {
+      const res = await fetch(`https://provinces.open-api.vn/api/v1/d/${dCode}?depth=2`);
+      if (res.ok) {
+        const data = await res.json();
+        wards = data.wards || [];
+      }
+    } catch {}
+    if (!wards.length) {
+      const list = districtsCache.get(provSelect?.value) || [];
+      const found = list.find((d) => String(d.code) === String(dCode));
+      if (found?.wards?.length) {
+        wards = found.wards.map((w, i) => (typeof w === "string" ? { code: i + 1, name: w } : w));
+      } else {
+        wards = [
+          { code: 1, name: "Phường Trung Tâm" },
+          { code: 2, name: "Phường 1" },
+        ];
+      }
+    }
+
+    if (wardSelect) {
+      wardSelect.innerHTML = '<option value="">-- Chọn Phường / Xã --</option>';
+      wards.forEach((w) => {
+        const opt = document.createElement("option");
+        opt.value = w.code;
+        opt.textContent = w.name;
+        wardSelect.appendChild(opt);
+      });
+      wardSelect.disabled = false;
+    }
+    updateSellerAddrPreview();
+  });
+
+  wardSelect?.addEventListener("change", updateSellerAddrPreview);
+  streetInput?.addEventListener("input", updateSellerAddrPreview);
+
+  openBtn?.addEventListener("click", async () => {
     if (modal) modal.style.display = "flex";
+    await ensureSellerProvincesLoaded();
+    updateSellerAddrPreview();
   });
 
   closeBtn?.addEventListener("click", () => {
@@ -391,18 +569,28 @@ function wireSellerRegistration(user) {
     if (modal) modal.style.display = "none";
   });
 
-  form?.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const channelName = document.getElementById("sellerRegChannelName")?.value.trim();
     const phone = document.getElementById("sellerRegPhone")?.value.trim();
-    const address = document.getElementById("sellerRegAddress")?.value.trim();
+    const addr = buildSellerAddressParts();
     const description = document.getElementById("sellerRegDesc")?.value.trim();
     const checkedCats = Array.from(
       document.querySelectorAll('input[name="sellerCat"]:checked'),
     ).map((cb) => cb.value);
 
-    if (!channelName || !phone || !address) {
-      showToast("Vui lòng điền đầy đủ thông tin bắt buộc.", "error");
+    if (
+      !channelName ||
+      !phone ||
+      !addr.provinceCode ||
+      !addr.districtCode ||
+      !addr.wardCode ||
+      !addr.street
+    ) {
+      showToast(
+        "Vui lòng điền đủ tên quán, SĐT và chọn Tỉnh/Quận/Phường + số nhà, tên đường.",
+        "error",
+      );
       return;
     }
 
@@ -415,14 +603,23 @@ function wireSellerRegistration(user) {
     const res = await customerService.registerSeller(user.id, {
       channelName,
       phone,
-      address,
+      address: addr.full,
+      addressDetail: {
+        provinceCode: addr.provinceCode,
+        provinceName: addr.provinceName,
+        districtCode: addr.districtCode,
+        districtName: addr.districtName,
+        wardCode: addr.wardCode,
+        wardName: addr.wardName,
+        street: addr.street,
+      },
       description,
       categories: checkedCats,
     });
 
     if (submitBtn) {
       submitBtn.disabled = false;
-      submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Xác Nhận Mở Kênh';
+      submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Xác Nhận Mở Kênh (Miễn Phí 10 Ngày)';
     }
 
     if (res.success) {
